@@ -47,6 +47,11 @@ html,body{
 	background: url(../img/index/coin_right.png);
 	background-size: 100%;
 }
+.top-container .recharge .recharge-content .coin img{
+	width: 1.7rem;
+    margin-left: -0.3rem;
+    margin-top: -0.2rem;
+}
 
 /*下部分*/
 .bottom-container{

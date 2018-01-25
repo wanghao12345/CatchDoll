@@ -1,0 +1,64 @@
+/*宽：16rem   高：28.4rem*/
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.container{
+	width: 100%;
+	height: 100%; 
+	background: url('../img/index/index_back.png');
+	background-size: 100% 100%;
+}
+/*上部分*/
+.top-container{
+	width: 100%;
+	height: 3rem;
+	overflow: hidden;
+}
+.top-container .logo{
+	width: 30%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0.3rem 0rem 0.1rem 0.4rem;
+}
+.top-container .logo img{
+	width: 100%;
+}
+.top-container .recharge{
+	width: 70%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0.8rem 0.2rem 0.4rem 0.2rem;
+}
+.top-container .recharge .recharge-content{
+    width: 100%;
+    height: 100%;
+    background: url(../img/index/title_back.png);
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding-top: 0.4rem;
+    padding-left: 0.4rem;
+}
+.top-container .recharge .recharge-content .coin{
+	width: 5rem;
+	height: 1rem;
+	background: url(../img/index/coin_right.png);
+	background-size: 100%;
+}
+
+/*下部分*/
+.bottom-container{
+	width: 100%;
+	height: 100%;
+	margin-top: -3rem;
+	box-sizing: border-box;
+	padding-top: 3rem;
+}
+.bottom-container-content{
+	width: 100%;
+	height: 100%;
+	background: url('../img/index/index_back1.png');
+	background-size: 100% 100%;
+}

@@ -1,5 +1,7 @@
 @import "menu.css";
-@import "menulist.css";
+@import "menulist/menu-opinion.css";
+@import "menulist/menu-connect.css";
+@import "menulist/menu-share.css";
 
 
 

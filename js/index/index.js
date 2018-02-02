@@ -33,7 +33,7 @@ $(function(){
 		$('.menu-list-frame').html('');
 	});
 	//确定
-	$('.menu-list-frame').on('click','#query',function(){
+	$('.menu-list-frame').on('click','#opinion-query',function(){
 		$('.menu-list-frame').html('');
 	});
 	//监听输入
@@ -41,9 +41,24 @@ $(function(){
 		var value = $(this).val().length;
 		$('.menu-list-news #wordsNumber').html(value);
 	})
-
-
-
+	/*******************-----联系我们-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-connect',function(){
+		$(".menu-list-frame").load("template/menu-connect.html");
+	})
+	//确定
+	$('.menu-list-frame').on('click','#connect-query',function(){
+		$('.menu-list-frame').html('');
+	});
+	/*******************-----联系我们-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-share',function(){
+		$(".menu-list-frame").load("template/menu-share.html");
+	})
+	//确定
+	$('.menu-list-frame').on('click','#share-query',function(){
+		$('.menu-list-frame').html('');
+	});
 
 
 

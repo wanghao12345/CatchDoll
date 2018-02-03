@@ -3,7 +3,6 @@ $(function(){
 	$('#remember img').on('click',function(){
 		$('#remember img').addClass('active');
 		$(this).removeClass('active');
-
 	})
 
 

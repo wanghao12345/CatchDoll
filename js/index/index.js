@@ -1,14 +1,13 @@
 
 $(function(){
 	// tab
-	$('ul#tab li').on('click',function(){
+	$('ul#tab').on('click','li',function(){
 		$('ul#tab li').removeClass('active');
 		$(this).addClass('active');
-		if (parseInt($(this).index()) == 4) {
-			$('ul#tab li:last-child div.tab-bottom img').css('width','1.9rem');
-		}
-		
+		//加载机器列表
+		RequestMachineList($(this).attr('value'));		
 	})
+
 	/**
 	 *菜单
 	 */
@@ -68,7 +67,8 @@ $(function(){
 	$('.menu-list-frame').on('click','.menu-list-shares #share-query',function(){
 		$('.menu-list-frame').html('');
 	});	
-
+	/*******************-----今日签到-----******************/
+	$(".menu-list-frame").load("template/sign.html");
 
 
 

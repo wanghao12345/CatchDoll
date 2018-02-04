@@ -1,9 +1,52 @@
 /**
+ *获取机器类型
+ */
+RequestMachineType();
+function RequestMachineType(){
+	var myUrl = 'http://ateam.ticp.io:9107/45';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    var item = data.ret[0].d.categoryList;
+	    var width = item.length*2.8+1;
+	    $('#tab').css('width',width+'rem');
+	    $('#tab').html('');
+	    for (var i = 0; i < item.length; i++) {
+	    	var id = item[i].id;
+	    	var name = item[i].name;
+	    	if (i == 0) {
+	    		var content = '<li class="active" value='+id+'>';
+	    	} else {
+	    		var content = '<li value='+id+'>';
+	    	}
+	    	content += '<div class="tab">';
+	    	content += '<div class="tab-top">';
+	    	content += '<img src="img/index/tab1.png" alt="全部">';
+	    	content += '</div>';
+	    	content += '<div class="tab-bottom">'+name+'</div>';
+	    	content += '</div>';
+	    	content += '</li>';
+	    	$('#tab').append(content);
+	    }
+
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
+}
+
+
+
+/**
  *获取机器列表
  */
-RequestMachineList();
-function RequestMachineList() {
-	var myUrl = 'http://ateam.ticp.io:9107/14';
+RequestMachineList(0);
+function RequestMachineList(type) {
+	var myUrl = 'http://ateam.ticp.io:9107/14?type='+type;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',

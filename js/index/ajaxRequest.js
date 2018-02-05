@@ -23,23 +23,17 @@ function RequestMachineType(){
 	    		var content = '<li value='+id+'>';
 	    	}
 	    	content += '<div class="tab">';
-/*	    	content += '<div class="tab-top">';
-	    	content += '<img src="img/index/tab1.png" alt="全部">';
-	    	content += '</div>';*/
 	    	content += '<div class="tab-bottom">'+name+'</div>';
 	    	content += '</div>';
 	    	content += '</li>';
 	    	$('#tab').append(content);
 	    }
-
 	  },
 	  fail: function (err) {
 	    console.log(err)
 	  }
 	})	
 }
-
-
 
 /**
  *获取机器列表
@@ -65,6 +59,8 @@ function RequestMachineList(type) {
 	    	var name = item[i].name;//名字
 
 	    	var content = '<li>';
+	    	content += '<input type="hidden" id="mid" value='+mid+' />';
+	    	content += '<input type="hidden" id="doll_id" value='+doll_id+' />';
 	    	content += '<div class="list">';
 	    	content += '<div class="list-top">';
 	    	content += '<div class="list-num">'+inventory+'</div>';

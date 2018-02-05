@@ -23,9 +23,9 @@ function RequestMachineType(){
 	    		var content = '<li value='+id+'>';
 	    	}
 	    	content += '<div class="tab">';
-	    	content += '<div class="tab-top">';
+/*	    	content += '<div class="tab-top">';
 	    	content += '<img src="img/index/tab1.png" alt="全部">';
-	    	content += '</div>';
+	    	content += '</div>';*/
 	    	content += '<div class="tab-bottom">'+name+'</div>';
 	    	content += '</div>';
 	    	content += '</li>';

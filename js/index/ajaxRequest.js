@@ -96,3 +96,56 @@ function RequestMachineList(type) {
 	  }
 	})	
 }
+
+
+/**
+ * 获取测试token,guestno
+ */
+var token = '';
+var guestno = ''
+getTestToken();
+function getTestToken(){
+	var myUrl = 'http://ateam.ticp.io:9107/2?deviceid=apple11s';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    token = data.ret[0].d.token;
+	    guestno = data.ret[0].d.guestno;
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})		
+}
+/**
+ * 分享游戏接口(邀请码分享)
+ */
+function InvitationCodeShare(token){
+	var myUrl = 'http://ateam.ticp.io:9107/43?tk='+token+'&type=invite';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+
+	    var inviteCode = data.ret[0].d.inviteCode;//邀请码
+	    var QR_img = 'http://ateam.ticp.io:9107'+data.ret[0].d.qrCode;//邀请二维码
+	    var inviteCodeArr = inviteCode.split('');
+	    $('.share1 #share1-Invitation').html('');
+	    $('.share1 #share1-QR').html('');
+	    var content = "";
+	    for (var i = 0; i < inviteCodeArr.length; i++) {
+	    	content += '<span>'+inviteCodeArr[i]+'</span>'
+	    }
+	    $('.share1 #share1-Invitation').append(content);
+	    $('.share1 #share1-QR').append('<img src='+QR_img+' alt="二维码">');
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})		
+}

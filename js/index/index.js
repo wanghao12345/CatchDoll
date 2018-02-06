@@ -53,6 +53,7 @@ $(function(){
 	 //打开
 	$('.menu-frame').on('click','#menu-share',function(){
 		$(".menu-list-frame").load("template/menu-share1.html");
+		InvitationCodeShare(token);	
 	})
 	//返回
 	$('.menu-list-frame').on('click','.share1 #share1-back',function(){
@@ -61,7 +62,7 @@ $(function(){
 	//分享
 	$('.menu-list-frame').on('click','.share1 #share-btn',function(){
 		$('.menu-list-frame').html('');
-		$(".menu-list-frame").load("template/menu-share.html");		
+		$(".menu-list-frame").load("template/menu-share.html");	
 	});
 	//确定分享
 	$('.menu-list-frame').on('click','.menu-list-shares #share-query',function(){
@@ -73,7 +74,7 @@ $(function(){
 	/*******************-----选择机器-----******************/
 	$('ul#machineList').on('click','li',function(){
 		var mid = $(this).find('input#mid').val();
-		window.location.href="game.html?mid="+mid;
+		window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;
 	})
 
 })

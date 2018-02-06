@@ -13,16 +13,17 @@
 	<script type="text/javascript" src="js/rem.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/game/websocket.js"></script>
+	<script type="text/javascript" src="js/game/ajaxRequest.js"></script>
 	<script type="text/javascript" src="js/game/game.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="top">
-			<div class="top-content go-back">
+			<div class="top-content go-back" id="go-back" onclick="javascript:history.back(-1);">
 				<img src="img/game/go-back.png" alt="返回">
 			</div>
 			<div class="top-content coin-input">
-				<span>210</span>
+				<span id="coin-number">210</span>
 			</div>
 			<div class="top-content voucher">
 				<img src="img/game/voucher.png" alt="倦">
@@ -41,7 +42,7 @@
 			</div>
 			<div class="user-right">
 				<div class="status2">
-					16人在围观
+					<i id="watch">16</i>人在围观
 				</div>
 				<div class="img-content">
 					<div class="head-img"></div>

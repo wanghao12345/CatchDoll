@@ -27,6 +27,7 @@ $(function(){
 	//打开
 	$('#detail').on('click',function(){
 		$(".game-menu-list").load("template/game/menu-detail.html");
+		CommodityDetails();
 	})
 	//关闭
 	$('.game-menu-list').on('click','#close',function(){

@@ -19,6 +19,31 @@ function sendOnlooker(){
 	var param = '{"path":"10011","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);
 }
+/**
+ * 发起获取旁观头像
+ */
+function sendOnlookerImg(){
+	var mid = getUrlParam('mid');
+	var param = '{"path":"10020","d":{"mid":"'+mid+'"}}';
+	sendSocket(param);	
+}
+/**
+ * 发起用户碎片数
+ */
+function sendFragment(){
+	var mid = getUrlParam('mid');
+	var param = '{"path":"10022","d":{"mid":"'+mid+'"}}';
+	sendSocket(param);		
+}
+/**
+ * 发起是否有人在玩
+ */
+function sendIsHavePerson(){
+	var mid = getUrlParam('mid');
+	var param = '{"path":"10023","d":{"mid":"'+mid+'"}}';
+	sendSocket(param);		
+}
+
 
 /**
  * 获取url中参数

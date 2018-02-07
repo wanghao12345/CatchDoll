@@ -70,9 +70,23 @@ $(function(){
 	$('.menu-list-frame').on('click','.menu-list-shares #share-query',function(){
 		$('.menu-list-frame').html('');
 	});	
+	/*******************-----幫助-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-help',function(){
+		$(".menu-list-frame").load("template/menu-help.html");
+		InvitationCodeShare(token);	
+	})	
 	/*******************-----今日签到-----******************/
 	$(".menu-list-frame").load("template/sign.html");
-
+	/*******************-----提示框-----******************/	
+	//關閉
+	$('body').on('click','.tip #tip-close',function(){
+		$('body .tip').remove();
+	})
+	//確定
+	$('body').on('click','.tip #tip-btn',function(){
+		$('body .tip').remove();
+	})
 	/*******************-----选择机器-----******************/
 	$('ul#machineList').on('click','li',function(){
 		var mid = $(this).find('input#mid').val();

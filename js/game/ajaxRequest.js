@@ -98,3 +98,30 @@ function CommodityDetails(){
 	  }
 	})	
 }
+
+/**
+ * 请求报修
+ */
+function repairRequest(){
+	var mid = getUrlParam('mid');
+	var tk = getUrlParam('tk');
+	var myUrl = 'http://ateam.ticp.io:9107/42?mid='+mid+'&tk='+tk;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	  	console.log(data);
+	  	if (data.ret[0].d.errcode == 0) {//成功
+	  		addTip(data.ret[0].d.msg);
+	  	} else {
+	  		addTip(data.ret[0].d.msg);
+	  	}
+	  },
+	  fail: function (err) {
+	    addTip('报修失败');
+	  }
+	})		
+}
+
+

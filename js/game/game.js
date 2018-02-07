@@ -23,6 +23,19 @@ $(function(){
 			$(this).attr('value','0');	
 		}		
 	})
+	/***********************----报修----************************/
+	//打开
+	$('#setup').on('click',function(){
+		$(".game-menu-list").load("template/game/menu-setup.html");
+
+	})
+	//确定
+	$('.game-menu-list').on('click','#setup-query',function(){
+		$(".game-menu-list").html('');
+		repairRequest();
+	})
+
+
 	/*************************-----详情-----***********************/
 	//打开
 	$('#detail').on('click',function(){
@@ -45,6 +58,15 @@ $(function(){
 	$('#help').on('click',function(){
 		$(".game-menu-list").load("template/game/menu-help.html");
 	})	
+	/*******************-----提示框-----******************/	
+	//關閉
+	$('body').on('click','.tip #tip-close',function(){
+		$('body .tip').remove();
+	})
+	//確定
+	$('body').on('click','.tip #tip-btn',function(){
+		$('body .tip').remove();
+	})
 
 
 })

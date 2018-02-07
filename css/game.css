@@ -1,5 +1,6 @@
 @import "gamelist/menu-detail.css";
 @import "gamelist/menu-help.css";
+@import "gamelist/menu-setup.css";
 html,body{
 	width: 100%;
 	height: 100%;

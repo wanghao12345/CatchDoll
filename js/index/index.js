@@ -78,6 +78,12 @@ $(function(){
 	})	
 	/*******************-----今日签到-----******************/
 	$(".menu-list-frame").load("template/sign.html");
+
+	/*******************-----选择机器-----******************/
+	$('ul#machineList').on('click','li',function(){
+		var mid = $(this).find('input#mid').val();
+		window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;
+	})
 	/*******************-----提示框-----******************/	
 	//關閉
 	$('body').on('click','.tip #tip-close',function(){
@@ -87,10 +93,11 @@ $(function(){
 	$('body').on('click','.tip #tip-btn',function(){
 		$('body .tip').remove();
 	})
-	/*******************-----选择机器-----******************/
-	$('ul#machineList').on('click','li',function(){
-		var mid = $(this).find('input#mid').val();
-		window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;
-	})
+
+
+
+
+
+
 
 })

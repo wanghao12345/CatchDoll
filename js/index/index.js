@@ -33,6 +33,8 @@ $(function(){
 	});
 	//确定
 	$('.menu-list-frame').on('click','#opinion-query',function(){
+		var advice = $('.menu-list-news #textarea').val();
+		feelbackOpinion(advice);
 		$('.menu-list-frame').html('');
 	});
 	//监听输入

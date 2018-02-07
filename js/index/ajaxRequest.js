@@ -96,8 +96,6 @@ function RequestMachineList(type) {
 	  }
 	})	
 }
-
-
 /**
  * 获取测试token,guestno
  */
@@ -120,6 +118,35 @@ function getTestToken(){
 	  }
 	})		
 }
+
+/**
+ * 意见反馈
+ */
+function feelbackOpinion(advice){
+	var myUrl = 'http://ateam.ticp.io:9107/23?tk='+token+'&advice='+advice;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    if (data.ret[0].d.errcode == 0) {
+	    	alert('意见反馈成功！');
+	    }
+	    if (data.ret[0].d.errcode == -1) {
+	    	alert(data.ret[0].d.msg);
+	    }
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
+}
+
+
+
+
+
 /**
  * 分享游戏接口(邀请码分享)
  */

@@ -13,9 +13,21 @@ socket.onmessage = function(msg){
     	case 10002: //tcplogin请求
     		getTcpLogin(data.d);
     	break;
+        case 10004: //房间正忙
+            getStartGame(data);
+        break;
+        case 10010: //开始游戏
+            getStartGame(data);
+        break;
     	case 10011: //获取旁观信息
     		getOnlooker(data.d);
     	break;
+        case 10012: //离开游戏
+            getLeaveGame(data.d);
+        break;  
+        case 10018: //接收弹幕
+            getBarrage(data.d);
+        break;               
     	case 10020: //获取旁观头像
     		getOnlookerImg(data.d);
     	break;
@@ -30,12 +42,10 @@ socket.onmessage = function(msg){
 //关闭事件
 socket.onclose = function(){
     console.log("Socket 已关闭");
-    // socket = new WebSocket("ws://ateam.ticp.io:65153");
 };
 //发生了错误事件
 socket.onerror = function(){
     console.log("发生了错误");
-    // socket = new WebSocket("ws://ateam.ticp.io:65153");
 }
 //发送
 var sendSocket = function(data){
@@ -46,14 +56,14 @@ var closeSocket = function(){
     socket.close();
 }
 
-
 /**
  * 获取长连接登录的数据
  */
 function getTcpLogin(data){
 
-	//发起获取旁观信息请求
-	sendOnlooker();
+    //发起获取旁观信息请求
+    sendOnlooker();        
+
 }
 /**
  * 获取旁观信息
@@ -63,8 +73,6 @@ function getOnlooker(data){
 	$('span#coin-number').html(money);
 	var watch = data.watch;
 	$('i#watch').html(watch);
-	//发起获取旁观头像
-	sendOnlookerImg();
 }
 /**
  * 获取旁观头像 
@@ -74,21 +82,47 @@ function getOnlookerImg(data){
 	for (var i = 0; i < 3; i++) {
 		$('#head-img'+(i+1)).html('<img src='+item[i].img+' alt="头像" />');
 	}
-	//获取用户碎片数
-	sendFragment();
 }
 /**
  * 获取用户碎片数
  */
 function getFragment(data){
 
-	//获取是否有人在玩
-	sendIsHavePerson();
 }
 
 /**
  * 获取是否有人在玩
  */
 function getIsHavePerson(data){
-	
+	var content = '<div class="head-img" id="head-img0"><img src='+data.do_headimg+' alt="头像" /></div>';
+    content += '<div class="status1">';
+    content += '<div class="status-name">'+data.do_name+'</div>';
+    content += '<div class="status-content">正在抓取...</div>';
+    content += '</div>';
+    $('#game-user').html(content);
+}
+
+/**
+ * 开始游戏
+ */
+function getStartGame(data){
+    if (data.i == 10010) {
+        addTip('请下载app开始游戏!');
+    }
+    if (data.i == 10004) {
+        addTip(data.d.msg);
+    }
+}
+/**
+ * 离开游戏
+ */
+function getLeaveGame(data){
+    
+}
+/**
+ * 接收弹幕
+ */
+function getBarrage(data){
+    // var msg = data.d.result;
+    $('canvas').barrager([{"msg":'弹幕消息'}]);
 }

@@ -9,3 +9,6 @@ api接口密码：123456
 微信开放平台的帐号：770906573@qq.com
 
 微信开放平台的密码：zgc013350
+
+AppID: wx43d8e413ecccb057
+AppSecret: 543c1ddf0cb40071983850a0984e3d9c

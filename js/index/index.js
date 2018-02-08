@@ -12,7 +12,9 @@ $(function(){
 	 *菜单
 	 */
 	$('#logo-btn').on('click',function(){
-		$(".menu-frame").load("template/menu.html");
+		$(".menu-frame").load("template/menu.html",function(){
+			getMenuUserInfo();
+		});
 	})
 	$('.menu-frame').on('click','.menu',function(){
 		$(this).remove();
@@ -77,8 +79,9 @@ $(function(){
 		InvitationCodeShare(token);	
 	})	
 	/*******************-----今日签到-----******************/
-	$(".menu-list-frame").load("template/sign.html");
-
+	$('.menu-list-frame').on('click','#sign-query',function(){
+		getSign();
+	})
 	/*******************-----选择机器-----******************/
 	$('ul#machineList').on('click','li',function(){
 		var mid = $(this).find('input#mid').val();

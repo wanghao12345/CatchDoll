@@ -32,9 +32,47 @@ html,body{
     box-sizing: border-box;
     padding: 0.3rem 0rem 0.1rem 0.4rem;
 }
-.top-container .logo img{
-	width: 100%;
+.top-container .logo .head-img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0 auto;
+    border-radius: 2rem;
+    background-color: white; 
 }
+.top-container .logo .head-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+.top-container .logo .head-name{
+    width: 100%;
+    height: 1.1rem;
+    background-color: #ff9298;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1.5px solid white;
+    margin-top: -0.3rem; 
+}
+.top-container .logo .head-name span{
+    float: left;
+    color: white;
+    line-height: 1.1rem;
+    font-size: 0.6rem;
+    padding-left: 0.2rem;
+    width: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.top-container .logo .head-name img{
+    float: right;
+    width: 1rem;
+    margin-top: 0.1rem;
+    margin-right: 0.2rem;
+}
+
+
 .top-container .recharge{
 	width: 70%;
     height: 100%;

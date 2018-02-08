@@ -38,9 +38,8 @@ function RequestMachineType(){
 /**
  *获取机器列表
  */
-RequestMachineList(0);
 function RequestMachineList(type) {
-	var myUrl = 'http://ateam.ticp.io:9107/14?type='+type;
+	var myUrl = 'http://ateam.ticp.io:9107/14?type='+type+'&tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -103,7 +102,7 @@ var token = '';
 var guestno = ''
 getTestToken();
 function getTestToken(){
-	var myUrl = 'http://ateam.ticp.io:9107/2?deviceid=apple11s';
+	var myUrl = 'http://ateam.ticp.io:9107/70';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -112,13 +111,52 @@ function getTestToken(){
 	    console.log(data)
 	    token = data.ret[0].d.token;
 	    guestno = data.ret[0].d.guestno;
+	    RequestMachineList(0);
+	    getUserInfo(data);
 	  },
 	  fail: function (err) {
 	    console.log(err)
 	  }
 	})		
 }
+/**
+ * 获取用户的基本信息
+ */
+function getUserInfo(data){
+	var item = data.ret[0].d;
 
+	var head_img = 'http://ateam.ticp.io:9107'+item.headImg;
+	$('#head-img').html('<img src='+head_img+' alt="头像" />');
+	var head_name = item.name;
+	$('#head-name').html(head_name);
+	var money = item.leftMoney;
+	$('#my-coin').html(money);
+	var inviation_code = item.inviation_code;//ID
+	$('#inviation_code').html(inviation_code);
+	var bonus = item.bonus;//积分
+	$('#bonus').html(bonus);
+	var totalDay = item.totalDay;//登录的总天数
+	$('#totalDay').html(totalDay);
+	var sigStatus = item.sigStatus;//今天的登录状态
+	$('#sigStatus').html(sigStatus);
+	if (sigStatus == 0) {//未领取，打开领奖
+		$(".menu-list-frame").load("template/sign.html",function(){
+			for (var i = 1; i <= totalDay; i++) {
+				$('#sign-img'+i).append('<img src="img/sign/ok.png" id="ok">');	
+			}
+		});
+	}
+}
+/**
+ * 加载菜单上用户的基本信息
+ */
+function getMenuUserInfo(){
+	$('#menu-head-img').html($('#head-img').html());
+	$('#menu-head-name').html($('#head-name').html());
+	$('#menu-head-ID').html($('#inviation_code').html());
+	$('#menu-head-bonus').html($('#bonus').html());
+
+}
 /**
  * 意见反馈
  */
@@ -142,11 +180,6 @@ function feelbackOpinion(advice){
 	  }
 	})	
 }
-
-
-
-
-
 /**
  * 分享游戏接口(邀请码分享)
  */
@@ -175,4 +208,31 @@ function InvitationCodeShare(token){
 	    console.log(err)
 	  }
 	})		
+}
+/**
+ * 签到得奖励
+ */
+function getSign(){
+	var myUrl = 'http://ateam.ticp.io:9107/27?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    if (data.ret[0].d.errcode == 0) {
+			var totalDay = parseInt($('#totalDay').html())+1;
+			$('#sign-img'+totalDay).append('<img src="img/sign/ok.png" id="ok">');
+			var time = window.setTimeout(function(){
+				$(".menu-list-frame").html('');
+			},1000)		    	
+	    }
+	    if (data.ret[0].d.errcode == -1) {
+			addTip('签到失败！');		    	
+	    }
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
 }

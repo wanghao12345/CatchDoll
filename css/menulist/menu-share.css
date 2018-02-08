@@ -66,8 +66,8 @@ background-size: 100% 100%; */
     overflow: hidden;
 }
 .menu-list-share-button button{
-	width: 5rem;
-	height: 3rem;
+    width: 5rem;
+    height: 2.6rem;
     border: 0;
     padding: 0;
 }

@@ -12,17 +12,21 @@ $(function(){
 		}
 	})
 	/***********************----弹幕----************************/
+	$('canvas').barrager([{"msg":'弹幕消息'}]);
 	$('#barrage').on('click',function(){
 		var value = $(this).attr('value');
 		if (value == "0") {//切换到不弹幕
 			$(this).find('img').attr('src','img/game/tan1.png');
 			$(this).attr('value','-1');	
+			$('canvas').barrager("clear");
 		}
 		if (value == "-1") {//切换到弹幕
 			$(this).find('img').attr('src','img/game/tan.png');
 			$(this).attr('value','0');	
+			sendBarrage();
 		}		
 	})
+
 	/***********************----报修----************************/
 	//打开
 	$('#setup').on('click',function(){
@@ -67,6 +71,9 @@ $(function(){
 	$('body').on('click','.tip #tip-btn',function(){
 		$('body .tip').remove();
 	})
-
-
+	/*******************-----开始游戏-----******************/	
+	$('#start-game').on('click',function(){
+		addTip('请下载app开始游戏！');
+		startGame();
+	})
 })

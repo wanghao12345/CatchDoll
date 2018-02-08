@@ -94,6 +94,12 @@ html,body{
     overflow: hidden;
     position: relative;
 }
+.user .user-left .status{
+    width: 100%;
+    height: 100%;
+    line-height: 2.3rem;
+    color: #ff5a73;    
+}
 .user .user-left .status1{
     width: 100%;
     height: 100%;
@@ -101,7 +107,7 @@ html,body{
     top: 0;
     left: 0;
     box-sizing: border-box;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 .user .user-left .status1 .status-name{
     width: 100%;
@@ -156,6 +162,7 @@ html,body{
     position: absolute;
     right: 0.2rem;
     top: 5rem;
+    z-index: 1;
 }
 .menu .video{
 	width: 1.8rem;

@@ -20,29 +20,30 @@ function sendOnlooker(){
 	sendSocket(param);
 }
 /**
- * 发起获取旁观头像
+ * 开始游戏
  */
-function sendOnlookerImg(){
+function startGame(){
 	var mid = getUrlParam('mid');
-	var param = '{"path":"10020","d":{"mid":"'+mid+'"}}';
+	var param = '{"path":"10010","d":{"mid":"'+mid+'"}}';
+	sendSocket(param);
+}
+/**
+ * 结束旁观
+ */
+function leaveGame(){
+	var mid = getUrlParam('mid');
+	var param = '{"path":"10012","d":{"mid":"'+mid+'"}}';
+	sendSocket(param);
+}
+/**
+ * 发送弹幕
+ */
+function sendBarrage(){
+	var mid = getUrlParam('mid');
+	var param = '{"path":"10018","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);	
 }
-/**
- * 发起用户碎片数
- */
-function sendFragment(){
-	var mid = getUrlParam('mid');
-	var param = '{"path":"10022","d":{"mid":"'+mid+'"}}';
-	sendSocket(param);		
-}
-/**
- * 发起是否有人在玩
- */
-function sendIsHavePerson(){
-	var mid = getUrlParam('mid');
-	var param = '{"path":"10023","d":{"mid":"'+mid+'"}}';
-	sendSocket(param);		
-}
+
 
 
 /**

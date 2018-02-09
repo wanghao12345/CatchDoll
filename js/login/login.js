@@ -5,7 +5,10 @@ $(function(){
 		$(this).removeClass('active');
 	})
 
-
+	//登录按钮
+	$('#login_btn').on('click',function(){
+		window.location.href = 'index.html';
+	})
 
 
 

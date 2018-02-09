@@ -17,8 +17,8 @@
 <body>
 	<div class="container">
 		<form>
-			<label>用户名:<input type="text" name="userName"></label>
-			<label style="margin-top: 0.2rem;">密&nbsp;&nbsp;码:<input type="passWord" name="passWord"></label>
+			<label>用户名:<input type="text" autocomplete="off" name="userName"></label>
+			<label style="margin-top: 0.2rem;">密&nbsp;&nbsp;码:<input type="passWord" autocomplete="off" name="passWord"></label>
 		</form>
 		<div class="btn_div">
 			<div class="passWord">
@@ -31,7 +31,7 @@
 					忘记密码？
 				</div>
 			</div>
-			<button class="login_btn">登录并授权</button>
+			<button class="login_btn" id="login_btn">登录并授权</button>
 			<br/>
 			<button class="register_btn">新用户注册</button>
 			<div class="webchat">

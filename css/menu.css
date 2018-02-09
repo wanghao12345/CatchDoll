@@ -84,15 +84,16 @@
     padding: 0 0.5rem;
 }
 .menu-list ul li img{
-    width: 0.8rem;
+    width: 1rem;
     float: left;
     margin-top: 0.25rem;
 }
 .menu-list ul li span{
-    float: right;
+    float: left;
     font-size: 0.6rem;
     color: #ff9298;
-    line-height: 1.2rem;
+    line-height: 1.3rem;
+    margin-left: 0.5rem;
 }
 
 

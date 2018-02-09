@@ -76,4 +76,9 @@ $(function(){
 		addTip('请下载app开始游戏！');
 		startGame();
 	})
+	/*******************-----充值-----******************/
+	$('#coin-number').on('click',function(){
+		addTip('请下载app充值！');
+	})
+
 })

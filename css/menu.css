@@ -65,9 +65,9 @@
     line-height: 0.8rem;
 }
 .menu-list{
-	width: 100%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 2rem 0.8rem 0rem 0.5rem;
+    padding: 1rem 0.8rem 0rem 0.1rem;
 }
 .menu-list ul{
 	width: 100%;

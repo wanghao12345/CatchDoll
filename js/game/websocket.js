@@ -73,6 +73,12 @@ function getOnlooker(data){
 	$('span#coin-number').html(money);
 	var watch = data.watch;
 	$('i#watch').html(watch);
+    //抓取价格
+    var price = data.price;
+    $('#need-price').html(price);
+    //抓取所需卷
+    var machine_free = data.machine_free;
+    $('#need-free').html(machine_free);
 }
 /**
  * 获取旁观头像 

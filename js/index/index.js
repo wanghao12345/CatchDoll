@@ -96,9 +96,10 @@ $(function(){
 	$('body').on('click','.tip #tip-btn',function(){
 		$('body .tip').remove();
 	})
-
-
-
+	/*******************-----充值-----******************/
+	$('#my-coin').on('click',function(){
+		addTip('请下载app充值！');
+	})
 
 
 

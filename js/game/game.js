@@ -12,7 +12,7 @@ $(function(){
 		}
 	})
 	/***********************----弹幕----************************/
-	$('canvas').barrager([{"msg":'弹幕消息'}]);
+	// $('canvas').barrager([{"msg":'弹幕消息'}]);
 	$('#barrage').on('click',function(){
 		var value = $(this).attr('value');
 		if (value == "0") {//切换到不弹幕

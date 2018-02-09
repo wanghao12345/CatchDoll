@@ -130,6 +130,7 @@ function getLeaveGame(data){
  */
 function getBarrage(data){
     // var msg = data.d.result;
+    // $('canvas').barrager([{"msg":msg}]);
     var time = window.setInterval(function(){
         $('canvas').barrager([{"msg":'弹幕消息'}]);
     },1000)

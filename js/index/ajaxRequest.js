@@ -240,10 +240,29 @@ function getSign(){
  * 获取banner数据
  */
 function getBanner() {
+	var myUrl = 'http://ateam.ticp.io:9107/52';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    var item = data.ret[0].d.list;
+	    var content = '';
+	    for (var i = 0; i < item.length; i++) {
+	    	content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>'
+	    }
+	    $('#slides').html(content);
+	    $('.flexslider').flexslider({
+			directionNav: true,
+			pauseOnAction: false
+		});
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
 
-	$('#slides').html('<li><img src="img/banner/img1.jpg"></li><li><img src="img/banner/img2.jpg"></li>');
-	$('.flexslider').flexslider({
-		directionNav: true,
-		pauseOnAction: false
-	});
+	
+
 }

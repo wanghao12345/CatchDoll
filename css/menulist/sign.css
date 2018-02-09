@@ -68,6 +68,7 @@
 	height: 2.6rem;
     border: 0;
     padding: 0;
+    outline:none;
 }
 .menu-list-sign-button button#cancer{
 	float: left;

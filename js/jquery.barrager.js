@@ -16,7 +16,7 @@
         this.font = "60px 黑体";
         this.ctx.font=this.font;
         //this.colorArr=["Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue"];
-        this.colorArr=["red"];
+        this.colorArr=["#FF34B3","#FF3030","#DC143C","#D15FEE","#CD3700","#B8860B","#A0522D","#20B2AA"];
         this.interval = "";
         this.draw = function () {
             if (this.interval != "")return;

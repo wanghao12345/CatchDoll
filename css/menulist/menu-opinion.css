@@ -100,6 +100,7 @@
     font-size: 0.7rem;
     line-height: 1rem;
     padding: 0;
+    outline: none;
 }
 textarea::textarea-placeholder{
     color: black;

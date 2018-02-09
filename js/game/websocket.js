@@ -129,9 +129,9 @@ function getLeaveGame(data){
  * 接收弹幕
  */
 function getBarrage(data){
-    // var msg = data.d.result;
-    // $('canvas').barrager([{"msg":msg}]);
-    var time = window.setInterval(function(){
+    var msg = data.result;
+    $('canvas').barrager([{"msg":msg}]);
+/*    var time = window.setInterval(function(){
         $('canvas').barrager([{"msg":'弹幕消息'}]);
-    },1000)
+    },1000)*/
 }

@@ -26,9 +26,9 @@
 .menu-list-help-close{
     position: absolute;
     width: 1.8rem;
-    height: 1.8rem;
+    height: 1.3rem;
     right: 1rem;
-    top: -0.2rem;
+    top: 0rem;
     background: url(../../img/menulist/menu_help/close.png);
     background-size: 100% 100%;
     z-index: 0;

@@ -236,3 +236,14 @@ function getSign(){
 	  }
 	})	
 }
+/**
+ * 获取banner数据
+ */
+function getBanner() {
+
+	$('#slides').html('<li><img src="img/banner/img1.jpg"></li><li><img src="img/banner/img2.jpg"></li>');
+	$('.flexslider').flexslider({
+		directionNav: true,
+		pauseOnAction: false
+	});
+}

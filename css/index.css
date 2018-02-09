@@ -106,14 +106,23 @@ html,body{
     font-weight: 500;
     color: #ff5a73;
 }
+/*banner*/
+.middle-container{
+    width: 100%;
+    height: 4rem;
+    box-sizing: border-box;
+    border-top: 0.1rem solid white;
+    border-bottom: 0.1rem solid white;
+    box-shadow: 1px 1px 10px #ff9298;
+}
 
 /*下部分*/
 .bottom-container{
 	width: 100%;
 	height: 100%;
-	margin-top: -3rem;
+	margin-top: -7rem;
 	box-sizing: border-box;
-	padding-top: 3rem;
+	padding-top: 7rem;
 }
 .bottom-container-content{
     width: 100%;

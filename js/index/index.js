@@ -19,7 +19,10 @@ $(function(){
 	$('.menu-frame').on('click','.menu',function(){
 		$(this).remove();
 	})
-
+	/**
+	 * banner
+	 */
+	getBanner();
 	 /*******************-----意见反馈-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu_news',function(){

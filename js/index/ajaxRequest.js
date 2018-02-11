@@ -262,7 +262,4 @@ function getBanner() {
 	    console.log(err)
 	  }
 	})	
-
-	
-
 }

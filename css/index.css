@@ -226,7 +226,7 @@ html,body{
 }
 
 .bottom-container-content .tab-title ul li.active{
-	padding: 0rem 0.1rem 0rem 0.1rem;
+    padding: 0rem 0.1rem 0.3rem 0.1rem;
 }
 .bottom-container-content .tab-title ul li.active .tab{
 	background: url(../img/index/tab_active.png);
@@ -241,7 +241,7 @@ html,body{
 .bottom-container-content .tab-title ul li.active .tab .tab-bottom{
     width: 100%;
     height: 50%;
-    line-height: 2.2rem;
+    line-height: 2rem;
     text-align: center;
     font-size: 0.7rem;
 }

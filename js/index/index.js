@@ -23,6 +23,13 @@ $(function(){
 	 * banner
 	 */
 	getBanner();
+
+	$('#flexslider').on('click',function(){
+		var href = $('#slides .flex-active-slide a').attr('href');
+		window.location.href = href;
+	})
+
+
 	 /*******************-----意见反馈-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu_news',function(){

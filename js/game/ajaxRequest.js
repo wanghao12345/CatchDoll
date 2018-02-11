@@ -92,7 +92,7 @@ function CommodityDetails(){
 	    $('.menu-list-details span#length').html(length);
 	    $('.menu-list-details span#material').html(material);
 	    $('.menu-list-details span#desc').html(desc);
-	    $('.menu-list-details img#detail-img').attr('src',img);
+	    $('.menu-list-details #detail-img').html('<img src='+img+' alt="head" />');
 	  },
 	  fail: function (err) {
 	    console.log(err)

@@ -57,8 +57,9 @@
     margin-right: 0.2rem;
 }
 .menu-head .head-ID{
-	font-size: 0.6rem;
+    font-size: 0.6rem;
     line-height: 1rem;
+    text-align: center;
 }
 .menu-head .head-Int{
 	font-size: 0.6rem;

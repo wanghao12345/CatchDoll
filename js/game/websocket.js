@@ -74,10 +74,10 @@ function getOnlooker(data){
 	var watch = data.watch;
 	$('i#watch').html(watch);
     //抓取价格
-    var price = data.price;
+    var price = data.price+'/次';
     $('#need-price').html(price);
     //抓取所需卷
-    var machine_free = data.machine_free;
+    var machine_free = data.machine_free+'/次';
     $('#need-free').html(machine_free);
 }
 /**

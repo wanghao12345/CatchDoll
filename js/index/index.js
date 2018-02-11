@@ -94,8 +94,17 @@ $(function(){
 	})
 	/*******************-----选择机器-----******************/
 	$('ul#machineList').on('click','li',function(){
-		var mid = $(this).find('input#mid').val();
-		window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;
+		//判断是否可以进行游戏
+		var value = $(this).attr('value');
+		if (value == 0) {
+			addTip('设备正在维修！');
+		}else{
+			var mid = $(this).find('input#mid').val();
+			window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;			
+		}
+
+
+
 	})
 	/*******************-----提示框-----******************/	
 	//關閉

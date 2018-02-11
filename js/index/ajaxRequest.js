@@ -56,17 +56,28 @@ function RequestMachineList(type) {
 	    	var status = item[i].status;//状态
 	    	var img_url = 'http://ateam.ticp.io:9107/'+item[i].img_url;
 	    	var name = item[i].name;//名字
-
-	    	var content = '<li>';
+	    	if (inventory == 0 || status==2) { //不可以游戏
+	    		var content = '<li value="0">';
+	    	}else{
+	    		var content = '<li>'
+	    	}
 	    	content += '<input type="hidden" id="mid" value='+mid+' />';
 	    	content += '<input type="hidden" id="doll_id" value='+doll_id+' />';
 	    	content += '<div class="list">';
 	    	content += '<div class="list-top">';
-	    	content += '<div class="list-num">'+inventory+'</div>';
+	    	if (inventory>0 && inventory <= 10) {
+	    		content += '<div class="surplus"><img src="img/index/surplus.png" alt="剩余"/></div><div class="list-num">'+inventory+'</div>';
+	    	}
+	    	if (inventory == 0 && status!=2) {
+		    	content += '<div class="list-status list-status1">';
+		    	content += '<img src="img/index/list_status1.png" alt="维修中">';
+		    	content += '<span>维修中......</span>';
+		    	content += '</div>';		    		
+	    	}
 	    	switch(status){
 	    		case 1://使用中
 			    	content += '<div class="list-status list-status2">';
-			    	content += '<img src="img/index/list_status2.png" alt="维修中">';
+			    	content += '<img src="img/index/list_status2.png" alt="使用中">';
 			    	content += '<span>使用中......</span>';
 			    	content += '</div>';	    		
 	    		break;

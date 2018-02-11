@@ -28,7 +28,7 @@ html,body{
     line-height: 3rem;
 }
 .top .go-back img{
-	width: 1.4rem;
+	width: 1.3rem;
 }
 .top .coin-input{
     width: 5rem;
@@ -173,6 +173,7 @@ html,body{
     border-radius: 2rem;
     box-sizing: border-box;
     border: 1px solid white;
+    display: none;
 }
 .menu .video img{
 	width: 1.5rem;

@@ -113,7 +113,7 @@ html,body{
     height: 4rem;
     box-sizing: border-box;
     border-top: 0.1rem solid white;
-    border-bottom: 0.1rem solid white;
+/*    border-bottom: 0.1rem solid white;*/
     box-shadow: 1px 1px 10px #ff9298;
 }
 
@@ -128,7 +128,7 @@ html,body{
 .bottom-container-content{
     width: 100%;
     height: 100%;
-    background: url(../img/index/index_back1.png);
+    background: url(../img/index/index_back2.png);
     background-size: 100% 100%;
     box-sizing: border-box;
     padding: 0 0.4rem;

@@ -73,7 +73,7 @@ function getMobileType(){
  * 获取商品详情
  */
 function CommodityDetails(){
-	var id = getUrlParam('mid');
+	var id = getUrlParam('doll_id');
 	var tk = getUrlParam('tk');
 	var myUrl = 'http://ateam.ticp.io:9107/31?id='+id+'&tk='+tk;
 	$.ajax({

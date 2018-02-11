@@ -100,7 +100,8 @@ $(function(){
 			addTip('设备正在维修！');
 		}else{
 			var mid = $(this).find('input#mid').val();
-			window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno;			
+			var doll_id = $(this).find('input#doll_id').val();
+			window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;			
 		}
 
 

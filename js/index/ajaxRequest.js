@@ -261,7 +261,21 @@ function getBanner() {
 	    var item = data.ret[0].d.list;
 	    var content = '';
 	    for (var i = 0; i < item.length; i++) {
-	    	content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>'
+	    	var type = item[i].type;
+	    	switch(type){
+	    		case '1'://链接
+	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    		break;
+	    		case '2'://跳转机器
+	    			content += '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
+	    		break;
+	    		case '3'://新闻图片
+	    			content += '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    		break;
+	    		case '4'://跳页面
+	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	    		
+	    		break;	    			    			    		
+	    	}
 	    }
 	    $('#slides').html(content);
 	    $('.flexslider').flexslider({

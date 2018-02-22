@@ -260,28 +260,41 @@ function getBanner() {
 	    console.log(data)
 	    var item = data.ret[0].d.list;
 	    var content = '';
+	    var slides = [];
 	    for (var i = 0; i < item.length; i++) {
 	    	var type = item[i].type;
+	    	var slide = '';
 	    	switch(type){
 	    		case '1'://链接
 	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    			slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '2'://跳转机器
 	    			content += '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
+	    			slide = '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '3'://新闻图片
 	    			content += '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    			slide = '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '4'://跳页面
-	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	    		
+	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	
+	    			slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';    		
 	    		break;	    			    			    		
 	    	}
+	    	slides.push(slide);
+
 	    }
-	    $('#slides').html(content);
+
+	    /*$('#slides').html(content);
 	    $('.flexslider').flexslider({
 			directionNav: true,
 			pauseOnAction: false
-		});
+		});*/
+	    $('#slides').myslides({'slides':content});
+
+
+
 	  },
 	  fail: function (err) {
 	    console.log(err)

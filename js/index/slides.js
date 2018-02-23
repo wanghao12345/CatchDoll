@@ -27,6 +27,8 @@
 					index = 0;
 				}
 				_this.$element.css('left','-'+(index*16)+'rem');
+				//重新请求数据
+				RequestMachineList($('ul#tab li.active').attr('value'));	
 			},8000)
 		}
 	}

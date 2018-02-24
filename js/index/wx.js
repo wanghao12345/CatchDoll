@@ -15,18 +15,28 @@ var $_GET = (function() {
 })();
 
 window.onload = function(){
-	var wx_code = $_GET['code'];
-	if (wx_code==null) {	
-		// window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
-		window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+	// 判断是否含有openid
+	var wx_zhuazhuale_openid = getCookie('wx_zhuazhuale_openid1');
+	if (wx_zhuazhuale_openid==null || wx_zhuazhuale_openid==undefined) {
+		var wx_code = $_GET['code'];
+		if (wx_code==null) {	
+			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+		}else{
+
+			getGameUserInfoByCode(wx_code);
+			getWeixinUserInfo(wx_code,function(data){
+				var data1 = JSON.parse(data);
+				var arr = data1.split(":");
+				var openid = arr[1].split(",")[0];
+				setCookie('wx_zhuazhuale_openid',openid,30);
+	    	});
+		}
 	}else{
-		getWeixinUserInfo(wx_code,function(data){
-			alert(data);
-
-
-
-    	});
+		getGameUserInfoByOpenid(wx_zhuazhuale_openid);
 	}
+
+
+
 }
 
 var weixinUrl = "http://web.zhuazhuale.4utec.cn:8902/wx.php";
@@ -48,20 +58,42 @@ getWeixinUserInfo = function(code,complete){
 }
 
 /**
- * 获取游戏用户的基本信息
+ * 通过code获取游戏用户的基本信息
  */
-function getGameUserInfo(){
+function getGameUserInfoByCode(code){
+	var URL = 'http://ateam.ticp.io:9107/4?ish=1&code='+code;
+	alert(URL);
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",
-	    url: ("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect"),
+	    url: URL,
 	    success: function (data) {
 	    	alert(data);
 	    },
 	    error: function (data){
 
+	    }
+	});		
+}
+/**
+ * 通过openid获取游戏用户的基本信息
+ */
+function getGameUserInfoByOpenid(openid){
+	var len = openid.length;
+	alert(openid);
+	openid = openid.substring(3,len-3);
+	alert(openid);
+
+
+	var URL = 'http://ateam.ticp.io:9107/4?ish=1&openid='+openid;
+	$.ajax({
+	    type: "GET",
+	    dataType: "text",
+	    url: URL,
+	    success: function (data) {
+	    	alert(data);
 	    },
-	    complete : function(jdxhr, status){
+	    error: function (data){
 
 	    }
 	});		
@@ -69,25 +101,6 @@ function getGameUserInfo(){
 
 
 
-
-/**
- * 存储用户的数据信息
- */
-function setCookieWxUserInfo(jsonStr){
-	var data = JSON.parse(jsonStr);
-
-	var wx_userinfo_zhuazhuale_headimgurl = data.headimgurl;
-	var wx_userinfo_zhuazhuale_headimgurl
-
-
-
-}
-/**
- * 获取用户的数据信息
- */
-function getCookieWxUserInfo(){
-
-}
 
 
 

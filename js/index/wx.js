@@ -16,16 +16,16 @@ var $_GET = (function() {
 
 window.onload = function(){
 	var wx_code = $_GET['code'];
-	if (wx_code==null) {
-		window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+	if (wx_code==null) {	
+		// window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+		window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
 	}else{
 		getWeixinUserInfo(wx_code,function(data){
-			// document.getElementById("span").innerHTML = data;
-			
+			alert(data);
 
 
 
-    });
+    	});
 	}
 }
 
@@ -50,13 +50,13 @@ getWeixinUserInfo = function(code,complete){
 /**
  * 获取游戏用户的基本信息
  */
-
-function getGameUserInfo(str){
+function getGameUserInfo(){
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",
-	    url: (weixinUrl+"?do=getUserInfo&&code="+code),
+	    url: ("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect"),
 	    success: function (data) {
+	    	alert(data);
 	    },
 	    error: function (data){
 

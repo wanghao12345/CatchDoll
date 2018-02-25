@@ -16,7 +16,7 @@ var $_GET = (function() {
 
 window.onload = function(){
 	// 判断是否含有openid
-	var wx_zhuazhuale_openid = getCookie('wx_zhuazhuale_openid1');
+	var wx_zhuazhuale_openid = getCookie('wx_zhuazhuale_openid');
 	if (wx_zhuazhuale_openid==null || wx_zhuazhuale_openid==undefined) {
 		var wx_code = $_GET['code'];
 		if (wx_code==null) {	
@@ -24,12 +24,12 @@ window.onload = function(){
 		}else{
 
 			getGameUserInfoByCode(wx_code);
-			getWeixinUserInfo(wx_code,function(data){
+			/*getWeixinUserInfo(wx_code,function(data){
 				var data1 = JSON.parse(data);
 				var arr = data1.split(":");
 				var openid = arr[1].split(",")[0];
 				setCookie('wx_zhuazhuale_openid',openid,30);
-	    	});
+	    	});*/
 		}
 	}else{
 		getGameUserInfoByOpenid(wx_zhuazhuale_openid);
@@ -62,13 +62,18 @@ getWeixinUserInfo = function(code,complete){
  */
 function getGameUserInfoByCode(code){
 	var URL = 'http://ateam.ticp.io:9107/4?ish=1&code='+code;
-	alert(URL);
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",
 	    url: URL,
 	    success: function (data) {
-	    	alert(data);
+	    	var data = JSON.parse(data);
+			token = data.ret[0].d.token;
+	    	guestno = data.ret[0].d.guestno;
+	    	var openid = data.ret[0].d.openid;
+	    	setCookie('wx_zhuazhuale_openid',openid,30);
+	    	RequestMachineList(0);
+	    	getUserInfo(data);
 	    },
 	    error: function (data){
 
@@ -79,12 +84,6 @@ function getGameUserInfoByCode(code){
  * 通过openid获取游戏用户的基本信息
  */
 function getGameUserInfoByOpenid(openid){
-	var len = openid.length;
-	alert(openid);
-	openid = openid.substring(3,len-3);
-	alert(openid);
-
-
 	var URL = 'http://ateam.ticp.io:9107/4?ish=1&openid='+openid;
 	$.ajax({
 	    type: "GET",
@@ -92,6 +91,11 @@ function getGameUserInfoByOpenid(openid){
 	    url: URL,
 	    success: function (data) {
 	    	alert(data);
+	    	var data = JSON.parse(data);
+			token = data.ret[0].d.token;
+	    	guestno = data.ret[0].d.guestno;
+	    	RequestMachineList(0);
+	    	getUserInfo(data);	    	
 	    },
 	    error: function (data){
 

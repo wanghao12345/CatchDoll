@@ -90,7 +90,6 @@ function getGameUserInfoByOpenid(openid){
 	    dataType: "text",
 	    url: URL,
 	    success: function (data) {
-	    	alert(data);
 	    	var data = JSON.parse(data);
 			token = data.ret[0].d.token;
 	    	guestno = data.ret[0].d.guestno;

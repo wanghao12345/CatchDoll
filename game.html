@@ -17,9 +17,17 @@
 	<script type="text/javascript" src="js/game/websocket.js"></script>
 	<script type="text/javascript" src="js/game/ajaxRequest.js"></script>
 	<script type="text/javascript" src="js/tip/tip.js"></script>
+	<script type="text/javascript" src="js/game/hls.js"></script>
 	<script type="text/javascript" src="js/game/game.js"></script>
 </head>
 <body>
+
+	<video id="video" class="video">
+	    <source src="http://rtmp.wawa.4utec.cn/live/1_A.m3u8">
+	    <!-- <source src="http://rtmp.wawa.4utec.cn/live/1_A.flv"> -->
+	    您的浏览器不支持 HTML5 video 标签。
+	</video>
+
 	<div class="container">
 		<div class="top">
 			<div class="top-content go-back" id="go-back" onclick="javascript:window.location.href='index.html'">
@@ -38,11 +46,11 @@
 		<div class="user">
 			<div class="user-left" id="game-user">
 				<div class="status">当前房间空闲</div>
-				<!-- <div class="head-img" id="head-img0"></div>
+				<div class="head-img" id="head-img0"></div>
 				<div class="status1">
 					<div class="status-name">包子的母亲大人</div>
 					<div class="status-content">正在抓取...</div>
-				</div> -->
+				</div>
 			</div>
 			<div class="user-right">
 				<div class="status2">

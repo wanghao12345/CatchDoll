@@ -80,5 +80,36 @@ $(function(){
 	$('#coin-number').on('click',function(){
 		addTip('请下载app充值！');
 	})
+	/*******************-----vedio-----******************/
+
+	if (isIosOrAndroid()==1) {//ios m3u8 hls.js
+
+	}
+	if (isIosOrAndroid()==0) {//android flv video.js
+
+	}
+
+
+
+	/*var myVideo=document.getElementById("video"); 
+	myVideo.play(); */
+
+	if(Hls.isSupported()) {
+	    var video = document.getElementById('video');
+	    var hls = new Hls();
+	    // hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');
+	    hls.loadSource('http://rtmp.wawa.4utec.cn/live/1_A.m3u8');
+	    hls.attachMedia(video);
+	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+	      video.play();
+	  });
+	 }
+
+
+
 
 })
+
+
+
+

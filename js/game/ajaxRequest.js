@@ -126,3 +126,16 @@ function repairRequest(){
 }
 
 
+/**
+ * 区分IOS和Android
+ */
+function isIosOrAndroid(){
+	var u = navigator.userAgent;
+	if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {// ios
+	    return 1;
+	} else {// android
+	    return 0;
+	}	
+}
+
+

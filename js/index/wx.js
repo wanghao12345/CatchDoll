@@ -91,6 +91,11 @@ function getGameUserInfoByOpenid(openid){
 	    url: URL,
 	    success: function (data) {
 	    	var data = JSON.parse(data);
+	    	if (data.ret[0].d.errcode=="-1" || data.ret[0].d.errcode==-1) {
+	    		delCookie('wx_zhuazhuale_openid');
+	    		location.reload();
+	    	}
+
 			token = data.ret[0].d.token;
 	    	guestno = data.ret[0].d.guestno;
 	    	RequestMachineList(0);

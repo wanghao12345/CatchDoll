@@ -103,6 +103,8 @@ $(function(){
 	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
 	      video.play();
 	  });
+	 }else{
+	 	alert("false");
 	 }
 
 

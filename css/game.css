@@ -7,9 +7,9 @@ html,body{
     overflow: hidden;
 }
 .video-content{
-    width: 110%;
+    width: 120%;
     height: 110%;
-    margin-left: -5%;    
+    margin-left: -10%;    
 }
 .video{
     width: 100%;
@@ -180,7 +180,7 @@ html,body{
     top: 5rem;
     z-index: 1;
 }
-.menu .video{
+.menu .video-btn{
 	width: 1.8rem;
     height: 1.8rem;
     background: rgba(255, 255, 255, 0.7);
@@ -189,9 +189,8 @@ html,body{
     border-radius: 2rem;
     box-sizing: border-box;
     border: 1px solid white;
-    display: none;
 }
-.menu .video img{
+.menu .video-btn img{
 	width: 1.5rem;
 }
 .menu .menu-list{

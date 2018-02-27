@@ -111,7 +111,7 @@ function RequestMachineList(type) {
  */
 var token = '';
 var guestno = ''
-getTestToken();
+/*getTestToken();
 function getTestToken(){
 	var myUrl = 'http://ateam.ticp.io:9107/70';
 	$.ajax({
@@ -129,7 +129,7 @@ function getTestToken(){
 	    console.log(err)
 	  }
 	})		
-}
+}*/
 
 /**
  * 获取用户的基本信息

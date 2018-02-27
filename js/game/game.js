@@ -88,12 +88,11 @@ $(function(){
 	if (isIosOrAndroid()==0) {//android flv video.js
 
 	}
+	var video = $('#video');
+	var time = window.setTimeout(function(){
+		video.play();
 
-
-
-
-
-
+	},5000)
 
 })
 

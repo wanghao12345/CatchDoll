@@ -11,92 +11,187 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/game.css">
 	<link rel="stylesheet" type="text/css" href="css/tip.css">
+	<link href="js/videojs/video.css" rel="stylesheet">
 	<script type="text/javascript" src="js/rem.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.barrager.js"></script>
 	<script type="text/javascript" src="js/game/websocket.js"></script>
 	<script type="text/javascript" src="js/game/ajaxRequest.js"></script>
 	<script type="text/javascript" src="js/tip/tip.js"></script>
-	<script type="text/javascript" src="js/game/hls.js"></script>
 	<script type="text/javascript" src="js/game/game.js"></script>
+	<script src="js/videojs/video.js"></script>
+	<script src="js/videojs/videojs-contrib-hls.js"></script>
 </head>
 <body>
-
-<video id="video" class="video">
-    <source src="http://rtmp.wawa.4utec.cn/live/1_A.m3u8">
-    <!-- <source src="http://rtmp.wawa.4utec.cn/live/1_A.flv"> -->
-    您的浏览器不支持 HTML5 video 标签。
-</video>
-
-<div class="container">
-	<div class="top">
-		<div class="top-content go-back" id="go-back" onclick="javascript:window.location.href='index.html'">
-			<img src="img/game/go-back.png" alt="返回">
+	<video id="roomVideo"  autoplay="autoplay" class="video-js vjs-default-skin vjs-big-play-centered" x-webkit-airplay="allow" poster="" webkit-playsinline playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto">
+	    <source src="http://rtmp.wawa.4utec.cn/live/1_A.m3u8"  type="application/x-mpegURL">
+	</video>
+	<div class="container">
+		<div class="top">
+			<div class="top-content go-back" id="go-back" onclick="javascript:window.location.href='index.html'">
+				<img src="img/game/go-back.png" alt="返回">
+			</div>
+			<div class="top-content coin-input">
+				<span id="coin-number">210</span>
+			</div>
+			<div class="top-content voucher">
+				<img src="img/game/voucher.png" alt="倦">
+			</div>
+			<div class="top-content fragment">
+				<img src="img/game/fragment.png" alt="碎片">
+			</div>
 		</div>
-		<div class="top-content coin-input">
-			<span id="coin-number">210</span>
+		<div class="user">
+			<div class="user-left" id="game-user">
+				<div class="status">当前房间空闲</div>
+				<div class="head-img" id="head-img0"></div>
+				<div class="status1">
+					<div class="status-name">包子的母亲大人</div>
+					<div class="status-content">正在抓取...</div>
+				</div>
+			</div>
+			<div class="user-right">
+				<div class="status2">
+					<i id="watch">16</i>人在围观
+				</div>
+				<div class="img-content">
+					<div class="head-img" id="head-img1"></div>
+					<div class="head-img" id="head-img2"></div>
+					<div class="head-img" id="head-img3"></div>
+				</div>
+			</div>
 		</div>
-		<div class="top-content voucher">
-			<img src="img/game/voucher.png" alt="倦">
+		<div class="menu">
+			<div class="video">
+				<img src="img/game/video.png" alt="视频">
+			</div>
+			<div class="menu-list">
+				<ul>
+					<li id="menu-btn" value="1"><img src="img/game/menu-btn.png" alt="菜单"></li>
+					<li id="barrage" value="0"><img src="img/game/tan.png" alt="菜单"></li>
+					<li id="setup"><img src="img/game/set.png" alt="菜单"></li>
+					<li id="detail"><img src="img/game/detail.png" alt="菜单"></li>
+					<li id="help"><img src="img/game/help.png" alt="菜单"></li>
+				</ul>
+			</div>
 		</div>
-		<div class="top-content fragment">
-			<img src="img/game/fragment.png" alt="碎片">
+		<div class="bottom">
+			<div class="spend">
+				<span><img src="img/game/coin.png" alt="金币"><i id="need-price">29</i></span>
+				<i style="margin: 0 0.2rem;color: #ff5a73;">或</i>
+				<span><img src="img/game/voucher.png" alt="卷"><i id="need-free">60</i></span>
+			</div>
+			<div class="button">
+				<div class="catch">
+					<img src="img/game/catch.png" alt="抓住">
+				</div>
+				<div class="start" id="start-game">
+					<img src="img/game/start.png" alt="开始游戏">
+				</div>
+				<div class="fail">
+					<img src="img/game/fail.png" alt="抓不住">
+				</div>
+			</div>
 		</div>
+		<canvas style="width: 100%;height: 8rem;position: absolute;">你的浏览器不支持canvas</canvas>
 	</div>
-	<div class="user">
-		<div class="user-left" id="game-user">
-			<div class="status">当前房间空闲</div>
-			<div class="head-img" id="head-img0"></div>
-			<div class="status1">
-				<div class="status-name">包子的母亲大人</div>
-				<div class="status-content">正在抓取...</div>
-			</div>
-		</div>
-		<div class="user-right">
-			<div class="status2">
-				<i id="watch">16</i>人在围观
-			</div>
-			<div class="img-content">
-				<div class="head-img" id="head-img1"></div>
-				<div class="head-img" id="head-img2"></div>
-				<div class="head-img" id="head-img3"></div>
-			</div>
-		</div>
-	</div>
-	<div class="menu">
-		<div class="video">
-			<img src="img/game/video.png" alt="视频">
-		</div>
-		<div class="menu-list">
-			<ul>
-				<li id="menu-btn" value="1"><img src="img/game/menu-btn.png" alt="菜单"></li>
-				<li id="barrage" value="0"><img src="img/game/tan.png" alt="菜单"></li>
-				<li id="setup"><img src="img/game/set.png" alt="菜单"></li>
-				<li id="detail"><img src="img/game/detail.png" alt="菜单"></li>
-				<li id="help"><img src="img/game/help.png" alt="菜单"></li>
-			</ul>
-		</div>
-	</div>
-	<div class="bottom">
-		<div class="spend">
-			<span><img src="img/game/coin.png" alt="金币"><i id="need-price">29</i></span>
-			<i style="margin: 0 0.2rem;color: #ff5a73;">或</i>
-			<span><img src="img/game/voucher.png" alt="卷"><i id="need-free">60</i></span>
-		</div>
-		<div class="button">
-			<div class="catch">
-				<img src="img/game/catch.png" alt="抓住">
-			</div>
-			<div class="start" id="start-game">
-				<img src="img/game/start.png" alt="开始游戏">
-			</div>
-			<div class="fail">
-				<img src="img/game/fail.png" alt="抓不住">
-			</div>
-		</div>
-	</div>
-	<canvas style="width: 100%;height: 8rem;position: absolute;">你的浏览器不支持canvas</canvas>
-</div>
-<div class="game-menu-list"></div>
+	<div class="game-menu-list"></div>
 </body>
+	<script type="text/javascript">
+	    var myPlayer = videojs('roomVideo',{
+	        bigPlayButton : false,
+	        textTrackDisplay : false,
+	        posterImage: true,
+	        errorDisplay : false,
+	        controlBar : false
+	    },function(){
+	        console.log(this)
+	        this.on('loadedmetadata',function(){
+	            console.log('loadedmetadata');
+	            //加载到元数据后开始播放视频
+	            startVideo();
+	        })
+
+	        this.on('ended',function(){
+	            console.log('ended')
+	        })
+	        this.on('firstplay',function(){
+	            console.log('firstplay')
+	        })
+	        this.on('loadstart',function(){
+	        //开始加载
+	            console.log('loadstart')
+	        })
+	        this.on('loadeddata',function(){
+	            console.log('loadeddata')
+	        })
+	        this.on('seeking',function(){
+	        //正在去拿视频流的路上
+	            console.log('seeking')
+	        })
+	        this.on('seeked',function(){
+	        //已经拿到视频流,可以播放
+	            console.log('seeked')
+	        })
+	        this.on('waiting',function(){
+	            console.log('waiting')
+	        })
+	        this.on('pause',function(){
+	            console.log('pause')
+	        })
+	        this.on('play',function(){
+	            console.log('play')
+
+	        })
+
+	    });
+	    var isVideoBreak;
+	    function startVideo() {
+
+	        myPlayer.play();
+
+	        //微信内全屏支持
+	        /*document.getElementById('roomVideo').style.width = window.screen.width + "px";
+	        document.getElementById('roomVideo').style.height = window.screen.height + "px";*/
+	        $('#roomVideo').css('width','100%');
+	        $('#roomVideo').css('height','100%');
+
+	        //判断开始播放视频，移除高斯模糊等待层
+	        var isVideoPlaying = setInterval(function(){
+	            var currentTime = myPlayer.currentTime();
+	            if(currentTime > 0){
+	                $('.vjs-poster').remove();
+	                clearInterval(isVideoPlaying);
+	            }
+	        },200)
+
+	        //判断视频是否卡住，卡主3s重新load视频
+	        var lastTime = -1,
+	            tryTimes = 0;
+	        
+	        clearInterval(isVideoBreak);
+	        isVideoBreak = setInterval(function(){
+	            var currentTime = myPlayer.currentTime();
+	            console.log('currentTime'+currentTime+'lastTime'+lastTime);
+
+	            if(currentTime == lastTime){
+	            	//此时视频已卡主3s
+	            	//设置当前播放时间为超时时间，此时videojs会在play()后把currentTime设置为0
+	                myPlayer.currentTime(currentTime+10000);
+	                myPlayer.play();
+
+	                //尝试5次播放后，如仍未播放成功提示刷新
+	                if(++tryTimes > 5){
+	                    alert('您的网速有点慢，刷新下试试');
+	                    tryTimes = 0;
+	                }
+	            }else{
+	                lastTime = currentTime;
+	                tryTimes = 0;
+	            }
+	        },3000)
+
+	    }
+	</script>
 </html>
+

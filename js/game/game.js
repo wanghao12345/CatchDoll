@@ -91,21 +91,6 @@ $(function(){
 
 
 
-	/*var myVideo=document.getElementById("video"); 
-	myVideo.play(); */
-
-	if(Hls.isSupported()) {
-	    var video = document.getElementById('video');
-	    var hls = new Hls();
-	    // hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');
-	    hls.loadSource('http://rtmp.wawa.4utec.cn/live/1_A.m3u8');
-	    hls.attachMedia(video);
-	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
-	      video.play();
-	  });
-	 }else{
-	 	alert("false");
-	 }
 
 
 

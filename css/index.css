@@ -13,38 +13,42 @@ html,body{
 	width: 100%;
 	height: 100%;
 }
-.container{
+.main-container{
+    width: 100%;
+    height: 100%;
+}
+.main-container .container{
 	width: 100%;
 	height: 100%; 
 	background: url('../img/index/index_back.png');
 	background-size: 100% 100%;
 }
 /*上部分*/
-.top-container{
+.main-container .top-container{
 	width: 100%;
 	height: 3rem;
 	overflow: hidden;
 }
-.top-container .logo{
+.main-container .top-container .logo{
 	width: 20%;
     height: 100%;
     float: left;
     box-sizing: border-box;
     padding: 0.6rem 0rem 0.1rem 0.4rem;
 }
-.top-container .logo .head-img{
+.main-container .top-container .logo .head-img{
     width: 2rem;
     height: 2rem;
     margin: 0 auto;
     border-radius: 2rem;
     background-color: white; 
 }
-.top-container .logo .head-img img{
+.main-container .top-container .logo .head-img img{
     width: 100%;
     height: 100%;
     border-radius: 2rem;
 }
-.top-container .logo .head-name{
+.main-container .top-container .logo .head-name{
     width: 100%;
     height: 1.1rem;
     background-color: #ff9298;
@@ -54,7 +58,7 @@ html,body{
     margin-top: -0.3rem; 
     display: none;
 }
-.top-container .logo .head-name span{
+.main-container .top-container .logo .head-name span{
     float: left;
     color: white;
     line-height: 1.1rem;
@@ -66,7 +70,7 @@ html,body{
     white-space: nowrap;
     text-align: center;
 }
-.top-container .logo .head-name img{
+.main-container .top-container .logo .head-name img{
     float: right;
     width: 1rem;
     margin-top: 0.1rem;
@@ -74,14 +78,14 @@ html,body{
 }
 
 
-.top-container .recharge{
+.main-container .top-container .recharge{
 	width: 80%;
     height: 100%;
     float: left;
     box-sizing: border-box;
     padding: 0.8rem 0.2rem 0.4rem 0.2rem;
 }
-.top-container .recharge .recharge-content{
+.main-container .top-container .recharge .recharge-content{
     width: 100%;
     height: 100%;
     background: url(../img/index/title_back.png);
@@ -90,14 +94,14 @@ html,body{
     padding-top: 0.4rem;
     padding-left: 0.4rem;
 }
-.top-container .recharge .recharge-content .coin{
+.main-container .top-container .recharge .recharge-content .coin{
     width: 5rem;
     height: 1rem;
     background: url(../img/index/coin-input.png);
     background-size: 100% 100%;
     overflow: hidden;
 }
-.top-container .recharge .recharge-content .coin span{
+.main-container .top-container .recharge .recharge-content .coin span{
     width: 100%;
     height: 100%;
     display: block;
@@ -109,7 +113,7 @@ html,body{
     margin-top: 0.1rem;
 }
 /*banner*/
-.middle-container{
+.main-container .middle-container{
     width: 100%;
     height: 4rem;
     box-sizing: border-box;
@@ -119,14 +123,14 @@ html,body{
 }
 
 /*下部分*/
-.bottom-container{
+.main-container .bottom-container{
 	width: 100%;
 	height: 100%;
 	margin-top: -7rem;
 	box-sizing: border-box;
 	padding-top: 7rem;
 }
-.bottom-container-content{
+.main-container .bottom-container-content{
     width: 100%;
     height: 100%;
     background: url(../img/index/index_back2.png);
@@ -136,33 +140,33 @@ html,body{
     padding-top: 0.2rem;
 }
 /*tab*/
-.bottom-container-content .tab-title{
+.main-container .bottom-container-content .tab-title{
 	width: 100%;
 	height: 3.5rem;
     box-sizing: border-box;
     padding: 0 0.5rem;
     overflow: hidden;
 }
-.bottom-container-content .tab-title .tab-title-content{
+.main-container .bottom-container-content .tab-title .tab-title-content{
     width: 100%;
     height: 100%;
     overflow-x: auto;
 
 }
-.bottom-container-content .tab-title ul{
+.main-container .bottom-container-content .tab-title ul{
     width: 100%;
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;
 }
-.bottom-container-content .tab-title ul li{
+.main-container .bottom-container-content .tab-title ul li{
 	width: 2.8rem;
     height: 100%;
     float: left;
     box-sizing: border-box;
     padding: 0rem 0.1rem 0.5rem 0.1rem;
 }
-.bottom-container-content .tab-title ul li .tab{
+.main-container .bottom-container-content .tab-title ul li .tab{
     width: 100%;
     height: 100%;
     background: url(../img/index/tab.png);
@@ -170,34 +174,34 @@ html,body{
     box-sizing: border-box;
     padding: 0.5rem 0.4rem 0.7rem 0.4rem;
 }
-.bottom-container-content .tab-title ul li .tab .tab-top{
+.main-container .bottom-container-content .tab-title ul li .tab .tab-top{
     width: 100%;
     height: 50%;
     text-align: center;
     line-height: 1.3rem;
 }
-.bottom-container-content .tab-title ul li .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li .tab .tab-top img{
 	width: 1rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(1) .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(1) .tab .tab-top img{
 	width: 1rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(2) .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(2) .tab .tab-top img{
 	width: 1.1rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(3) .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(3) .tab .tab-top img{
 	width: 0.9rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(4) .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(4) .tab .tab-top img{
 	width: 1rem;
     margin-left: 0.2rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(5) .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(5) .tab .tab-top img{
 	width: 1rem;
 }
 
 
-.bottom-container-content .tab-title ul li .tab .tab-bottom{
+.main-container .bottom-container-content .tab-title ul li .tab .tab-bottom{
     width: 100%;
     height: 50%;
     text-align: center;
@@ -208,51 +212,51 @@ html,body{
     text-shadow: 1px 1px 6px #791319;
 }
 
-.bottom-container-content .tab-title ul li .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li .tab .tab-bottom img{
 	width: 1.2rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(1) .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(1) .tab .tab-bottom img{
 	width: 1.3rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(2) .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(2) .tab .tab-bottom img{
 	width: 1.2rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(3) .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(3) .tab .tab-bottom img{
 	width: 1.2rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(4) .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(4) .tab .tab-bottom img{
 	width: 1.2rem;
 }
-.bottom-container-content .tab-title ul li:nth-child(5) .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li:nth-child(5) .tab .tab-bottom img{
 	width: 1.8rem;
 }
 
-.bottom-container-content .tab-title ul li.active{
+.main-container .bottom-container-content .tab-title ul li.active{
     padding: 0rem 0.1rem 0.3rem 0.1rem;
 }
-.bottom-container-content .tab-title ul li.active .tab{
+.main-container .bottom-container-content .tab-title ul li.active .tab{
 	background: url(../img/index/tab_active.png);
 	background-size: 100% 100%;
 }
-.bottom-container-content .tab-title ul li.active .tab .tab-top{
+.main-container .bottom-container-content .tab-title ul li.active .tab .tab-top{
     line-height: 1.9rem;
 }
-.bottom-container-content .tab-title ul li.active .tab .tab-top img{
+.main-container .bottom-container-content .tab-title ul li.active .tab .tab-top img{
     width: 1.3rem;
 }
-.bottom-container-content .tab-title ul li.active .tab .tab-bottom{
+.main-container .bottom-container-content .tab-title ul li.active .tab .tab-bottom{
     width: 100%;
     height: 50%;
     line-height: 2rem;
     text-align: center;
     font-size: 0.7rem;
 }
-.bottom-container-content .tab-title ul li.active .tab .tab-bottom img{
+.main-container .bottom-container-content .tab-title ul li.active .tab .tab-bottom img{
 	width: 1.5rem;
 }
 
 /*tab的内容*/
-.bottom-container-content .tab-content{
+.main-container .bottom-container-content .tab-content{
     width: 100%;
     height: 100%;
     margin-top: -3.5rem;
@@ -262,45 +266,45 @@ html,body{
     overflow: hidden;
 }
 
-.bottom-container-content .tab-content .tab-list-content {
+.main-container .bottom-container-content .tab-content .tab-list-content {
     width: 100%;
     height: 100%;
     overflow-y: auto;
     float: left;
 }
-.bottom-container-content .tab-content ul{
+.main-container .bottom-container-content .tab-content ul{
 	width: 100%;
 }
 
-.bottom-container-content .tab-content ul li{
+.main-container .bottom-container-content .tab-content ul li{
 	width: 33.33%;
     height: 6.6rem;
     box-sizing: border-box;
     padding: 0rem 0.2rem 0.4rem 0.2rem;
     float: left;
 }
-.bottom-container-content .tab-content ul li .list{
+.main-container .bottom-container-content .tab-content ul li .list{
 	width: 100%;
 	height: 100%;
 	background: url(../img/index/list_back.png);
 	background-size: 100% 100%;
 }
 
-.bottom-container-content .tab-content ul li .list .list-top{
+.main-container .bottom-container-content .tab-content ul li .list .list-top{
 	width: 100%;
     height: 4rem;
     position: relative;
 }
-.bottom-container-content .tab-content ul li .list .list-top .surplus{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .surplus{
     position: absolute;
     width: 2rem;
     right: 1.1rem;
     top: 0.05rem;
 }
-.bottom-container-content .tab-content ul li .list .list-top .surplus img{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .surplus img{
     width: 100%;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-num{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-num{
     position: absolute;
     top: 0.05rem;
     right: -0.1rem;
@@ -314,7 +318,7 @@ html,body{
     font-weight: 550;
     color: #ff5a73;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-new{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-new{
     position: absolute;
     top: 0.05rem;
     left: : -0.1rem;
@@ -323,7 +327,7 @@ html,body{
     background: url(../img/index/list_new.png);
     background-size: 100% 100%;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-status{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-status{
     position: absolute;
     width: 96%;
     height: 1.3rem;
@@ -332,30 +336,30 @@ html,body{
     left: 0.1rem;
     overflow: hidden;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-img{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-img{
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 0.1rem;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-img img{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-img img{
 	width: 100%;
 	height: 100%;
     border-radius: 0.2rem;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-status1{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-status1{
 	background: rgba(238, 9, 9, 0.7);
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-status2{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-status2{
     background: rgba(35, 149, 238, 0.8);	
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-status img{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-status img{
     width: 1.2rem;
     float: left;
     position: absolute;
     left: 0;
 }
-.bottom-container-content .tab-content ul li .list .list-top .list-status span{
+.main-container .bottom-container-content .tab-content ul li .list .list-top .list-status span{
     width: 100%;
     height: 100%;
     display: block;
@@ -367,11 +371,11 @@ html,body{
     color: white;
 }
 
-.bottom-container-content .tab-content ul li .list .list-bottom{
+.main-container .bottom-container-content .tab-content ul li .list .list-bottom{
 	width: 100%;
 	height: 2rem;
 }
-.bottom-container-content .tab-content ul li .list .list-bottom .list-title{
+.main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-title{
     width: 100%;
     height: 1rem;
     color: white;
@@ -379,7 +383,7 @@ html,body{
     text-align: center;
     line-height: 1rem;
 }
-.bottom-container-content .tab-content ul li .list .list-bottom .list-coin{
+.main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-coin{
     width: 90%;
     height: 1rem;
     background: url(../img/index/list_coin.png);

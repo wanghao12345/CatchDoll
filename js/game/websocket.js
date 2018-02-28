@@ -3,7 +3,7 @@ socket = new WebSocket("ws://ateam.ticp.io:65154");
 //打开事件
 socket.onopen = function(){
     console.log("Socket 已打开");
-    sendTcpLogin();
+    // sendTcpLogin();
 };
 //获得消息事件
 socket.onmessage = function(msg){

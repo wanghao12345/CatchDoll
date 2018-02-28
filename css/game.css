@@ -6,17 +6,24 @@ html,body{
 	height: 100%;
     overflow: hidden;
 }
-.video-content{
-    width: 120%;
-    height: 110%;
-    margin-left: -10%;    
+.game-cantainer{
+    /* width: 100%;
+    height: 100%; */
+    display: none;
 }
-.video{
+.game-cantainer .video-content{
+    /* width: 120%;
+       height: 110%;
+       margin-left: -10%;  */  
+     width: 100%;
+     height: 100%;   
+}
+.game-cantainer .video{
     width: 100%;
     height: 100%;
 }
 
-.container{
+.game-cantainer .container{
 	width: 100%;
 	height: 100%;
 	/*background:url(../img/game/back.png);*/
@@ -25,32 +32,32 @@ html,body{
     top: 0;
     left: 0;
 }
-.top{
+.game-cantainer .top{
     width: 100%;
     height: 2.3rem;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.3);
 }
-.top .top-content{
+.game-cantainer .top .top-content{
 	height: 100%;
 	float: left;
 }
-.top .go-back{
+.game-cantainer .top .go-back{
     width: 2rem;
     text-align: center;
     line-height: 3rem;
 }
-.top .go-back img{
+.game-cantainer .top .go-back img{
 	width: 1.3rem;
 }
-.top .coin-input{
+.game-cantainer .top .coin-input{
     width: 5rem;
     height: 1.2rem;
     background: url(../img/game/coin-input.png);
     background-size: 100% 100%;
     margin-top: 0.5rem;
 }
-.top .coin-input span{
+.game-cantainer .top .coin-input span{
 	width: 100%;
     height: 100%;
     display: block;
@@ -61,25 +68,25 @@ html,body{
     color: #ff5a73;
     margin-top: 0.1rem;
 }
-.top .voucher{
+.game-cantainer .top .voucher{
     width: 2rem;
     line-height: 3rem;
     box-sizing: border-box;
     padding-left: 0.5rem;
 }
-.top .voucher img{
+.game-cantainer .top .voucher img{
 	width: 1.3rem;
 }
-.top .fragment{
+.game-cantainer .top .fragment{
     width: 2rem;
     line-height: 3rem;
     box-sizing: border-box;
     padding-left: 0.5rem;
 }
-.top .fragment img{
+.game-cantainer .top .fragment img{
 	width: 1.3rem;	
 }
-.user{
+.game-cantainer .user{
     width: 100%;
     height: 2.3rem;
     overflow: hidden;
@@ -89,7 +96,7 @@ html,body{
     background-size: 100% 100%;
 
 }
-.user .head-img{
+.game-cantainer .user .head-img{
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 2rem;
@@ -97,25 +104,25 @@ html,body{
     border: 2px solid white;
     box-shadow: 1px 1px 1px #cebdbd;
 }
-.user .head-img img{
+.game-cantainer .user .head-img img{
     width: 100%;
     border-radius: 2rem;
 }
-.user .user-left{
+.game-cantainer .user .user-left{
 	width: 50%;
     height: 100%;
     float: left;
     overflow: hidden;
     position: relative;
 }
-.user .user-left .status{
+.game-cantainer .user .user-left .status{
     width: 100%;
     height: 100%;
     line-height: 2.3rem;
     color: #ff5a73;    
     display: none;
 }
-.user .user-left .status1{
+.game-cantainer .user .user-left .status1{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -124,14 +131,14 @@ html,body{
     box-sizing: border-box;
     padding-left: 2.5rem;
 }
-.user .user-left .status1 .status-name{
+.game-cantainer .user .user-left .status1 .status-name{
     width: 100%;
     height: 50%;
     line-height: 1.5rem;
     font-size: 0.6rem;
     color: #ff5a73;
 }
-.user .user-left .status1 .status-content{
+.game-cantainer .user .user-left .status1 .status-content{
     width: 100%;
     height: 50%;
     line-height: 0.8rem;
@@ -139,14 +146,14 @@ html,body{
     color: #632429;
 }
 
-.user .user-right{
+.game-cantainer .user .user-right{
     width: 50%;
     height: 100%;
     float: left;
     overflow: hidden;
     position: relative;
 }
-.user .user-right .status2{
+.game-cantainer .user .user-right .status2{
     width: 100%;
     height: 100%;
     padding-right: 5.6rem;
@@ -157,22 +164,22 @@ html,body{
     line-height: 0.7rem;
     color: #ff5a73;
 }
-.user .user-right .img-content{
+.game-cantainer .user .user-right .img-content{
     width: 5.4rem;
     float: right;
 }
-.user .user-right .img-content .head-img{
+.game-cantainer .user .user-right .img-content .head-img{
     float: left;
     box-sizing: border-box;
     border: 2px solid white;
     box-shadow: 1px 1px 1px #cebdbd;
 }
-.user .user-right .img-content .head-img img{
+.game-cantainer .user .user-right .img-content .head-img img{
     width: 100%;
     height: 100%;
     border-radius: 2rem;
 }
-.menu{
+.game-cantainer .menu{
     width: 1.8rem;
     height: 6rem;
     position: absolute;
@@ -180,7 +187,7 @@ html,body{
     top: 5rem;
     z-index: 1;
 }
-.menu .video-btn{
+.game-cantainer .menu .video-btn{
 	width: 1.8rem;
     height: 1.8rem;
     background: rgba(255, 255, 255, 0.7);
@@ -190,10 +197,10 @@ html,body{
     box-sizing: border-box;
     border: 1px solid white;
 }
-.menu .video-btn img{
+.game-cantainer .menu .video-btn img{
 	width: 1.5rem;
 }
-.menu .menu-list{
+.game-cantainer .menu .menu-list{
     width: 104%;
     height: auto;
     overflow: hidden;
@@ -204,84 +211,84 @@ html,body{
     border: 1px solid white;
     box-shadow: 1px 3px 3px #bcbbbb;
 }
-.menu .menu-list ul{
+.game-cantainer .menu .menu-list ul{
 	width: 100%;
 }
-.menu .menu-list ul li{
+.game-cantainer .menu .menu-list ul li{
     width: 1.8rem;
     height: 1.8rem;
     text-align: center;
     line-height: 2.5rem;
 }
-.menu .menu-list ul li#menu-btn{
+.game-cantainer .menu .menu-list ul li#menu-btn{
     border-radius: 2rem;
     border: 1px solid white;
     box-sizing: border-box;
     box-shadow: 1px 3px 3px #bcbbbb;
     line-height: 2.3rem;
 }
-.menu .menu-list ul li img{
+.game-cantainer .menu .menu-list ul li img{
 	width: 1.5rem;
 }
-.bottom{
+.game-cantainer .bottom{
 	width: 100%;
 	height: 4rem;
 	position: absolute;
 	bottom: 0.2rem;
 }
-.bottom .spend{
+.game-cantainer .bottom .spend{
     width: 100%;
     height: 2rem;
     text-align: center;
     line-height: 3rem;
 }
-.bottom .spend span{
+.game-cantainer .bottom .spend span{
 	overflow: hidden;
 }
-.bottom .spend span img{
+.game-cantainer .bottom .spend span img{
     width: 1.2rem;
 }
-.bottom .spend span i{
+.game-cantainer .bottom .spend span i{
 	margin-left: 0.2rem;
     color: #ff5a73;
     font-size: 0.6rem;
 }
-.bottom .spend  i{
+.game-cantainer .bottom .spend  i{
     color: #ff5a73;
     font-size: 0.6rem;
 }
-.bottom .button{
+.game-cantainer .bottom .button{
 	width: 100%;
 	height: 2rem;
 	overflow: hidden;
 	position: relative;
 }
 
-.bottom .button .catch{
+.game-cantainer .bottom .button .catch{
     width: 4rem;
     position: absolute;
     left: 1.5rem;
     top: 0rem;
 }
-.bottom .button .catch img{
+.game-cantainer .bottom .button .catch img{
 	width: 100%;
 }
-.bottom .button .start{
+.game-cantainer .bottom .button .start{
     width: 4.5rem;
     left: 50%;
     position: absolute;
     top: 0rem;
     margin-left: -2.25rem;
 }
-.bottom .button .start img{
+.game-cantainer .bottom .button .start img{
 	width: 100%;
 }
-.bottom .button .fail{
+.game-cantainer .bottom .button .fail{
 	width: 4rem;
 	position: absolute;
 	right: 1.5rem;
 	top: 0rem;
 }
-.bottom .button .fail img{
+.game-cantainer .bottom .button .fail img{
 	width: 100%;
 }

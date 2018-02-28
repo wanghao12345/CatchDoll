@@ -1,12 +1,21 @@
 /*外面界面点击机器后，你这边就调"tcplogin"，然后调"开始旁观"，
 然后如果玩家开始游戏，你这边就调"开始游戏"接口,玩家推出房间到最外面的列表的时候，
 就调“结束旁观”*/
+
+var index_tk = '';
+var index_guestno = '';
+var index_mid = '';
+var index_doll_id = '';
+
+
 /**
  * 发起长连接登录
  */
 function sendTcpLogin(){
-	var tk = getUrlParam('tk');
-	var guestno = getUrlParam('guestno');
+	/*var tk = getUrlParam('tk');
+	var guestno = getUrlParam('guestno');*/
+	tk = index_tk;
+	guestno = index_guestno;
 	var os_type = getMobileType();
 	var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+os_type+'"}}';
 	sendSocket(param);
@@ -15,8 +24,8 @@ function sendTcpLogin(){
  * 发起获取旁观信息请求
  */
 function sendOnlooker(){
-	var mid = getUrlParam('mid');
-	var param = '{"path":"10011","d":{"mid":"'+mid+'"}}';
+	// var mid = getUrlParam('mid');
+	var param = '{"path":"10011","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);
 }
 /**
@@ -24,7 +33,7 @@ function sendOnlooker(){
  */
 function startGame(){
 	var mid = getUrlParam('mid');
-	var param = '{"path":"10010","d":{"mid":"'+mid+'"}}';
+	var param = '{"path":"10010","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);
 }
 /**
@@ -32,7 +41,7 @@ function startGame(){
  */
 function leaveGame(){
 	var mid = getUrlParam('mid');
-	var param = '{"path":"10012","d":{"mid":"'+mid+'"}}';
+	var param = '{"path":"10012","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);
 }
 /**
@@ -40,7 +49,7 @@ function leaveGame(){
  */
 function sendBarrage(){
 	var mid = getUrlParam('mid');
-	var param = '{"path":"10018","d":{"mid":"'+mid+'"}}';
+	var param = '{"path":"10018","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);	
 }
 
@@ -75,7 +84,7 @@ function getMobileType(){
 function CommodityDetails(){
 	var id = getUrlParam('doll_id');
 	var tk = getUrlParam('tk');
-	var myUrl = 'http://ateam.ticp.io:9107/31?id='+id+'&tk='+tk;
+	var myUrl = 'http://ateam.ticp.io:9107/31?id='+index_doll_id+'&tk='+index_tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -106,7 +115,7 @@ function CommodityDetails(){
 function repairRequest(){
 	var mid = getUrlParam('mid');
 	var tk = getUrlParam('tk');
-	var myUrl = 'http://ateam.ticp.io:9107/42?mid='+mid+'&tk='+tk;
+	var myUrl = 'http://ateam.ticp.io:9107/42?mid='+index_mid+'&tk='+index_tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',

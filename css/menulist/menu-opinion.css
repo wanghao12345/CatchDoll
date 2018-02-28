@@ -1,4 +1,4 @@
-.menu-list-news{
+.main-container .menu-list-news{
     width: 100%;
     height: 100%;
 /*    background: url(../../img/menulist/menu_news/back.png);
@@ -7,7 +7,7 @@
     top: 0;
 }
 
-.menu-list-news-content{
+.main-container .menu-list-news-content{
     width: 15rem;
     height: 13rem;
     position: absolute;
@@ -18,7 +18,7 @@
     background: url(../../img/menulist/menu_news/back1.png);
     background-size: 100% 100%;
 }
-.menu-list-news-back2{
+.main-container .menu-list-news-back2{
     width: 100%;
     height: 100%;
     position: relative;
@@ -26,7 +26,7 @@
     padding: 0 2.5rem;
     padding-top: 2.5rem;
 }
-.menu-list-news-back2 p{
+.main-container .menu-list-news-back2 p{
     color: #7d1010;
     text-align: right;
     width: 100%;
@@ -36,7 +36,7 @@
     line-height: 1rem;
     font-size: 0.6rem;
 }
-.menu-list-new-title{
+.main-container .menu-list-new-title{
 	width: 6.8rem;
     height: 3rem;
     background: url(../../img/menulist/menu_news/title.png);
@@ -46,7 +46,7 @@
     left: 50%;
     margin-left: -3.5rem;
 }
-.menu-list-new-close{
+.main-container .menu-list-new-close{
     position: absolute;
 	width: 1.8rem;
     height: 1.8rem;
@@ -55,7 +55,7 @@
     background: url(../../img/menulist/menu_news/close.png);
     background-size: 100% 100%;
 }
-.menu-list-new-button{
+.main-container .menu-list-new-button{
     width: 100%;
     height: 3rem;
     position: absolute;
@@ -65,23 +65,23 @@
     padding: 0 2rem;
     overflow: hidden;
 }
-.menu-list-new-button button{
+.main-container .menu-list-new-button button{
     width: 5rem;
     height: 2.6rem;
     border: 0;
     padding: 0;
 }
-.menu-list-new-button button#cancer{
+.main-container .menu-list-new-button button#cancer{
 	float: left;
     background: url(../../img/menulist/menu_news/canser.png);
     background-size: 100% 100%;
 }
-.menu-list-new-button button.query{
+.main-container .menu-list-new-button button.query{
 	float: right;
     background: url(../../img/menulist/menu_news/query.png);
     background-size: 100% 100%;
 }
-.menu-list-new-main-content{
+.main-container .menu-list-new-main-content{
     width: 10rem;
     height: 7rem;
     margin: 0 auto;
@@ -90,7 +90,7 @@
     background: url(../../img/menulist/menu_news/back2.png);
     background-size: 100% 100%;   
 }
-.menu-list-new-main-content textarea{
+.main-container .menu-list-new-main-content textarea{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0);
@@ -102,18 +102,18 @@
     padding: 0;
     outline: none;
 }
-textarea::textarea-placeholder{
+.main-container textarea::textarea-placeholder{
     color: black;
 }
-textarea::-webkit-textarea-placeholder{
+.main-container textarea::-webkit-textarea-placeholder{
     color: black;
 }
-textarea:-moz-placeholder {   
+.main-container textarea:-moz-placeholder {   
     color: black;   
 }  
-textarea::-moz-placeholder {   
+.main-container textarea::-moz-placeholder {   
     color: black;   
 }  
-textarea:-ms-textarea-placeholder {   
+.main-container textarea:-ms-textarea-placeholder {   
     color: black;   
 }    

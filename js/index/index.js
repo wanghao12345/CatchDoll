@@ -99,9 +99,20 @@ $(function(){
 		if (value == 0) {
 			addTip('设备正在维修！');
 		}else{
+			$('.main-container').css('display','none');
+			$('.game-cantainer').css('display','block');
+
 			var mid = $(this).find('input#mid').val();
 			var doll_id = $(this).find('input#doll_id').val();
-			window.location.href="game.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;			
+
+			index_mid = mid;
+			index_tk = token;
+			index_guestno = guestno;
+			index_doll_id = doll_id;
+			// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
+			sendTcpLogin();	
+			var myVideo=document.getElementById("video");
+			myVideo.play();		
 		}
 
 

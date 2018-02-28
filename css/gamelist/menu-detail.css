@@ -1,4 +1,4 @@
-.menu-list-details{
+.game-cantainer .menu-list-details{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -6,7 +6,7 @@
     background: rgba(0,0,0,0.5);
     z-index: 2;
 }
-.menu-list-details-content{
+.game-cantainer .menu-list-details-content{
     width: 15rem;
     height: 13rem;
     position: absolute;
@@ -17,7 +17,7 @@
     background: url(../../img/menulist/menu_news/back1.png);
     background-size: 100% 100%;
 }
-.menu-list-details-back2{
+.game-cantainer .menu-list-details-back2{
     width: 100%;
     height: 100%;
     position: relative;
@@ -25,7 +25,7 @@
     padding: 0 1.5rem;
     padding-top: 1.5rem;
 }
-.menu-list-details-back2 p{
+.game-cantainer .menu-list-details-back2 p{
     color: #7d1010;
     text-align: right;
     width: 100%;
@@ -35,7 +35,7 @@
     line-height: 1rem;
     font-size: 0.6rem;
 }
-.menu-list-detail-title{
+.game-cantainer .menu-list-detail-title{
 	width: 6.8rem;
     height: 3rem;
     background: url(../../img/game/gamemenu/detail/title.png);
@@ -45,7 +45,7 @@
     left: 50%;
     margin-left: -3.5rem;
 }
-.menu-list-detail-close{
+.game-cantainer .menu-list-detail-close{
     position: absolute;
 	width: 1.8rem;
     height: 1.8rem;
@@ -54,7 +54,7 @@
     background: url(../../img/menulist/menu_news/close.png);
     background-size: 100% 100%;
 }
-.menu-list-detail-button{
+.game-cantainer .menu-list-detail-button{
     width: 100%;
     height: 3rem;
     position: absolute;
@@ -64,29 +64,29 @@
     padding: 0 2rem;
     overflow: hidden;
 }
-.menu-list-detail-button button{
+.game-cantainer .menu-list-detail-button button{
     width: 5rem;
     height: 2.6rem;
     border: 0;
     padding: 0;
 }
-.menu-list-detail-button button#cancer{
+.game-cantainer .menu-list-detail-button button#cancer{
 	float: left;
     background: url(../../img/menulist/menu_news/canser.png);
     background-size: 100% 100%;
 }
-.menu-list-detail-button button.query{
+.game-cantainer .menu-list-detail-button button.query{
 	float: right;
     background: url(../../img/menulist/menu_news/query.png);
     background-size: 100% 100%;
 }
-.menu-list-detail-main-content{
+.game-cantainer .menu-list-detail-main-content{
     width: 12rem;
     height: 10rem;
     margin: 0 auto;
     box-sizing: border-box;
 }
-.menu-list-detail-main-content .head{
+.game-cantainer .menu-list-detail-main-content .head{
 	width: 4rem;
 	height: 4rem;
 	margin: 0 auto;
@@ -95,29 +95,29 @@
     box-sizing: border-box;
     padding: 0.2rem;
 }
-.menu-list-detail-main-content .head img{
+.game-cantainer .menu-list-detail-main-content .head img{
 	width: 100%;
 	height: 100%;
 }
-.menu-list-detail-main-content .list{
+.game-cantainer .menu-list-detail-main-content .list{
 	width: 100%;
 	height: 5rem;
 }
-.menu-list-detail-main-content .list ul{
+.game-cantainer .menu-list-detail-main-content .list ul{
 	width: 100%;
 	height: 100%;
 }
-.menu-list-detail-main-content .list ul li{
+.game-cantainer .menu-list-detail-main-content .list ul li{
     width: 100%;
     overflow: hidden;
     line-height: 1rem;
 }
-.menu-list-detail-main-content .list ul li label{
+.game-cantainer .menu-list-detail-main-content .list ul li label{
     float: left;
     color: #7d1010;
     width: 2rem;
 }
-.menu-list-detail-main-content .list ul li span{
+.game-cantainer .menu-list-detail-main-content .list ul li span{
     float: left;
     color: #ff5a73;
     width: 10rem;

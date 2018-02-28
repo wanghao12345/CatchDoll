@@ -1,35 +1,35 @@
-.mask{
+.main-container .mask{
 	width: 100%;
     height: 100%;
     position: fixed;
     background: rgba(0,0,0,0.5);
     top: 0;
 }
-.menu-content{
+.main-container .menu-content{
 	width: 6rem;
 	height: 100%;
 	background: url(../img/menu/back.png);
 	background-size: 100% 100%;
 }
-.menu-head{
+.main-container .menu-head{
     width: 100%;
     height: 6rem;
     box-sizing: border-box;
     padding: 1rem 0.8rem 0rem 0.5rem;
 }
-.menu-head .head-img{
+.main-container .menu-head .head-img{
     width: 2rem;
     height: 2rem;
     margin: 0 auto;
     border-radius: 2rem;
     background-color: white;
 }
-.menu-head .head-img img{
+.main-container .menu-head .head-img img{
     width: 100%;
     height: 100%;
     border-radius: 2rem;
 }
-.menu-head .head-name{
+.main-container .menu-head .head-name{
     width: 100%;
     height: 1.3rem;
     background-color: #ff9298;
@@ -38,7 +38,7 @@
     border: 1.5px solid white;
     margin-top: -0.3rem;
 }
-.menu-head .head-name span{
+.main-container .menu-head .head-name span{
 	float: left;
     color: white;
     line-height: 1.3rem;
@@ -50,31 +50,31 @@
     white-space: nowrap;
     text-align: center;
 }
-.menu-head .head-name img{
+.main-container .menu-head .head-name img{
 	float: right;
     width: 1rem;
     margin-top: 0.15rem;
     margin-right: 0.2rem;
 }
-.menu-head .head-ID{
+.main-container .menu-head .head-ID{
     font-size: 0.6rem;
     line-height: 1rem;
     text-align: center;
 }
-.menu-head .head-Int{
+.main-container .menu-head .head-Int{
 	font-size: 0.6rem;
     line-height: 0.8rem;
     text-align: center;
 }
-.menu-list{
+.main-container .menu-list{
     width: 100%;
     box-sizing: border-box;
     padding: 1rem 0.8rem 0rem 0.1rem;
 }
-.menu-list ul{
+.main-container .menu-list ul{
 	width: 100%;
 }
-.menu-list ul li{
+.main-container .menu-list ul li{
     width: 100%;
     height: 1.4rem;
     background-color: #ffd9dc;
@@ -85,15 +85,15 @@
     box-sizing: border-box;
     padding: 0 0.5rem;
 }
-.menu-list ul li img{
+.main-container .menu-list ul li img{
     width: 1rem;
     float: left;
     margin-top: 0.15rem;
 }
-.menu-list ul li:first-child img{
+.main-container .menu-list ul li:first-child img{
     margin-top: 0.25rem;
 }
-.menu-list ul li span{
+.main-container .menu-list ul li span{
     float: left;
     font-size: 0.6rem;
     color: #ff9298;

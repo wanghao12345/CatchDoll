@@ -88,10 +88,10 @@ $(function(){
 	if (isIosOrAndroid()==0) {//android flv video.js
 
 	}
-	$('#video-btn').on('click',function(){
-		var myVideo=document.getElementById("video");
-		myVideo.play();
-	})
+	// $('#video-btn').on('click',function(){
+	// 	var myVideo=document.getElementById("video");
+	// 	myVideo.play();
+	// })
 
 })
 

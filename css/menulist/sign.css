@@ -1,11 +1,11 @@
-.menu-list-signs{
+.main-container .menu-list-signs{
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
 }
 
-.menu-list-signs-content{
+.main-container .menu-list-signs-content{
     width: 15rem;
     height: 13rem;
     position: absolute;
@@ -16,7 +16,7 @@
     background: url(../../img/menulist/menu_news/back1.png);
     background-size: 100% 100%;
 }
-.menu-list-signs-back2{
+.main-container .menu-list-signs-back2{
     width: 100%;
     height: 100%;
     position: relative;
@@ -24,7 +24,7 @@
     padding: 0 0.5rem;
     padding-top: 1.5rem;
 }
-.menu-list-signs-back2 p{
+.main-container .menu-list-signs-back2 p{
     color: #7d1010;
     text-align: right;
     width: 100%;
@@ -34,7 +34,7 @@
     line-height: 1rem;
     font-size: 0.6rem;
 }
-.menu-list-sign-title{
+.main-container .menu-list-sign-title{
 	width: 6.8rem;
     height: 3rem;
     background: url(../../img/sign/title.png);
@@ -44,7 +44,7 @@
     left: 50%;
     margin-left: -3.5rem;
 }
-.menu-list-sign-close{
+.main-container .menu-list-sign-close{
     position: absolute;
 	width: 1.8rem;
     height: 1.8rem;
@@ -53,7 +53,7 @@
     background: url(../../img/menulist/menu_news/close.png);
     background-size: 100% 100%;
 }
-.menu-list-sign-button{
+.main-container .menu-list-sign-button{
     width: 100%;
     height: 3rem;
     position: absolute;
@@ -63,49 +63,49 @@
     padding: 0.2rem 4.8rem;
     overflow: hidden;
 }
-.menu-list-sign-button button{
+.main-container .menu-list-sign-button button{
 	width: 5rem;
 	height: 2.6rem;
     border: 0;
     padding: 0;
     outline:none;
 }
-.menu-list-sign-button button#cancer{
+.main-container .menu-list-sign-button button#cancer{
 	float: left;
     background: url(../../img/menulist/menu_news/canser.png);
     background-size: 100% 100%;
 }
-.menu-list-sign-button button.query{
+.main-container .menu-list-sign-button button.query{
 	float: right;
     background: url(../../img/sign/sign-btn.png);
     background-size: 100% 100%;
 }
-.menu-list-sign-main-content{
+.main-container .menu-list-sign-main-content{
     width: 13rem;
     height: 10rem;
     margin: 0 auto;
     box-sizing: border-box;
 }
-.menu-list-sign-main-content .top{
+.main-container .menu-list-sign-main-content .top{
     width: 100%;
     height: 4.5rem;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0.5rem 2rem 0rem 2rem;
 }
-.menu-list-sign-main-content .bottom{
+.main-container .menu-list-sign-main-content .bottom{
     width: 100%;
     height: 5rem;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 0.5rem;    
 }
-.menu-list-sign-main-content .item{
+.main-container .menu-list-sign-main-content .item{
     width: 3rem;
     height: 4rem;
     float: left;
 }
-.menu-list-sign-main-content .item .item-title{
+.main-container .menu-list-sign-main-content .item .item-title{
     width: 100%;
     height: 1rem;
     text-align: center;
@@ -114,16 +114,16 @@
     font-weight: 550;
     color: #ff2447;
 }
-.menu-list-sign-main-content .item .item-content{
+.main-container .menu-list-sign-main-content .item .item-content{
     width: 100%;
     height: 3rem;   
     position: relative; 
 }
 
-.menu-list-sign-main-content .item .item-content img{
+.main-container .menu-list-sign-main-content .item .item-content img{
     width: 3rem;
 }
-.menu-list-sign-main-content .item .item-content img#ok{
+.main-container .menu-list-sign-main-content .item .item-content img#ok{
     position: absolute;
     top: 50%;
     width: 2rem;

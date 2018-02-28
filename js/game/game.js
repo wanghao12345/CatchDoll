@@ -80,18 +80,27 @@ $(function(){
 	$('#coin-number').on('click',function(){
 		addTip('请下载app充值！');
 	})
-	/*******************-----vedio-----******************/
+	/*******************-----video-----******************/	
+	$('.game-cantainer #video-btn').on('click',function(){
+		var myVideo=document.getElementById("video");
+		myVideo.pause();		
+		var value = $('#video').attr('value');
+		if (value=='1') {
+			$('#video').attr('value','2');	
+			$('#video').attr('src',rtmp1);
+			var myVideo1=document.getElementById("video");
+			myVideo1.play();
+		}
+		if (value=='2') {
+			$('#video').attr('value','1');				
+			// $('#video').attr('src','http://rtmp.wawa.4utec.cn/live/test.m3u8');
+			$('#video').attr('src',rtmp2);
+			var myVideo2=document.getElementById("video");
+			myVideo2.play();
+		}		
 
-	if (isIosOrAndroid()==1) {//ios m3u8 hls.js
+	})
 
-	}
-	if (isIosOrAndroid()==0) {//android flv video.js
-
-	}
-	// $('#video-btn').on('click',function(){
-	// 	var myVideo=document.getElementById("video");
-	// 	myVideo.play();
-	// })
 
 })
 

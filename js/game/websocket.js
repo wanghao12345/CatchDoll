@@ -68,6 +68,8 @@ function getTcpLogin(data){
 /**
  * 获取旁观信息
  */
+var rtmp1 = '';
+var rtmp2 = '';
 function getOnlooker(data){
 	var money = data.money;
 	$('span#coin-number').html(money);
@@ -79,6 +81,25 @@ function getOnlooker(data){
     //抓取所需卷
     var machine_free = data.machine_free+'/次';
     $('#need-free').html(machine_free);
+    //直播视频流
+    rtmp1 = data.rtmp1.replace('rtmp','http')+'.m3u8';//正面
+    rtmp2 = data.rtmp2.replace('rtmp','http')+'.m3u8';//正面
+    /*$('#video').prop('src',rtmp1);
+    var myVideo=document.getElementById("video");
+    myVideo.play(); */
+/*    //你在动态赋值src后要加载这个视频文件即:
+    $("#video").load();
+    //然后在判断是否可以播放了,在播放即:
+    $("#video").addEventListener("canplaythrough", function() { 
+        $("#video").play();
+    } );*/
+
+
+
+    // $('.game-cantainer #video').attr('src',rtmp1);
+    console.log('rtmp1: '+rtmp1);
+    console.log('rtmp2: '+rtmp2);
+
 }
 /**
  * 获取旁观头像 

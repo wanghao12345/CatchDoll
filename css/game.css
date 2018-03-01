@@ -196,6 +196,7 @@ html,body{
     border-radius: 2rem;
     box-sizing: border-box;
     border: 1px solid white;
+    display: none;
 }
 .game-cantainer .menu .video-btn img{
 	width: 1.5rem;

@@ -111,6 +111,7 @@ $(function(){
 			index_doll_id = doll_id;
 			// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
 			sendTcpLogin();	
+
 			var myVideo=document.getElementById("video");
 			myVideo.play();		
 		}

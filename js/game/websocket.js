@@ -111,6 +111,10 @@ function getFragment(data){
  * 获取是否有人在玩
  */
 function getIsHavePerson(data){
+    $('.game-cantainer #game-user .status').addClass('hide');
+    $('.game-cantainer #game-user #status1').removeClass('hide');
+    $('.game-cantainer #game-user #head-img0').removeClass('hide');
+
 	var content = '<div class="head-img" id="head-img0"><img src='+data.do_headimg+' alt="头像" /></div>';
     content += '<div class="status1">';
     content += '<div class="status-name">'+data.do_name+'</div>';

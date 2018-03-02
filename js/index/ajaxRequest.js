@@ -111,7 +111,7 @@ function RequestMachineList(type) {
  */
 var token = '';
 var guestno = ''
-getTestToken();
+/*getTestToken();
 function getTestToken(){
 	var myUrl = 'http://ateam.ticp.io:9107/70';
 	$.ajax({
@@ -123,21 +123,26 @@ function getTestToken(){
 	    token = data.ret[0].d.token;
 	    guestno = data.ret[0].d.guestno;
 	    RequestMachineList(0);
-	    getUserInfo(data);
+	    getUserInfo(data,'ish');
 	  },
 	  fail: function (err) {
 	    console.log(err)
 	  }
 	})		
-}
+}*/
 
 /**
  * 获取用户的基本信息
  */
-function getUserInfo(data){
+function getUserInfo(data,ish){
 	var item = data.ret[0].d;
-
-	var head_img = 'http://ateam.ticp.io:9107'+item.headImg;
+	var head_img;
+	if (ish=='ish1') {
+		head_img = item.headImg;
+	}else if (ish == 'ish'){
+		head_img = 'http://ateam.ticp.io:9107'+item.headImg;
+		
+	}
 	$('#head-img').html('<img src='+head_img+' alt="头像" />');
 	var head_name = item.name;
 	$('#head-name').html(head_name);

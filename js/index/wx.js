@@ -73,7 +73,7 @@ function getGameUserInfoByCode(code){
 	    	var openid = data.ret[0].d.openid;
 	    	setCookie('wx_zhuazhuale_openid',openid,30);
 	    	RequestMachineList(0);
-	    	getUserInfo(data);
+	    	getUserInfo(data,'ish1');
 	    },
 	    error: function (data){
 
@@ -99,7 +99,7 @@ function getGameUserInfoByOpenid(openid){
 			token = data.ret[0].d.token;
 	    	guestno = data.ret[0].d.guestno;
 	    	RequestMachineList(0);
-	    	getUserInfo(data);	    	
+	    	getUserInfo(data,'ish1');	    	
 	    },
 	    error: function (data){
 

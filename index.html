@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="js/index/slides.js"></script>
 	<script type="text/javascript" src="js/tip/tip.js"></script>
 	<script type="text/javascript" src="js/index/index.js"></script>
-	<!-- <script type="text/javascript" src="js/index/wx.js"></script> -->
+	<script type="text/javascript" src="js/index/wx.js"></script>
 	<!-- game -->
 	<script type="text/javascript" src="js/jquery.barrager.js"></script>
 	<script type="text/javascript" src="js/game/websocket.js"></script>
@@ -34,6 +34,7 @@
 
 </head>
 <body>
+	<!-- 主页 -->
 	<div class="main-container">
 		<div class="container">
 			<div class="top-container">
@@ -63,8 +64,8 @@
 				</div>			
 			</div>
 			<div class="bottom-container">
-				<div class="bottom-container-content">
-					<div class="tab-title">
+				<div class="bottom-container-content" style="padding-top: 0.3rem;">
+					<div class="tab-title" style="display: none">
 						<div class="tab-title-content">
 							<ul id="tab">
 								<li class="active">
@@ -105,7 +106,7 @@
 							</ul>						
 						</div>
 					</div>
-					<div class="tab-content">
+					<div class="tab-content" style="padding-top: 0rem;margin-top: 0rem;">
 						<div class="tab-list-content tab1-content">
 							<ul id="machineList">
 								<!-- <li>
@@ -348,8 +349,8 @@
 			<div class="user">
 				<div class="user-left" id="game-user">
 					<div class="status">当前房间空闲</div>
-					<div class="head-img" id="head-img0"></div>
-					<div class="status1">
+					<div class="head-img hide" id="head-img0"></div>
+					<div class="status1 hide" id="status1">
 						<div class="status-name">包子的母亲大人</div>
 						<div class="status-content">正在抓取...</div>
 					</div>

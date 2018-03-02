@@ -242,17 +242,40 @@ function getSign(){
 			$('#sign-img'+totalDay).append('<img src="img/sign/ok.png" id="ok">');
 			var time = window.setTimeout(function(){
 				$(".menu-list-frame").html('');
-			},1000)		    	
+			},1000)	
 	    }
 	    if (data.ret[0].d.errcode == -1) {
-			addTip('签到失败！');		    	
+			addTip('获取奖励失败！');		    	
 	    }
 	  },
 	  fail: function (err) {
-	    console.log(err)
+	    addTip('获取奖励失败！');
 	  }
 	})	
 }
+/**
+ * 每日签到
+ */
+function todaySign(){
+
+	var myUrl = 'http://ateam.ticp.io:9107/29?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+
+
+}
+
+
+
 /**
  * 获取banner数据
  */

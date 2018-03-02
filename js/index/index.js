@@ -91,6 +91,7 @@ $(function(){
 	/*******************-----今日签到-----******************/
 	$('.menu-list-frame').on('click','#sign-query',function(){
 		getSign();
+		todaySign();
 	})
 	/*******************-----选择机器-----******************/
 	$('ul#machineList').on('click','li',function(){

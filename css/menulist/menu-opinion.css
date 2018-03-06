@@ -54,6 +54,7 @@
     top: 1rem;	
     background: url(../../img/menulist/menu_news/close.png);
     background-size: 100% 100%;
+    cursor: pointer;
 }
 .main-container .menu-list-new-button{
     width: 100%;
@@ -75,11 +76,13 @@
 	float: left;
     background: url(../../img/menulist/menu_news/canser.png);
     background-size: 100% 100%;
+    cursor: pointer;
 }
 .main-container .menu-list-new-button button.query{
 	float: right;
     background: url(../../img/menulist/menu_news/query.png);
     background-size: 100% 100%;
+    cursor: pointer;
 }
 .main-container .menu-list-new-main-content{
     width: 10rem;
@@ -102,18 +105,18 @@
     padding: 0;
     outline: none;
 }
-.main-container textarea::textarea-placeholder{
-    color: black;
+
+.search_textarea::-webkit-input-placeholder{
+    color:#F7F7F7;
 }
-.main-container textarea::-webkit-textarea-placeholder{
-    color: black;
+.search_textarea:-moz-placeholder{
+    color:#F7F7F7;
 }
-.main-container textarea:-moz-placeholder {   
-    color: black;   
-}  
-.main-container textarea::-moz-placeholder {   
-    color: black;   
-}  
-.main-container textarea:-ms-textarea-placeholder {   
-    color: black;   
-}    
+.search_textarea::-moz-placeholder{
+    color:#F7F7F7;
+}
+.search_textarea:-ms-input-placeholder{
+    color:#F7F7F7;
+}
+
+

@@ -7,7 +7,8 @@ $(function(){
   			$(".menu-list").animate({'height':'1.8rem'});
 			$(this).attr("value","0");
 		} else {//收缩状态
-			$(".menu-list").animate({'height':'9rem'});
+			// $(".menu-list").animate({'height':'9rem'});
+			$(".menu-list").animate({'height':'7.2rem'});
 			$(this).attr("value","1");
 		}
 	})

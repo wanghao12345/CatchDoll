@@ -40,13 +40,13 @@ html,body{
     width: 2rem;
     height: 2rem;
     margin: 0 auto;
-    border-radius: 2rem;
-    background-color: white; 
+    /*border-radius: 2rem;*/
+    /*background-color: white; */
 }
 .main-container .top-container .logo .head-img img{
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    /*border-radius: 2rem;*/
 }
 .main-container .top-container .logo .head-name{
     width: 100%;
@@ -115,10 +115,10 @@ html,body{
 /*banner*/
 .main-container .middle-container{
     width: 100%;
-    height: 4rem;
+    height: 5rem;
     box-sizing: border-box;
     border-top: 0.1rem solid white;
-/*    border-bottom: 0.1rem solid white;*/
+    border-bottom: 0.1rem solid white;
     box-shadow: 1px 1px 10px #ff9298;
 }
 
@@ -126,9 +126,9 @@ html,body{
 .main-container .bottom-container{
 	width: 100%;
 	height: 100%;
-	margin-top: -7rem;
+	margin-top: -8rem;
 	box-sizing: border-box;
-	padding-top: 7rem;
+	padding-top: 8.1rem;
 }
 .main-container .bottom-container-content{
     width: 100%;

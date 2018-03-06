@@ -36,7 +36,6 @@
     border-radius: 2rem;
     overflow: hidden;
     border: 1.5px solid white;
-    margin-top: -0.3rem;
 }
 .main-container .menu-head .head-name span{
 	float: left;
@@ -44,7 +43,7 @@
     line-height: 1.3rem;
     font-size: 0.6rem;
     padding-left: 0.2rem;
-    width: 3.3rem;
+    width: 4.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -55,6 +54,7 @@
     width: 1rem;
     margin-top: 0.15rem;
     margin-right: 0.2rem;
+    display: none;
 }
 .main-container .menu-head .head-ID{
     font-size: 0.6rem;

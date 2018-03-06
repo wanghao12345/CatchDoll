@@ -1,8 +1,7 @@
 
 $(function(){
 	//IOS微信浏览器
-	$("body>*").bind("click",function(){});
-	// tab
+
 	$('ul#tab').on('click','li',function(){
 		$('ul#tab li').removeClass('active');
 		$(this).addClass('active');
@@ -138,9 +137,9 @@ $(function(){
 
 
 	/*******************-----IOS微信浏览器-----******************/
-	$('body').on('touchmove touchstart', function (event) {
+/*	$('body').on('touchmove touchstart', function (event) {
 	    event.preventDefault();
-	});
+	});*/
 
 
 })

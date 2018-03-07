@@ -1,5 +1,5 @@
-socket = new WebSocket("ws://ateam.ticp.io:65154");
-// socket = new WebSocket("ws://ateam.ticp.io:55151");
+socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:65154");
+// socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:55151");
 //打开事件
 socket.onopen = function(){
     console.log("Socket 已打开");

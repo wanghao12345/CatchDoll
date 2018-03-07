@@ -61,7 +61,7 @@ getWeixinUserInfo = function(code,complete){
  * 通过code获取游戏用户的基本信息
  */
 function getGameUserInfoByCode(code){
-	var URL = 'http://ateam.ticp.io:9107/4?ish=1&code='+code;
+	var URL = 'http://web.zhuazhuale.4utec.cn:9107/4?ish=1&code='+code;
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",
@@ -73,6 +73,7 @@ function getGameUserInfoByCode(code){
 	    	var openid = data.ret[0].d.openid;
 	    	setCookie('wx_zhuazhuale_openid',openid,30);
 	    	RequestMachineList(0);
+
 	    	getUserInfo(data,'ish1');
 	    },
 	    error: function (data){
@@ -84,7 +85,7 @@ function getGameUserInfoByCode(code){
  * 通过openid获取游戏用户的基本信息
  */
 function getGameUserInfoByOpenid(openid){
-	var URL = 'http://ateam.ticp.io:9107/4?ish=1&openid='+openid;
+	var URL = 'http://web.zhuazhuale.4utec.cn:9107/4?ish=1&openid='+openid;
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",

@@ -3,7 +3,7 @@
  */
 RequestMachineType();
 function RequestMachineType(){
-	var myUrl = 'http://ateam.ticp.io:9107/45';
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/45';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -39,7 +39,7 @@ function RequestMachineType(){
  *获取机器列表
  */
 function RequestMachineList(type) {
-	var myUrl = 'http://ateam.ticp.io:9107/14?type='+type+'&tk='+token;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/14?type='+type+'&tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -54,7 +54,7 @@ function RequestMachineList(type) {
 	    	var price = item[i].price;
 	    	var inventory = item[i].inventory;//库存
 	    	var status = item[i].status;//状态
-	    	var img_url = 'http://ateam.ticp.io:9107/'+item[i].img_url;
+	    	var img_url = 'http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url;
 	    	var name = item[i].name;//名字
 	    	if (inventory == 0 || status==2) { //不可以游戏
 	    		var content = '<li value="0">';
@@ -111,9 +111,9 @@ function RequestMachineList(type) {
  */
 var token = '';
 var guestno = ''
-getTestToken();
+/*getTestToken();
 function getTestToken(){
-	var myUrl = 'http://ateam.ticp.io:9107/70';
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/70';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -129,7 +129,7 @@ function getTestToken(){
 	    console.log(err)
 	  }
 	})		
-}
+}*/
 
 /**
  * 获取用户的基本信息
@@ -140,8 +140,7 @@ function getUserInfo(data,ish){
 	if (ish=='ish1') {
 		head_img = item.headImg;
 	}else if (ish == 'ish'){
-		head_img = 'http://ateam.ticp.io:9107'+item.headImg;
-		
+		head_img = 'http://web.zhuazhuale.4utec.cn:9107'+item.headImg;		
 	}
 	$('#head-img').html('<img src='+head_img+' alt="头像" />');
 	var head_name = item.name;
@@ -178,7 +177,7 @@ function getMenuUserInfo(){
  * 意见反馈
  */
 function feelbackOpinion(advice){
-	var myUrl = 'http://ateam.ticp.io:9107/23?tk='+token+'&advice='+advice;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/23?tk='+token+'&advice='+advice;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -201,7 +200,7 @@ function feelbackOpinion(advice){
  * 分享游戏接口(邀请码分享)
  */
 function InvitationCodeShare(token){
-	var myUrl = 'http://ateam.ticp.io:9107/43?tk='+token+'&type=invite';
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/43?tk='+token+'&type=invite';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -210,7 +209,7 @@ function InvitationCodeShare(token){
 	    console.log(data)
 
 	    var inviteCode = data.ret[0].d.inviteCode;//邀请码
-	    var QR_img = 'http://ateam.ticp.io:9107'+data.ret[0].d.qrCode;//邀请二维码
+	    var QR_img = 'http://web.zhuazhuale.4utec.cn:9107'+data.ret[0].d.qrCode;//邀请二维码
 	    var inviteCodeArr = inviteCode.split('');
 	    $('.share1 #share1-Invitation').html('');
 	    $('.share1 #share1-QR').html('');
@@ -230,7 +229,7 @@ function InvitationCodeShare(token){
  * 签到得奖励
  */
 function getSign(){
-	var myUrl = 'http://ateam.ticp.io:9107/27?tk='+token;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/27?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -258,7 +257,7 @@ function getSign(){
  */
 function todaySign(){
 
-	var myUrl = 'http://ateam.ticp.io:9107/29?tk='+token;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/29?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -270,17 +269,13 @@ function todaySign(){
 	    console.log(err);
 	  }
 	})	
-
-
 }
-
-
 
 /**
  * 获取banner数据
  */
 function getBanner() {
-	var myUrl = 'http://ateam.ticp.io:9107/52';
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/52';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -295,20 +290,24 @@ function getBanner() {
 	    	var slide = '';
 	    	switch(type){
 	    		case '1'://链接
-	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
-	    			slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    			// content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    			content += '<li value='+type+' onclick="gotoURL('+item[i].url+')"><img src='+item[i].img+'></li>';
+	    			// slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '2'://跳转机器
-	    			content += '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
-	    			slide = '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
+	    			// content += '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
+	    			content += '<li value='+type+' onclick="goGameRoomBanner('+item[i].url+','+item[i].id+')" ><img src='+item[i].img+'></li>';
+	    			// slide = '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '3'://新闻图片
-	    			content += '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
-	    			slide = '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    			// content += '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    			content += '<li value='+type+' onclick="gotoImgURL('+item[i].url+')"><img src='+item[i].img+'></li>';
+	    			// slide = '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '4'://跳页面
-	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	
-	    			slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';    		
+	    			// content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	
+	    			content += '<li value='+type+' onclick="gotoURL('+item[i].url+')"><img src='+item[i].img+'></li>';	
+	    			// slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';    		
 	    		break;	    			    			    		
 	    	}
 	    	slides.push(slide);
@@ -330,3 +329,56 @@ function getBanner() {
 	  }
 	})	
 }
+/**
+ * 机器列表进入游戏房间
+ */
+ function goGameRoom(_this){
+	$('.main-container').css('display','none');
+	addLoading();
+	// $('.game-cantainer').css('display','block');
+
+	var mid = $(_this).find('input#mid').val();
+	var doll_id = $(_this).find('input#doll_id').val();
+
+	index_mid = mid;
+	index_tk = token;
+	index_guestno = guestno;
+	index_doll_id = doll_id;
+	// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
+	sendTcpLogin();	
+
+	var myVideo=document.getElementById("video");
+	myVideo.play();			
+ }
+/**
+ * banner进入游戏房间
+ */
+ function goGameRoomBanner(mid,doll_id){
+	$('.main-container').css('display','none');
+	addLoading();
+	index_mid = mid;
+	index_tk = token;
+	index_guestno = guestno;
+
+
+	index_doll_id = doll_id;
+	sendTcpLogin();	
+
+	var myVideo=document.getElementById("video");
+	myVideo.play();			
+ }
+/**
+ * banner跳页面
+ */
+ function gotoURL(url){
+ 	if (url!="" && url!=undefined && url!='undefined') {
+ 		window.location.href=url;	
+ 	}
+ }
+/**
+ * banner跳图片页
+ */
+ function gotoImgURL(url){
+ 	window.location.href='img.html?img='+url;
+ }
+

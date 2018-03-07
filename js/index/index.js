@@ -24,10 +24,10 @@ $(function(){
 	 */
 	getBanner();
 
-	$('#flexslider').on('click',function(){
+/*	$('#flexslider').on('click',function(){
 		var href = $('#slides .flex-active-slide a').attr('href');
 		window.location.href = href;
-	})
+	})*/
 
 
 	 /*******************-----意见反馈-----******************/
@@ -100,7 +100,12 @@ $(function(){
 		if (value == 0) {
 			addTip('设备正在维修！');
 		}else{
-			$('.main-container').css('display','none');
+
+			// 进入游戏房间
+			goGameRoom(this);
+
+
+	/*		$('.main-container').css('display','none');
 			addLoading();
 			// $('.game-cantainer').css('display','block');
 
@@ -115,7 +120,7 @@ $(function(){
 			sendTcpLogin();	
 
 			var myVideo=document.getElementById("video");
-			myVideo.play();		
+			myVideo.play();	*/	
 		}
 
 

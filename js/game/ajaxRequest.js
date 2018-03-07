@@ -148,3 +148,17 @@ function isIosOrAndroid(){
 }
 
 
+/**
+ * 插入loading
+ */
+function addLoading(){
+	$('body').append('<div class="loading"></div>');
+}
+/**
+ * 移除loading
+ */
+function removeLoading(){
+	$('body .loading').remove();
+}
+
+

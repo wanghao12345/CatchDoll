@@ -87,8 +87,11 @@ function getOnlooker(data){
     $('#video').attr('src',rtmp1);
     var myVideo=document.getElementById("video");
     myVideo.play(); 
-    console.log('rtmp1: '+rtmp1);
-    console.log('rtmp2: '+rtmp2);
+    // $('.game-cantainer').css('display','block');
+    var time = window.setTimeout(function(){
+        $('.game-cantainer').css('display','block');
+        removeLoading()
+    },2000);
 
 }
 /**

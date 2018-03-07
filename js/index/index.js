@@ -1,6 +1,5 @@
 
 $(function(){
-	//IOS微信浏览器
 
 	$('ul#tab').on('click','li',function(){
 		$('ul#tab li').removeClass('active');
@@ -102,7 +101,8 @@ $(function(){
 			addTip('设备正在维修！');
 		}else{
 			$('.main-container').css('display','none');
-			$('.game-cantainer').css('display','block');
+			addLoading();
+			// $('.game-cantainer').css('display','block');
 
 			var mid = $(this).find('input#mid').val();
 			var doll_id = $(this).find('input#doll_id').val();
@@ -137,9 +137,6 @@ $(function(){
 
 
 	/*******************-----IOS微信浏览器-----******************/
-/*	$('body').on('touchmove touchstart', function (event) {
-	    event.preventDefault();
-	});*/
 
 
 })

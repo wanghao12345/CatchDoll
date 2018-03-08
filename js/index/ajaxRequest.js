@@ -290,24 +290,16 @@ function getBanner() {
 	    	var slide = '';
 	    	switch(type){
 	    		case '1'://链接
-	    			// content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
-	    			content += '<li value='+type+' onclick="gotoURL('+item[i].url+')"><img src='+item[i].img+'></li>';
-	    			// slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '2'://跳转机器
-	    			// content += '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
 	    			content += '<li value='+type+' onclick="goGameRoomBanner('+item[i].url+','+item[i].id+')" ><img src='+item[i].img+'></li>';
-	    			// slide = '<li><a href=game.html?mid='+item[i].url+'&tk='+token+'&guestno='+guestno+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '3'://新闻图片
-	    			// content += '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
-	    			content += '<li value='+type+' onclick="gotoImgURL('+item[i].url+')"><img src='+item[i].img+'></li>';
-	    			// slide = '<li><a href="'+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    			content += '<li><a href="img.html?img='+item[i].url+'"><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '4'://跳页面
-	    			// content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';	
-	    			content += '<li value='+type+' onclick="gotoURL('+item[i].url+')"><img src='+item[i].img+'></li>';	
-	    			// slide = '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';    		
+	    			content += '<li onclick="gotoShare()"><img src='+item[i].img+'></li>';	 		
 	    		break;	    			    			    		
 	    	}
 	    	slides.push(slide);
@@ -376,9 +368,10 @@ function getBanner() {
  	}
  }
 /**
- * banner跳图片页
+ * banner跳分享页
  */
- function gotoImgURL(url){
- 	window.location.href='img.html?img='+url;
+ function gotoShare(){
+	$(".menu-list-frame").load("template/menu-share1.html");
+	InvitationCodeShare(token);	
  }
 

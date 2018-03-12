@@ -111,7 +111,7 @@ function RequestMachineList(type) {
  */
 var token = '';
 var guestno = ''
-/*getTestToken();
+getTestToken();
 function getTestToken(){
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/70';
 	$.ajax({
@@ -129,7 +129,7 @@ function getTestToken(){
 	    console.log(err)
 	  }
 	})		
-}*/
+}
 
 /**
  * 获取用户的基本信息
@@ -156,7 +156,7 @@ function getUserInfo(data,ish){
 	var sigStatus = item.sigStatus;//今天的登录状态
 	$('#sigStatus').html(sigStatus);
 	if (sigStatus == 0) {//未领取，打开领奖
-		$(".menu-list-frame").load("template/sign.html",function(){
+		$(".menu-list-frame").load("template/tip/sign.html",function(){
 			for (var i = 1; i <= totalDay; i++) {
 				$('#sign-img'+i).append('<img src="img/sign/ok.png" id="ok">');	
 			}

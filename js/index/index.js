@@ -12,7 +12,7 @@ $(function(){
 	 *菜单
 	 */
 	$('#logo-btn').on('click',function(){
-		$(".menu-frame").load("template/menu.html",function(){
+		$(".menu-frame").load("template/menu/menu.html",function(){
 			getMenuUserInfo();
 		});
 	})
@@ -24,16 +24,10 @@ $(function(){
 	 */
 	getBanner();
 
-/*	$('#flexslider').on('click',function(){
-		var href = $('#slides .flex-active-slide a').attr('href');
-		window.location.href = href;
-	})*/
-
-
 	 /*******************-----意见反馈-----******************/
 	 //打开
-	$('.menu-frame').on('click','#menu_news',function(){
-		$(".menu-list-frame").load("template/menu-Opinion.html");
+	$('.menu-frame').on('click','#menu-news',function(){
+		$(".menu-list-frame").load("template/menu/menu-Opinion.html");
 	})
 	//关闭
 	$('.menu-list-frame').on('click','#close',function(){
@@ -57,7 +51,7 @@ $(function(){
 	/*******************-----联系我们-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-connect',function(){
-		$(".menu-list-frame").load("template/menu-connect.html");
+		$(".menu-list-frame").load("template/menu/menu-connect.html");
 	})
 	//确定
 	$('.menu-list-frame').on('click','#connect-query',function(){
@@ -66,7 +60,7 @@ $(function(){
 	/*******************-----邀请好友-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-share',function(){
-		$(".menu-list-frame").load("template/menu-share1.html");
+		$(".menu-list-frame").load("template/menu/menu-share1.html");
 		InvitationCodeShare(token);	
 	})
 	//返回
@@ -76,16 +70,29 @@ $(function(){
 	//分享
 	$('.menu-list-frame').on('click','.share1 #share-btn',function(){
 		$('.menu-list-frame').html('');
-		$(".menu-list-frame").load("template/menu-share.html");	
+		$(".menu-list-frame").load("template/menu/menu-share.html");	
 	});
 	//确定分享
 	$('.menu-list-frame').on('click','.menu-list-shares #share-query',function(){
 		$('.menu-list-frame').html('');
 	});	
+	/*******************-----排行榜-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-rank',function(){
+		$(".menu-list-frame").load("template/menu/menu-rank.html");
+	})
+
+
+
+
+
+
+
+
 	/*******************-----幫助-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-help',function(){
-		$(".menu-list-frame").load("template/menu-help.html");
+		$(".menu-list-frame").load("template/menu/menu-help.html");
 		InvitationCodeShare(token);	
 	})	
 	/*******************-----今日签到-----******************/
@@ -100,31 +107,9 @@ $(function(){
 		if (value == 0) {
 			addTip('设备正在维修！');
 		}else{
-
 			// 进入游戏房间
 			goGameRoom(this);
-
-
-	/*		$('.main-container').css('display','none');
-			addLoading();
-			// $('.game-cantainer').css('display','block');
-
-			var mid = $(this).find('input#mid').val();
-			var doll_id = $(this).find('input#doll_id').val();
-
-			index_mid = mid;
-			index_tk = token;
-			index_guestno = guestno;
-			index_doll_id = doll_id;
-			// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
-			sendTcpLogin();	
-
-			var myVideo=document.getElementById("video");
-			myVideo.play();	*/	
 		}
-
-
-
 	})
 	/*******************-----提示框-----******************/	
 	//關閉

@@ -2,7 +2,7 @@
 	var Slides = function(ele,opt){
 		this.$element = ele,
 		this.default = {
-			'stay_time':5000
+			'stay_time':2000
 		},
 		this.options = $.extend({},this.defaults,opt)
 	}
@@ -29,7 +29,7 @@
 				_this.$element.css('left','-'+(index*16)+'rem');
 				//重新请求数据
 				RequestMachineList($('ul#tab li.active').attr('value'));	
-			},5000)
+			},2000)
 		}
 	}
 	$.fn.myslides = function(options){

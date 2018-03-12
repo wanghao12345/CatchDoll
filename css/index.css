@@ -4,6 +4,7 @@
 @import "menulist/menu-help.css";
 @import "menulist/menu-share.css";
 @import "menulist/menu-share1.css";
+@import "menulist/menu-rank.css";
 @import "menulist/sign.css";
 
 
@@ -110,7 +111,7 @@ html,body{
     text-align: center;
     line-height: 1rem;
     font-size: 0.55rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #ff5a73;
     margin-top: 0.1rem;
 }

@@ -1,0 +1,86 @@
+.main-container .menu-list-ranks{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: url(../../img/menulist/menu_rank/back.png);
+    background-size: 100% 100%;
+}
+
+.main-container .menu-list-ranks-content{
+    width: 15rem;
+    height: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -7.5rem;
+    margin-top: -10rem;
+    background: url(../../img/menulist/menu_rank/content-rank.png);
+    background-size: 100% 100%;
+}
+.main-container .menu-list-ranks-content .my-rank{
+    width: 100%;
+    height: 2.8rem;
+    background: url(../../img/menulist/menu_rank/my-rank.png);
+    background-size: 100% 100%;
+    text-align: center;
+    line-height: 2.8rem;
+    color: #7d1010;
+    font-size: 0.7rem; 
+}
+
+
+.main-container .menu-list-ranks-back2{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+.main-container .menu-list-rank-close{
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    right: -0.3rem;
+    top: -0.4rem;
+    background: url(../../img/menulist/menu_news/close.png);
+    background-size: 100% 100%;
+    z-index: 0;
+}
+.main-container .menu-list-rank-button{
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0px 4.3rem;
+    overflow: hidden;
+}
+.main-container .menu-list-rank-button button{
+	width: 6rem;
+	height: 3rem;
+    border: 0;
+    padding: 0;
+}
+.main-container .menu-list-rank-main-content{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.main-container .menu-list-rank-main-content h4{
+    font-size: 12px;
+    color: black;
+    padding: 0.3rem 0;
+}
+.main-container .menu-list-rank-main-content p{
+    font-size: 12px;
+    color: #6d6d6d;
+    line-height: 0.7rem;
+}
+.main-container .menu-list-rank-main-content .help-img{
+    text-align: center;
+    margin: 0.3rem 0;
+}

@@ -82,6 +82,11 @@ $(function(){
 		$(".menu-list-frame").load("template/menu/menu-rank.html");
 	})
 
+	/*******************-----兑换-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-exchange',function(){
+		$(".menu-list-frame").load("template/menu/menu-exchange.html");
+	})
 
 
 

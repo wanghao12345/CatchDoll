@@ -39,14 +39,39 @@
 }
 .main-container .menu-list-rank-close{
     position: absolute;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
     right: -0.3rem;
-    top: -0.4rem;
+    top: -0.6rem;
     background: url(../../img/menulist/menu_news/close.png);
     background-size: 100% 100%;
     z-index: 0;
+    outline: none;
 }
+.main-container .menu-list-rank-tab1 {
+    position: absolute;
+    width: 6rem;
+    height: 2.9rem;
+    left: 1.6rem;
+    top: -2.5rem;
+    background: url(../../img/menulist/menu_rank/tab1.png);
+    background-size: 100% 100%;
+    z-index: 0;
+    outline: none;
+}
+.main-container .menu-list-rank-tab2 {
+    position: absolute;
+    width: 6rem;
+    height: 2.9rem;
+    right: 1.6rem;
+    top: -2.5rem;
+    background: url(../../img/menulist/menu_rank/tab2.png);
+    background-size: 100% 100%;
+    z-index: 0;
+    outline: none;
+}
+
+
 .main-container .menu-list-rank-button{
     width: 100%;
     height: 3rem;
@@ -62,6 +87,7 @@
 	height: 3rem;
     border: 0;
     padding: 0;
+    outline: none;
 }
 .main-container .menu-list-rank-main-content{
     width: 100%;
@@ -70,6 +96,105 @@
     overflow-y: auto;
     box-sizing: border-box;
 }
+.main-container .menu-list-rank-main-content ul{
+    width: 100%;
+    height: 100%;
+}
+.main-container .menu-list-rank-main-content ul li{
+    width: 100%;
+    height: 2rem;
+    background: url(../../img/menulist/menu_rank/rank-list-bottom.png);
+    background-size: 100% 100%;
+    overflow: hidden;
+    margin-bottom: 0.2rem;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-left{
+    width: 60%;
+    height: 100%;
+    float: left;
+    overflow:hidden;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-left .rank-number{
+    width: 22%;
+    height: 85%;
+    float: left;
+    display: block;
+    margin-left: 8%;
+    margin-top: 2%;
+    text-align: center;
+    line-height: 1.7rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-left .rank-name{
+    width: 70%;
+    height: 100%;
+    float: left;
+    display: block;
+    line-height: 2rem;
+    font-size: 0.6rem;
+    box-sizing: border-box;
+    padding-left: 0.3rem;
+    color: white;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-right{
+    width: 40%;
+    height: 100%;
+    float: left;
+    overflow:hidden;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-right .rank-icon{
+    width: 24%;
+    height: 50%;
+    float: left;
+    background: url(../../img/menulist/menu_rank/rank-icon.png);
+    background-size: 100% 100%;
+    margin-top: 10%;
+}
+.main-container .menu-list-rank-main-content ul li .ranking-right .rank-money{
+    width: 76%;
+    height: 100%;
+    float: left;
+    line-height: 2rem;
+    font-size: 0.6rem;
+    color: white;
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+}
+
+.main-container .menu-list-rank-main-content ul li:nth-child(1){
+    background: url(../../img/menulist/menu_rank/rank-list-top.png);
+    background-size: 100% 100%;
+}
+.main-container .menu-list-rank-main-content ul li:nth-child(1) .ranking-left .rank-number{
+    background: url(../../img/menulist/menu_rank/rank-num1.png);
+    background-size: 100% 100%;
+}
+
+
+
+
+.main-container .menu-list-rank-main-content ul li:nth-child(2){
+    background: url(../../img/menulist/menu_rank/rank-list-top.png);
+    background-size: 100% 100%;
+}
+.main-container .menu-list-rank-main-content ul li:nth-child(2) .ranking-left .rank-number{
+    background: url(../../img/menulist/menu_rank/rank-num2.png);
+    background-size: 100% 100%;
+}
+
+.main-container .menu-list-rank-main-content ul li:nth-child(3){
+    background: url(../../img/menulist/menu_rank/rank-list-top.png);
+    background-size: 100% 100%;
+}
+.main-container .menu-list-rank-main-content ul li:nth-child(3) .ranking-left .rank-number{
+    background: url(../../img/menulist/menu_rank/rank-num3.png);
+    background-size: 100% 100%;
+}
+
+
+
 .main-container .menu-list-rank-main-content h4{
     font-size: 12px;
     color: black;

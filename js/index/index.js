@@ -77,10 +77,20 @@ $(function(){
 		$('.menu-list-frame').html('');
 	});	
 	/*******************-----排行榜-----******************/
-	 //打开
+	 //打开富豪榜
 	$('.menu-frame').on('click','#menu-rank',function(){
 		$(".menu-list-frame").load("template/menu/menu-rank.html");
+		richList();
 	})
+	//打开富豪榜
+	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab1',function(){
+		richList();
+	})
+	//打开达人榜
+	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab2',function(){
+		masterList();
+	})
+
 
 	/*******************-----兑换-----******************/
 	 //打开

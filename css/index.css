@@ -27,33 +27,47 @@ html,body{
 .main-container .container{
 	width: 100%;
 	height: 100%; 
-	background: url('../img/index/index_back.png');
-	background-size: 100% 100%;
+/*     background: url('../img/index/index_back.png');
+background-size: 100% 100%; */
+    position: relative;
 }
 /*上部分*/
 .main-container .top-container{
-	width: 100%;
-	height: 3rem;
-	overflow: hidden;
+    width: 100%;
+    height: 3rem;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    overflow: hidden;
+}
+.main-container .top-container .top-left{
+    width: 7rem;
+    height: 1.8rem;
+    background: url(../img/index/top-left.png);
+    background-size: 100% 100%;  
+    float: left; 
 }
 .main-container .top-container .logo{
-    width: 15%;
-    height: 100%;
+    width: 1.8rem;
+    height: 1.8rem;
     float: left;
     box-sizing: border-box;
-    padding: 0.8rem 0rem 0.1rem 0.4rem;
+    border-radius: 2rem;
 }
 .main-container .top-container .logo .head-img{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    /*border-radius: 2rem;*/
-    /*background-color: white; */
+    border-radius: 2rem;
 }
 .main-container .top-container .logo .head-img img{
     width: 100%;
     height: 100%;
-    /*border-radius: 2rem;*/
+    border-radius: 2rem;
 }
 .main-container .top-container .logo .head-name{
     width: 100%;
@@ -86,47 +100,97 @@ html,body{
 
 
 .main-container .top-container .recharge{
-	width: 80%;
+    width: 5rem;
     height: 100%;
     float: left;
     box-sizing: border-box;
-    padding: 0.8rem 0.2rem 0.4rem 0.2rem;
 }
 .main-container .top-container .recharge .recharge-content{
     width: 100%;
     height: 100%;
-    background: url(../img/index/title_back.png);
-    background-size: 100% 100%;
     box-sizing: border-box;
-    padding-top: 0.4rem;
-    padding-left: 0.4rem;
+    padding-top: 0.3rem;
 }
 .main-container .top-container .recharge .recharge-content .coin{
     width: 5rem;
-    height: 1rem;
-    background: url(../img/index/coin-input.png);
-    background-size: 100% 100%;
+    height: 100%;
     overflow: hidden;
 }
 .main-container .top-container .recharge .recharge-content .coin span{
-    width: 100%;
     height: 100%;
     display: block;
-    text-align: center;
+    text-align: left;
     line-height: 1rem;
     font-size: 0.55rem;
     font-weight: 600;
     color: #ff5a73;
     margin-top: 0.1rem;
+    float: left;
 }
+.main-container .top-container .recharge .recharge-content .coin span.coin-img{
+    width: 1.5rem;
+    text-align: left;
+}
+.main-container .top-container .recharge .recharge-content .coin span.coin-img img{
+    width: 100%;
+}
+.main-container .top-container .recharge .recharge-content .coin span.coin-num{
+    width: 3.5rem;
+}
+.main-container .top-container .top-right{
+      width: 8rem;
+      float: left;
+      overflow: hidden;
+}
+.main-container .top-container .top-right .voucher{
+    width: 4rem;
+    float: left;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-left: 1rem;
+}
+.main-container .top-container .top-right .voucher img{
+    display: block;
+    width: 1.2rem;
+    float: left;
+    margin-top: 0.3rem;
+}
+.main-container .top-container .top-right .voucher span{
+    float: left;
+    display: block;
+    height: 100%;
+    line-height: 1.8rem;
+    margin-left: 0.2rem;
+    font-weight: 600;
+    color: #ff5a73;
+}
+.main-container .top-container .top-right .email{
+    width: 2rem;
+    height: 100%;
+    float: left;
+}
+.main-container .top-container .top-right .email img{
+    width: 1.2rem;
+    margin-top: 0.3rem;
+}
+.main-container .top-container .top-right .knapsack{
+    width: 2rem;
+    height: 100%;
+    float: left;
+}
+.main-container .top-container .top-right .knapsack img{
+    width: 1.2rem;
+    margin-top: 0.2rem;
+}
+
 /*banner*/
 .main-container .middle-container{
     width: 100%;
-    height: 5rem;
+    height: 7rem;
     box-sizing: border-box;
-    border-top: 0.1rem solid white;
-    border-bottom: 0.1rem solid white;
-    box-shadow: 1px 1px 10px #ff9298;
+ /*    border-top: 0.1rem solid white;
+ border-bottom: 0.1rem solid white;
+ box-shadow: 1px 1px 10px #ff9298; */
 }
 
 /*下部分*/
@@ -140,8 +204,8 @@ html,body{
 .main-container .bottom-container-content{
     width: 100%;
     height: 100%;
-    background: url(../img/index/index_back2.png);
-    background-size: 100% 100%;
+/*    background: url(../img/index/index_back2.png);
+    background-size: 100% 100%;*/
     box-sizing: border-box;
     padding: 0 0.4rem;
     padding-top: 0.8rem;
@@ -270,7 +334,7 @@ html,body{
     /*margin-top: -3.5rem;*/
     box-sizing: border-box;
     padding-top: 3.5rem;
-    padding: 0rem 0.4rem 1.3rem 0.4rem;
+    padding: 0rem 0.4rem 0.3rem 0.4rem;
     overflow: hidden;
 }
 
@@ -285,24 +349,41 @@ html,body{
 }
 
 .main-container .bottom-container-content .tab-content ul li{
-	width: 33.33%;
-    height: 6.6rem;
+    width: 50%;
+    height: 8rem;
     box-sizing: border-box;
-    padding: 0rem 0.2rem 0.4rem 0.2rem;
+    padding: 0rem 0.4rem 0.4rem 0.4rem;
     float: left;
+    margin-bottom: 0.5rem;
 }
 .main-container .bottom-container-content .tab-content ul li .list{
 	width: 100%;
 	height: 100%;
-	background: url(../img/index/list_back.png);
-	background-size: 100% 100%;
+/*	background: url(../img/index/list_back.png);
+	background-size: 100% 100%;*/
 }
 
 .main-container .bottom-container-content .tab-content ul li .list .list-top{
-	width: 100%;
-    height: 4rem;
+    width: 100%;
+    height: 6rem;
     position: relative;
+    padding: 0.05rem;
+    box-sizing: border-box;
 }
+.main-container .bottom-container-content .tab-content ul li .list .list-top-free {
+    background: url(../img/index/list-top-free.png);
+    background-size: 100% 100%;
+}
+.main-container .bottom-container-content .tab-content ul li .list .list-top-use {
+    background: url(../img/index/list-top-use.png);
+    background-size: 100% 100%;
+}
+.main-container .bottom-container-content .tab-content ul li .list .list-top-repair {
+    background: url(../img/index/list-top-repair.png);
+    background-size: 100% 100%;
+}
+
+
 .main-container .bottom-container-content .tab-content ul li .list .list-top .surplus{
     position: absolute;
     width: 2rem;
@@ -339,8 +420,6 @@ html,body{
     position: absolute;
     width: 96%;
     height: 1.3rem;
-    top: 50%;
-    margin-top: -0.2rem;
     left: 0.1rem;
     overflow: hidden;
 }
@@ -374,8 +453,8 @@ html,body{
     box-sizing: border-box;
     padding-left: 1.3rem;
     float: left;
-    font-size: 0.6rem;
-    line-height: 1.3rem;
+    font-size: 0.4rem;
+    line-height: 1.1rem;
     color: white;
 }
 
@@ -386,24 +465,34 @@ html,body{
 .main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-title{
     width: 100%;
     height: 1rem;
-    color: white;
-    font-size: 0.5rem;
+    color: #666666;
     text-align: center;
     line-height: 1rem;
+    font-size: 0.62rem;
 }
 .main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-coin{
     width: 90%;
     height: 1rem;
-    background: url(../img/index/list_coin.png);
-    background-size: 100% 100%;
     margin: 0 auto;
-    text-align: right;
+    text-align: center;
     line-height: 0.9rem;
     font-size: 0.5rem;
-    color: white;
+    color: #ff7693;
     box-sizing: border-box;
     padding-right: 1rem;
+    overflow: hidden;
+    padding-left: 1.4rem;
 }
+.main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-coin img{
+    width: 1.2rem;
+    float: left;
+}
+.main-container .bottom-container-content .tab-content ul li .list .list-bottom .list-coin span{
+    float: left;
+}
+
+
+
 
 button{
     border:0;

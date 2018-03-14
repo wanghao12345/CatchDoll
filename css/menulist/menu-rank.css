@@ -5,6 +5,7 @@
     top: 0;
     background: url(../../img/menulist/menu_rank/back.png);
     background-size: 100% 100%;
+        z-index: 2;
 }
 
 .main-container .menu-list-ranks-content{

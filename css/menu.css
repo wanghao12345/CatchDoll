@@ -4,6 +4,7 @@
     position: absolute;
     background: rgba(0,0,0,0.5);
     top: 0;
+    z-index: 2;
 }
 .main-container .menu-content{
 	width: 6rem;

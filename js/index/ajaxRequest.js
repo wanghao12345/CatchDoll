@@ -64,17 +64,30 @@ function RequestMachineList(type) {
 	    	content += '<input type="hidden" id="mid" value='+mid+' />';
 	    	content += '<input type="hidden" id="doll_id" value='+doll_id+' />';
 	    	content += '<div class="list">';
-	    	content += '<div class="list-top">';
-	    	if (inventory>0 && inventory <= 10) {
+	    	// content += '<div class="list-top list-top-free">';
+	    	/*if (inventory>0 && inventory <= 10) {
 	    		content += '<div class="surplus"><img src="img/index/surplus.png" alt="剩余"/></div><div class="list-num">'+inventory+'</div>';
+	    	}*/
+	    	if (status==2 || (inventory == 0 && status!=2)) { //维修中
+		    	content += '<div class="list-top list-top-repair">';
+	    		content += '<div class="list-status">';
+		    	content += '<img src="img/index/list-top-repair-i.png" alt="维修中">';
+		    	content += '<span style="color:#b3b3b3">维修中</span>';		
+		    	content += '</div>';	    		
+	    	}else if (status==1) { //使用中
+				content += '<div class="list-top list-top-use">';
+	    		content += '<div class="list-status">';
+		    	content += '<img src="img/index/list-top-use-i.png" alt="使用中">';
+		    	content += '<span style="color:#ffc52b">使用中</span>';		
+		    	content += '</div>';				
+	    	}else{//空闲
+				content += '<div class="list-top list-top-free">';
+	    		content += '<div class="list-status">';
+		    	content += '<img src="img/index/list-top-free-i.png" alt="空闲中">';
+		    	content += '<span style="color:#2dcdff">空闲中</span>';		
+		    	content += '</div>';		
 	    	}
-	    	if (inventory == 0 && status!=2) {
-		    	content += '<div class="list-status list-status1">';
-		    	content += '<img src="img/index/list_status1.png" alt="维修中">';
-		    	content += '<span>维修中......</span>';
-		    	content += '</div>';		    		
-	    	}
-	    	switch(status){
+/*	    	switch(status){
 	    		case 1://使用中
 			    	content += '<div class="list-status list-status2">';
 			    	content += '<img src="img/index/list_status2.png" alt="使用中">';
@@ -87,14 +100,14 @@ function RequestMachineList(type) {
 			    	content += '<span>维修中......</span>';
 			    	content += '</div>';		    		
 	    		break;
-	    	}
+	    	}*/
 	    	content += '<div class="list-img">';
 	    	content += '<img src='+img_url+' alt="测试">';
 	    	content += '</div>';
 	    	content += '</div>';
 	    	content += '<div class="list-bottom">';
 	    	content += '<div class="list-title">'+name+'</div>';
-	    	content += '<div class="list-coin">'+price+'/次</div>';
+	    	content += '<div class="list-coin"><img src="img/index/coin_left.png" alt="" /><span>'+price+'/次</span></div>';
 	    	content += '</div>';
 	    	content += '</div>';
 	    	content += '</li>';
@@ -270,7 +283,92 @@ function todaySign(){
 	  }
 	})	
 }
+/**
+ * 排行榜-富豪榜(消耗排行)
+ */
+function richList(){
+	$('#menu-list-ranks ul#menu-rank-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/16?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.rankData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li>';
+			content += '<div class="ranking-left">';
+			content += '<span class="rank-number">'+(i<3? '':(i+1) )+'</span>';
+			content += '<span class="rank-name">'+item[i].nickname+'</span>';
+			content += '</div>';
+			content += '<div class="ranking-right">';
+			content += '<span class="rank-icon"></span>';
+			content += '<span class="rank-money">'+item[i].consume+'</span>';
+			content += '</div>';
+			content += '</li>';
+			$('.menu-list-ranks ul#menu-rank-list').append(content);
+		}
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+/**
+ * 排行榜-达人榜(抓取排行)
+ */
+function masterList(){
+	$('#menu-list-ranks ul#menu-rank-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/17?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.rankData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li>';
+			content += '<div class="ranking-left">';
+			content += '<span class="rank-number">'+(i<3? '':(i+1) )+'</span>';
+			content += '<span class="rank-name">'+item[i].nickname+'</span>';
+			content += '</div>';
+			content += '<div class="ranking-right">';
+			content += '<span class="rank-icon"></span>';
+			content += '<span class="rank-money">'+item[i].claw+'</span>';
+			content += '</div>';
+			content += '</li>';
+			$('.menu-list-ranks ul#menu-rank-list').append(content);	
+		}	
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
 
+
+
+
+
+/**
+ * 兑换
+ */
+function exchangeCode(){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10008?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
 /**
  * 获取banner数据
  */
@@ -305,16 +403,7 @@ function getBanner() {
 	    	slides.push(slide);
 
 	    }
-
-	    /*$('#slides').html(content);
-	    $('.flexslider').flexslider({
-			directionNav: true,
-			pauseOnAction: false
-		});*/
 	    $('#slides').myslides({'slides':content});
-
-
-
 	  },
 	  fail: function (err) {
 	    console.log(err)

@@ -30,7 +30,8 @@
 				//重新请求数据
 				RequestMachineList($('ul#tab li.active').attr('value'));	
 			},2000)
-		}
+		},
+		
 	}
 	$.fn.myslides = function(options){
 		var myslides = new Slides(this,options);

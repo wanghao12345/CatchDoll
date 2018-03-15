@@ -12,15 +12,15 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/tip.css">
-	<link rel="stylesheet" type="text/css" href="css/banner.css">
+	<link rel="stylesheet" type="text/css" href="js/lib/banner/swipeslider.css">
 	<!-- game -->
 	<link rel="stylesheet" type="text/css" href="css/game.css">
 	<!-- index -->
 	<script type="text/javascript" src="js/rem.js"></script>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script type="text/javascript" src="js/index/ajaxRequest.js"></script>
-	<script type="text/javascript" src="js/index/slides.js"></script>
+	<script type="text/javascript" src="js/lib/banner/swipeslider.js"></script>
 	<script type="text/javascript" src="js/tip/tip.js"></script>
 	<script type="text/javascript" src="js/index/index.js"></script>
 	<!-- <script type="text/javascript" src="js/index/wx.js"></script> -->
@@ -69,14 +69,16 @@
 						<img src="img/game/voucher.png" alt="">
 						<span id="my-voucher">0</span>
 					</div>
-					<div class="email"><img src="img/index/email.png" alt=""></div>
-					<div class="knapsack"><img src="img/index/knapsack.png" alt=""></div>
+					<button class="email" id="menu-email"><img src="img/index/email.png" alt=""></button>
+					<button class="knapsack" id="menu-knapsack"><img src="img/index/knapsack.png" alt=""></button>
 				</div>
 			</div>
 			<div class="middle-container">
 				<div class="flexslider" id="flexslider">
-				    <ul class="slides" id="slides" style="height: 100%;">
-				    </ul>
+					<figure id="full_feature" class="swipslider">
+					    <ul class="sw-slides" id="slides">
+					    </ul>
+					</figure>
 				</div>	
 				<div class="banner-btn">
 					<ul>

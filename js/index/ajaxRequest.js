@@ -87,7 +87,7 @@ function RequestMachineList(type) {
 		    	content += '<span style="color:#2dcdff">空闲中</span>';		
 		    	content += '</div>';		
 	    	}
-/*	    	switch(status){
+			/*switch(status){
 	    		case 1://使用中
 			    	content += '<div class="list-status list-status2">';
 			    	content += '<img src="img/index/list_status2.png" alt="使用中">';
@@ -164,6 +164,8 @@ function getUserInfo(data,ish){
 	$('#inviation_code').html(inviation_code);
 	var bonus = item.bonus;//积分
 	$('#bonus').html(bonus);
+	var freetimes = item.freeTimes;//个人卷数量
+	$('span#my-voucher').html(freetimes);
 	var totalDay = item.totalDay;//登录的总天数
 	$('#totalDay').html(totalDay);
 	var sigStatus = item.sigStatus;//今天的登录状态
@@ -347,6 +349,36 @@ function masterList(){
 	  }
 	})	
 }
+/**
+ * 邮件
+ */
+function masterList(){
+	$('.menu-list-emails ul#menu-email-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/21?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.mailList;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li><button>';
+			content +='<div class="email-icon"><img src="img/menulist/menu_email/admin-head.png" alt=""></div>';
+			content +='<div class="email-intro">';
+			content +='<div class="email-intro-top">'+item[i].name+'</div>';
+			content +='<div class="email-intro-bottom">'+item[i].introduction+'</div>';
+			content +='</div>';
+			content +='<div class="email-time">'+item[i].sendtime+'</div>';
+			content +='</button></li>';
+			$('.menu-list-emails ul#menu-email-list').append(content);	
+		}	
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
 
 
 
@@ -388,22 +420,28 @@ function getBanner() {
 	    	var slide = '';
 	    	switch(type){
 	    		case '1'://链接
-	    			content += '<li><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
+	    			content += '<li class="sw-slide"><a href='+item[i].url+'><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '2'://跳转机器
-	    			content += '<li value='+type+' onclick="goGameRoomBanner('+item[i].url+','+item[i].id+')" ><img src='+item[i].img+'></li>';
+	    			content += '<li class="sw-slide" value='+type+' onclick="goGameRoomBanner('+item[i].url+','+item[i].id+')" ><img src='+item[i].img+'></li>';
 	    		break;
 	    		case '3'://新闻图片
-	    			content += '<li><a href="img.html?img='+item[i].url+'"><img src='+item[i].img+'></a></li>';
+	    			content += '<li class="sw-slide"><a href="img.html?img='+item[i].url+'"><img src='+item[i].img+'></a></li>';
 	    		break;
 	    		case '4'://跳页面
-	    			content += '<li onclick="gotoShare()"><img src='+item[i].img+'></li>';	 		
+	    			content += '<li class="sw-slide" onclick="gotoShare()"><img src='+item[i].img+'></li>';	 		
 	    		break;	    			    			    		
 	    	}
 	    	slides.push(slide);
 
 	    }
-	    $('#slides').myslides({'slides':content});
+
+	    // $('#slides').myslides({'slides':content});
+	    //启动banner
+	    $('#slides').append(content);
+	    $(window).load(function() {
+        	$('#full_feature').swipeslider();
+    	});
 	  },
 	  fail: function (err) {
 	    console.log(err)

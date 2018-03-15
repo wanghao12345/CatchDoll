@@ -97,8 +97,21 @@ $(function(){
 	$('.menu-frame').on('click','#menu-exchange',function(){
 		$(".menu-list-frame").load("template/menu/menu-exchange.html");
 	})
-
-
+	/*******************-----邮件-----******************/
+	 //打开
+	$('.main-container').on('click','#menu-email',function(){
+		$(".menu-list-frame").load("template/menu/menu-email.html");
+		masterList();
+	})
+	//邮件详情
+	$('.menu-list-frame').on('click','ul#menu-email-list li button',function(){
+		$(".menu-list-frame").load("template/menu/menu-emailDetail.html");
+	})	
+	/*******************-----背包-----******************/
+	 //打开
+	$('.main-container').on('click','#menu-knapsack',function(){
+		$(".menu-list-frame").load("template/menu/menu-exchange.html");
+	})
 
 
 

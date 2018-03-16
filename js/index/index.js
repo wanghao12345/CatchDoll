@@ -101,7 +101,7 @@ $(function(){
 	 //打开
 	$('.main-container').on('click','#menu-email',function(){
 		$(".menu-list-frame").load("template/menu/menu-email.html");
-		masterList();
+		emailList();
 	})
 	//邮件详情
 	$('.menu-list-frame').on('click','ul#menu-email-list li button',function(){
@@ -110,7 +110,8 @@ $(function(){
 	/*******************-----背包-----******************/
 	 //打开
 	$('.main-container').on('click','#menu-knapsack',function(){
-		$(".menu-list-frame").load("template/menu/menu-exchange.html");
+		// $(".menu-list-frame").load("template/menu/menu-exchange.html");
+		cartList();
 	})
 
 

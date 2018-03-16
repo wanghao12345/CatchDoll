@@ -177,6 +177,12 @@ function getUserInfo(data,ish){
 			}
 		});
 	}
+	//是否有未读的邮件
+	var mailStatus = item.mailStatus;
+	isReadEmail(mailStatus);
+	//是否有未读的背包消息
+	var cartStatus = item.cartStatus;
+	isReadCart(cartStatus);
 }
 /**
  * 加载菜单上用户的基本信息
@@ -352,7 +358,11 @@ function masterList(){
 /**
  * 邮件
  */
-function masterList(){
+function emailList(){
+	//清除跳动
+	window.clearInterval(Beat_tips_time1);
+	$('#menu-email i').css('display', 'none');
+	//列表内容清除
 	$('.menu-list-emails ul#menu-email-list li').remove();
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/21?tk='+token;
 	$.ajax({
@@ -379,8 +389,32 @@ function masterList(){
 	  }
 	})	
 }
-
-
+/**
+ * 判断是否有未读的邮件信息
+ */
+function isReadEmail(mailStatus){
+	if (mailStatus==1) {
+		$('#menu-email i').css('display', 'block');
+		DocumentBeat1('#menu-email');
+	}
+}
+/**
+ * 背包
+ */
+function cartList(){
+	//清除跳动
+	window.clearInterval(Beat_tips_time2);
+	$('#menu-knapsack i').css('display', 'none');
+}
+/**
+ * 是否有未读的背包信息
+ */
+function isReadCart(cartStatus){
+	if (cartStatus==1) {
+		$('#menu-knapsack i').css('display', 'block');
+		 DocumentBeat2('#menu-knapsack');
+	}
+}
 
 
 
@@ -401,6 +435,30 @@ function exchangeCode(){
 	  }
 	})	
 }
+
+
+
+/**
+ * 机器列表进入游戏房间
+ */
+function goGameRoom(_this){
+	$('.main-container').css('display','none');
+	addLoading();
+	// $('.game-cantainer').css('display','block');
+
+	var mid = $(_this).find('input#mid').val();
+	var doll_id = $(_this).find('input#doll_id').val();
+
+	index_mid = mid;
+	index_tk = token;
+	index_guestno = guestno;
+	index_doll_id = doll_id;
+	// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
+	sendTcpLogin();	
+
+	var myVideo=document.getElementById("video");
+	myVideo.play();			
+ }
 /**
  * 获取banner数据
  */
@@ -449,30 +507,9 @@ function getBanner() {
 	})	
 }
 /**
- * 机器列表进入游戏房间
- */
- function goGameRoom(_this){
-	$('.main-container').css('display','none');
-	addLoading();
-	// $('.game-cantainer').css('display','block');
-
-	var mid = $(_this).find('input#mid').val();
-	var doll_id = $(_this).find('input#doll_id').val();
-
-	index_mid = mid;
-	index_tk = token;
-	index_guestno = guestno;
-	index_doll_id = doll_id;
-	// window.location.href="index.html?mid="+mid+"&tk="+token+"&guestno="+guestno+"&doll_id="+doll_id;
-	sendTcpLogin();	
-
-	var myVideo=document.getElementById("video");
-	myVideo.play();			
- }
-/**
  * banner进入游戏房间
  */
- function goGameRoomBanner(mid,doll_id){
+function goGameRoomBanner(mid,doll_id){
 	$('.main-container').css('display','none');
 	addLoading();
 	index_mid = mid;
@@ -489,7 +526,7 @@ function getBanner() {
 /**
  * banner跳页面
  */
- function gotoURL(url){
+function gotoURL(url){
  	if (url!="" && url!=undefined && url!='undefined') {
  		window.location.href=url;	
  	}
@@ -497,7 +534,7 @@ function getBanner() {
 /**
  * banner跳分享页
  */
- function gotoShare(){
+function gotoShare(){
 	$(".menu-list-frame").load("template/menu-share1.html");
 	InvitationCodeShare(token);	
  }

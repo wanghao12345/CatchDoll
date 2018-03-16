@@ -100,47 +100,49 @@
     width: 100%;
     height: 100%;
 }
-.main-container .menu-list-cart-main-content ul li{
+/*未下单*/
+.main-container .menu-list-cart-main-content ul li.no-order{
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     background: url(../../img/menulist/menu_cart/back.png);
     background-size: 100% 100%;
     margin: 0.2rem 0;
 }
-.main-container .menu-list-cart-main-content ul li .top{
+.main-container .menu-list-cart-main-content ul li.no-order .top{
     width: 100%;
-    height: 4rem;
+    height: 3rem;
     overflow: hidden;
 }
-.main-container .menu-list-cart-main-content ul li .top .top-left{
-    width: 3rem;
+.main-container .menu-list-cart-main-content ul li.no-order .top .top-left{
+    width: 4rem;
     height: 100%;
     float: left;
     text-align: center;
     box-sizing: border-box;
     padding-top: 0.5rem;
 }
-.main-container .menu-list-cart-main-content ul li .top .top-left img{
+.main-container .menu-list-cart-main-content ul li.no-order .top .top-left img{
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 0.4rem;
 }
-.main-container .menu-list-cart-main-content ul li .top .top-right{
+.main-container .menu-list-cart-main-content ul li.no-order .top .top-right{
     width: 9rem;
     height: 100%;
     float: left;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
 }
-.main-container .menu-list-cart-main-content ul li .top .top-right div{
+.main-container .menu-list-cart-main-content ul li.no-order .top .top-right div{
     width: 100%;
     height: 1rem;
     color: white;
     font-size: 0.5rem;
-    line-height: 1rem;
 }
-.main-container .menu-list-cart-main-content ul li .top .top-right div i{
+.main-container .menu-list-cart-main-content ul li.no-order .top .top-right div i{
     color: red;
 }
-.main-container .menu-list-cart-main-content ul li .bottom{
+.main-container .menu-list-cart-main-content ul li.no-order .bottom{
     width: 100%;
     height: 2rem;
     text-align: right;
@@ -148,9 +150,36 @@
     padding-top: 0.25rem;
     padding-right: 0.5rem;
 }
-.main-container .menu-list-cart-main-content ul li .bottom button{
+.main-container .menu-list-cart-main-content ul li.no-order .bottom button{
     width: 3.5rem;
     height: 1.5rem;
     background: url(../../img/menulist/menu_cart/query-btn.png);
     background-size: 100% 100%; 
 }
+/*已下单*/
+.main-container .menu-list-cart-main-content ul li.order{
+    height: 4rem;
+    position: relative;
+}
+.main-container .menu-list-cart-main-content ul li.order .status{
+    width: 2.7rem;
+    height: 1.7rem;
+    position: absolute;
+    right: 1rem;
+    top: -0.3rem;
+}
+.main-container .menu-list-cart-main-content ul li.order .status1{/* 未发货 */
+    background: url(../../img/menulist/menu_cart/UnshippedDelivery.png);
+    background-size: 100% 100%; 
+}
+.main-container .menu-list-cart-main-content ul li.order .status2{/* 已发货 */
+    background: url(../../img/menulist/menu_cart/AlreadyShipped.png);
+    background-size: 100% 100%; 
+}
+.main-container .menu-list-cart-main-content ul li.order .status3{/* 已签收 */
+    background: url(../../img/menulist/menu_cart/HaveSigned .png);
+    background-size: 100% 100%; 
+}
+
+
+

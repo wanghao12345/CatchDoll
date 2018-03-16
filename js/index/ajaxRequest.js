@@ -423,9 +423,9 @@ function isReadEmail(mailStatus){
 	}
 }
 /**
- * 背包
+ * 背包(未下单)
  */
-function cartList(){
+function cartNoOrderList(){
 	//清除跳动
 	window.clearInterval(Beat_tips_time2);
 	$('#menu-knapsack i').css('display', 'none');
@@ -439,7 +439,7 @@ function cartList(){
 		console.log(data);
 		var item = data.ret[0].d.CartData;
 		for (var i = 0; i < item.length; i++) {
-			var content = '<li><div class="top">';
+			var content = '<li class="no-order"><div class="top">';
 			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img+' alt="商品图片"></div>';
 			content += '<div class="top-right">';
 			content += '<div class="name">'+item[i].name+'</div>';
@@ -458,6 +458,51 @@ function cartList(){
 	  }
 	})
 }
+/**
+ * 背包(已下单)
+ */
+function cartOrderList(){
+	//清除跳动
+	window.clearInterval(Beat_tips_time2);
+	$('#menu-knapsack i').css('display', 'none');
+	$('.menu-list-carts ul#menu-cart-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/19?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.orderData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li class="no-order order">';
+			content += '<div class="status status2"></div>';
+			content += '<div class="top">';
+			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url
++' alt="商品图片"></div>';
+			content += '<div class="top-right">';
+			content += '<div class="name">'+item[i].dname+'</div>';
+			content += '<div class="getTime">下单时间：'+item[i].created_at+'</div>';
+			content += '<div class="tips">'+item[i].addr+'</div>';
+			content += '</div></div>';
+			content += '</li>';
+			$('.menu-list-carts ul#menu-cart-list').append(content);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})
+}
+
+
+
+
+
+
+
+
 /**
  * 是否有未读的背包信息
  */

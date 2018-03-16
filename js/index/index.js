@@ -116,12 +116,19 @@ $(function(){
 
 
 	/*******************-----背包-----******************/
-	 //打开
+	 //打开未下单
 	$('.main-container').on('click','#menu-knapsack',function(){
 		$(".menu-list-frame").load("template/menu/menu-cart.html");
-		cartList();
+		cartNoOrderList();
 	})
+	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab1', function() {
+		cartNoOrderList();
+	});
 
+	//打开已下单
+	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab2', function() {
+		cartOrderList();
+	});
 
 
 

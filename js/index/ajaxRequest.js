@@ -429,6 +429,34 @@ function cartList(){
 	//清除跳动
 	window.clearInterval(Beat_tips_time2);
 	$('#menu-knapsack i').css('display', 'none');
+	$('.menu-list-carts ul#menu-cart-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/15?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.CartData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li><div class="top">';
+			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img+' alt="商品图片"></div>';
+			content += '<div class="top-right">';
+			content += '<div class="name">'+item[i].name+'</div>';
+			content += '<div class="getTime">获得时间：'+item[i].time+'</div>';
+			content += '<div class="tips">请<i>14天23小时</i>内下单，逾期视为放弃</div>';
+			content += '</div></div>';
+			content += '<div class="bottom">';
+			content += '<button></button>';
+			content += '</div></li>';
+			$('.menu-list-carts ul#menu-cart-list').append(content);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})
 }
 /**
  * 是否有未读的背包信息
@@ -520,7 +548,11 @@ function getBanner() {
 
 	    // $('#slides').myslides({'slides':content});
 	    //启动banner
-	    $('#slides').append(content);
+	    // $('#slides').append(content);
+	    $('#slides').html(content);
+	    
+
+
 	    $(window).load(function() {
         	$('#full_feature').swipeslider();
     	});

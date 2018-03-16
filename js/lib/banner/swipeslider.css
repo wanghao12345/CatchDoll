@@ -1,9 +1,9 @@
 .swipslider {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   display: block;
-  padding-top: 35% !important;
-  /*height: 100%;*/
+  padding-top: 33% !important;
+  /*height: 5.5rem;*/
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -104,7 +104,7 @@
 
 .sw-bullet {
   position: absolute;
-  bottom: 2%;
+  bottom: -1rem;
   list-style: none;
   display: block;
   width: 100%;

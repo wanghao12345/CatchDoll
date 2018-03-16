@@ -51,22 +51,21 @@
 }
 .main-container .menu-list-cart-tab1 {
     position: absolute;
-    width: 6rem;
-    height: 2.9rem;
+    width: 5.5rem;
+    height: 2.4rem;
     left: 1.6rem;
-    top: -2.5rem;
-    background: url(../../img/menulist/menu_rank/tab1.png);
+    top: -2.1rem;
+    background: url(../../img/menulist/menu_cart/tab1.png);
     background-size: 100% 100%;
     z-index: 0;
-    outline: none;
 }
 .main-container .menu-list-cart-tab2 {
     position: absolute;
-    width: 6rem;
-    height: 2.9rem;
+    width: 5.5rem;
+    height: 2.4rem;
     right: 1.6rem;
-    top: -2.5rem;
-    background: url(../../img/menulist/menu_rank/tab2.png);
+    top: -2.1rem;
+    background: url(../../img/menulist/menu_cart/tab2.png);
     background-size: 100% 100%;
     z-index: 0;
     outline: none;
@@ -103,110 +102,55 @@
 }
 .main-container .menu-list-cart-main-content ul li{
     width: 100%;
-    height: 2rem;
-    background: url(../../img/menulist/menu_rank/rank-list-bottom.png);
+    height: 6rem;
+    background: url(../../img/menulist/menu_cart/back.png);
     background-size: 100% 100%;
+    margin: 0.2rem 0;
+}
+.main-container .menu-list-cart-main-content ul li .top{
+    width: 100%;
+    height: 4rem;
     overflow: hidden;
-    margin-bottom: 0.2rem;
 }
-.main-container .menu-list-cart-main-content ul li .ranking-left{
-    width: 60%;
+.main-container .menu-list-cart-main-content ul li .top .top-left{
+    width: 3rem;
     height: 100%;
     float: left;
-    overflow:hidden;
-}
-.main-container .menu-list-cart-main-content ul li .ranking-left .rank-number{
-    width: 22%;
-    height: 85%;
-    float: left;
-    display: block;
-    margin-left: 8%;
-    margin-top: 2%;
     text-align: center;
-    line-height: 1.7rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: white;
-}
-.main-container .menu-list-cart-main-content ul li .ranking-left .rank-name{
-    width: 70%;
-    height: 100%;
-    float: left;
-    display: block;
-    line-height: 2rem;
-    font-size: 0.6rem;
     box-sizing: border-box;
-    padding-left: 0.3rem;
-    color: white;
+    padding-top: 0.5rem;
 }
-.main-container .menu-list-cart-main-content ul li .ranking-right{
-    width: 40%;
+.main-container .menu-list-cart-main-content ul li .top .top-left img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.4rem;
+}
+.main-container .menu-list-cart-main-content ul li .top .top-right{
+    width: 9rem;
     height: 100%;
     float: left;
-    overflow:hidden;
 }
-.main-container .menu-list-cart-main-content ul li .ranking-right .rank-icon{
-    width: 24%;
-    height: 50%;
-    float: left;
-    background: url(../../img/menulist/menu_rank/rank-icon.png);
-    background-size: 100% 100%;
-    margin-top: 10%;
-}
-.main-container .menu-list-cart-main-content ul li .ranking-right .rank-money{
-    width: 76%;
-    height: 100%;
-    float: left;
-    line-height: 2rem;
-    font-size: 0.6rem;
+.main-container .menu-list-cart-main-content ul li .top .top-right div{
+    width: 100%;
+    height: 1rem;
     color: white;
+    font-size: 0.5rem;
+    line-height: 1rem;
+}
+.main-container .menu-list-cart-main-content ul li .top .top-right div i{
+    color: red;
+}
+.main-container .menu-list-cart-main-content ul li .bottom{
+    width: 100%;
+    height: 2rem;
+    text-align: right;
     box-sizing: border-box;
-    padding-left: 0.2rem;
+    padding-top: 0.25rem;
+    padding-right: 0.5rem;
 }
-
-.main-container .menu-list-cart-main-content ul li:nth-child(1){
-    background: url(../../img/menulist/menu_rank/rank-list-top.png);
-    background-size: 100% 100%;
-}
-.main-container .menu-list-cart-main-content ul li:nth-child(1) .ranking-left .rank-number{
-    background: url(../../img/menulist/menu_rank/rank-num1.png);
-    background-size: 100% 100%;
-}
-
-
-
-
-.main-container .menu-list-cart-main-content ul li:nth-child(2){
-    background: url(../../img/menulist/menu_rank/rank-list-top.png);
-    background-size: 100% 100%;
-}
-.main-container .menu-list-cart-main-content ul li:nth-child(2) .ranking-left .rank-number{
-    background: url(../../img/menulist/menu_rank/rank-num2.png);
-    background-size: 100% 100%;
-}
-
-.main-container .menu-list-cart-main-content ul li:nth-child(3){
-    background: url(../../img/menulist/menu_rank/rank-list-top.png);
-    background-size: 100% 100%;
-}
-.main-container .menu-list-cart-main-content ul li:nth-child(3) .ranking-left .rank-number{
-    background: url(../../img/menulist/menu_rank/rank-num3.png);
-    background-size: 100% 100%;
-}
-
-
-
-.main-container .menu-list-cart-main-content h4{
-    font-size: 12px;
-    color: black;
-    padding: 0.3rem 0;
-}
-.main-container .menu-list-cart-main-content p{
-    font-size: 12px;
-    color: #6d6d6d;
-    line-height: 0.7rem;
-}
-.main-container .menu-list-cart-main-content .help-img{
-    text-align: center;
-    margin: 0.3rem 0;
+.main-container .menu-list-cart-main-content ul li .bottom button{
+    width: 3.5rem;
+    height: 1.5rem;
+    background: url(../../img/menulist/menu_cart/query-btn.png);
+    background-size: 100% 100%; 
 }

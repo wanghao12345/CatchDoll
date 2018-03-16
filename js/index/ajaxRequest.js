@@ -373,7 +373,7 @@ function emailList(){
 		console.log(data);
 		var item = data.ret[0].d.mailList;
 		for (var i = 0; i < item.length; i++) {
-			var content = '<li><button>';
+			var content = '<li><button value='+item[i].id+'>';
 			content +='<div class="email-icon"><img src="img/menulist/menu_email/admin-head.png" alt=""></div>';
 			content +='<div class="email-intro">';
 			content +='<div class="email-intro-top">'+item[i].name+'</div>';
@@ -383,6 +383,30 @@ function emailList(){
 			content +='</button></li>';
 			$('.menu-list-emails ul#menu-email-list').append(content);	
 		}	
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+/**
+ * 邮件详情
+ */
+function emailDetail(id){
+	//列表内容清除
+	$('.menu-list-emailDetails #menu-list-emailDetail-main-content').html('');
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/22?tk='+token+'&no='+id;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.MailBody;
+		var content = '<div class="title">'+item.name+'</div>';
+		content += '<div class="time">'+item.sendtime+'</div>';
+		content += '<div class="content">'+item.introduction+'</div>';
+		$('.menu-list-emailDetails #menu-list-emailDetail-main-content').append(content);
 	  },
 	  fail: function (err) {
 	    console.log(err);

@@ -222,9 +222,9 @@ background-size: 100% 100%; */
     width: 100%;
     height: 7rem;
     box-sizing: border-box;
- /*    border-top: 0.1rem solid white;
- border-bottom: 0.1rem solid white;
- box-shadow: 1px 1px 10px #ff9298; */
+    background: url(../img/banner/zhuBG.jpg);
+    background-size: 100%;
+    padding-top: 1.5rem;
 }
 
 /*下部分*/

@@ -105,8 +105,16 @@ $(function(){
 	})
 	//邮件详情
 	$('.menu-list-frame').on('click','ul#menu-email-list li button',function(){
-		$(".menu-list-frame").load("template/menu/menu-emailDetail.html");
+		$(".tip-frame").load("template/menu/menu-emailDetail.html");
+		emailDetail($(this).attr('value'));
 	})	
+	//邮件详情关闭
+	$('.tip-frame').on('click','#close',function(){
+		$(".tip-frame").html('');
+	})	
+
+
+
 	/*******************-----背包-----******************/
 	 //打开
 	$('.main-container').on('click','#menu-knapsack',function(){

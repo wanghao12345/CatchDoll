@@ -90,6 +90,12 @@ $(function(){
 	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab2',function(){
 		masterList();
 	})
+	/*******************-----地址列表-----******************/
+	 //打开
+	$('.menu-frame').on('click','#menu-address',function(){
+		$(".menu-list-frame").load("template/menu/menu-address.html");
+		addressList();
+	})
 
 
 	/*******************-----兑换-----******************/
@@ -129,10 +135,6 @@ $(function(){
 	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab2', function() {
 		cartOrderList();
 	});
-
-
-
-
 	/*******************-----幫助-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-help',function(){

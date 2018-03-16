@@ -356,6 +356,53 @@ function masterList(){
 	})	
 }
 /**
+ * 地址列表
+ */
+function addressList(){
+	$('.menu-list-addresss ul#menu-address-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/7?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.AddressData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li><div class="top">';
+			if (item[i].def=='1') {//默认地址
+				content += '<div class="check checked">';
+				content += '<button class="check_img"></button>';
+				content += '<div class="check_tip">默认地址</div>';
+			} else {
+				content += '<div class="check">';
+				content += '<button class="check_img"></button>';
+				content += '<div class="check_tip">选择地址</div>';
+			}
+			content += '</div>';
+			content += '<div class="operation">';
+			content += '<button class="operation1">设为默认</button>';
+			content += '<button class="operation2">删除地址</button>';
+			content += '</div></div>';
+			content += '<div class="bottom">';
+			content += '<div class="bottom-top">'+item[i].addr+'</div>';
+			content += '<div class="bottom-bottom">';
+			content += '<div class="bottom-left">'+item[i].name+'</div>';
+			content += '<div class="bottom-right">'+item[i].phone+'</div>';
+			content += '</div></div></li>';
+			$('.menu-list-addresss ul#menu-address-list').append(content);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})
+}
+
+
+
+/**
  * 邮件
  */
 function emailList(){
@@ -476,10 +523,9 @@ function cartOrderList(){
 		var item = data.ret[0].d.orderData;
 		for (var i = 0; i < item.length; i++) {
 			var content = '<li class="no-order order">';
-			content += '<div class="status status2"></div>';
+			content += '<div class="status status'+item[i].status+'"></div>';
 			content += '<div class="top">';
-			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url
-+' alt="商品图片"></div>';
+			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片"></div>';
 			content += '<div class="top-right">';
 			content += '<div class="name">'+item[i].dname+'</div>';
 			content += '<div class="getTime">下单时间：'+item[i].created_at+'</div>';
@@ -495,14 +541,6 @@ function cartOrderList(){
 	  }
 	})
 }
-
-
-
-
-
-
-
-
 /**
  * 是否有未读的背包信息
  */
@@ -512,9 +550,6 @@ function isReadCart(cartStatus){
 		 DocumentBeat2('#menu-knapsack');
 	}
 }
-
-
-
 /**
  * 兑换
  */
@@ -532,9 +567,6 @@ function exchangeCode(){
 	  }
 	})	
 }
-
-
-
 /**
  * 机器列表进入游戏房间
  */

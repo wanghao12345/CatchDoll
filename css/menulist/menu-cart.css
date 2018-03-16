@@ -168,15 +168,15 @@
     right: 1rem;
     top: -0.3rem;
 }
-.main-container .menu-list-cart-main-content ul li.order .status1{/* 未发货 */
+.main-container .menu-list-cart-main-content ul li.order .status0{/* 未发货 */
     background: url(../../img/menulist/menu_cart/UnshippedDelivery.png);
     background-size: 100% 100%; 
 }
-.main-container .menu-list-cart-main-content ul li.order .status2{/* 已发货 */
+.main-container .menu-list-cart-main-content ul li.order .status1{/* 已发货 */
     background: url(../../img/menulist/menu_cart/AlreadyShipped.png);
     background-size: 100% 100%; 
 }
-.main-container .menu-list-cart-main-content ul li.order .status3{/* 已签收 */
+.main-container .menu-list-cart-main-content ul li.order .status2{/* 已签收 */
     background: url(../../img/menulist/menu_cart/HaveSigned .png);
     background-size: 100% 100%; 
 }

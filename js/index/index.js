@@ -96,8 +96,41 @@ $(function(){
 		$(".menu-list-frame").load("template/menu/menu-address.html");
 		addressList();
 	})
-
-
+	//点击选择地址
+	$('.menu-list-frame').on('click','.menu-list-addresss #check_img',function(){
+		var check = $(this).parent('.check').hasClass('checked');
+		$('.menu-list-addresss ul#menu-address-list li .check').removeClass('checked');
+		$('.menu-list-addresss ul#menu-address-list li .operation').addClass('hide');
+		if (!check) {//点击之前没有选中
+			$(this).parent('.check').addClass('checked');
+			$(this).parent('.check').parent('.top').children('.operation').removeClass('hide');
+		}
+	})
+	//设为默认地址
+	$('.menu-list-frame').on('click','.menu-list-addresss button#setDefaultAddress',function(){
+		var value = $(this).attr('value');
+		setDefaultAddress(value);
+	})	
+	//删除地址
+	$('.menu-list-frame').on('click','.menu-list-addresss button#removeAddress',function(){
+		var value = $(this).attr('value');
+		addTipFun('确认删除该地址？',value);
+	})	
+	/*******************-----添加地址-----******************/
+	//打开
+	$('.menu-list-frame').on('click','.menu-list-addresss button#add-address-btn',function(){
+		$(".tip-frame").load("template/menu/menu-addedaddress.html");
+	})	
+	//确定
+	$('.tip-frame').on('click','.menu-list-addedaddresss button#addedaddress-query',function(){
+		var address = {};
+		address.city = $('#menu-list-addedaddress-input .item input#city').val();
+		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
+		address.name = $('#menu-list-addedaddress-input .item input#name').val();
+		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
+		address.zipcode = '111111111';
+		addedAddress(address);
+	})		
 	/*******************-----兑换-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-exchange',function(){
@@ -127,14 +160,55 @@ $(function(){
 		$(".menu-list-frame").load("template/menu/menu-cart.html");
 		cartNoOrderList();
 	})
+	//打开未下单
 	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab1', function() {
 		cartNoOrderList();
 	});
-
 	//打开已下单
 	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab2', function() {
 		cartOrderList();
 	});
+	/*******************-----确定下单-----******************/
+	//打开选择地址
+	$('.menu-list-frame').on('click', '.menu-list-carts button#buy-btn', function() {
+		$(".tip-frame").load("template/menu/menu-selectAddress.html");
+		var buy_id = $(this).attr('value');
+		selectAddressList(buy_id);
+	});
+	//选择地址
+	$('.tip-frame').on('click','.menu-list-selectAddresss #menu-list-selectAddress-select button.check',function(){
+		var check = $(this).parent('.top').hasClass('checked');
+		$('.menu-list-selectAddresss #menu-list-selectAddress-select .top').removeClass('checked');
+		if (!check) {//点击之前没有选中
+			$(this).parent('.top').addClass('checked');
+		}		
+	})
+	//确定下单
+	$('.tip-frame').on('click','.menu-list-selectAddresss .menu-list-selectAddress-button button#buy-query',function(){
+		var data = {};
+		data.addr_no = $('.menu-list-selectAddresss #menu-list-selectAddress-select .item .checked').parent('.item').find('.bottom .bottom-top').html();
+		data.cart_no = $('.menu-list-selectAddresss #menu-list-selectAddress-select #buy_id').attr('value');
+		queryBuyOrder(data);
+	})	
+	//新增地址
+	$('.tip-frame').on('click','.menu-list-selectAddresss .menu-list-selectAddress-button button#selectAddress-query',function(){
+		$(".tip-frame").load("template/menu/menu-addedaddress.html");
+	})	
+	//确定新增地址
+	$('.tip-frame').on('click','.menu-list-addedaddresss button#addedaddress-query',function(){
+		var address = {};
+		address.city = $('#menu-list-addedaddress-input .item input#city').val();
+		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
+		address.name = $('#menu-list-addedaddress-input .item input#name').val();
+		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
+		address.zipcode = '111111111';
+		addedAddress(address);
+	})	
+
+
+
+
+
 	/*******************-----幫助-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-help',function(){
@@ -166,6 +240,21 @@ $(function(){
 	$('body').on('click','.tip #tip-btn',function(){
 		$('body .tip').remove();
 	})
+	//取消
+	$('body').on('click','.tip #tip-btn-cancer',function(){
+		$('body .tip').remove();
+	})
+	//确认回掉函数
+	$('body').on('click','.tip #tip-btn-query',function(){
+		var value = $(this).attr('value');
+		$('body .tip').remove();
+		removeAddress(value);
+	})
+
+
+
+
+
 	/*******************-----充值-----******************/
 	$('#my-coin').on('click',function(){
 		addTip('请下载app充值！');

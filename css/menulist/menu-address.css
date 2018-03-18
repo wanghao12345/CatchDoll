@@ -110,6 +110,9 @@
     float: left;
     overflow:hidden;
 }
+.main-container .menu-list-address-main-content ul li .top .hide{
+    display: none;
+}
 .main-container .menu-list-address-main-content ul li .top .operation button{
     width: 50%;
     height: 100%;
@@ -154,7 +157,7 @@
 }
 .main-container .menu-list-addresss-back2 .add-address-btn button{
     width: 4rem;
-    height: 1.5rem;
+    height: 1.7rem;
     background: url(../../img/menulist/menu_address/add_btn.png);
     background-size: 100% 100%;
 }

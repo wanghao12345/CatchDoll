@@ -372,17 +372,19 @@ function addressList(){
 			var content = '<li><div class="top">';
 			if (item[i].def=='1') {//默认地址
 				content += '<div class="check checked">';
-				content += '<button class="check_img"></button>';
+				content += '<button class="check_img" id="check_img"></button>';
 				content += '<div class="check_tip">默认地址</div>';
+				content += '</div>';
+				content += '<div class="operation">';
 			} else {
 				content += '<div class="check">';
-				content += '<button class="check_img"></button>';
+				content += '<button class="check_img" id="check_img"></button>';
 				content += '<div class="check_tip">选择地址</div>';
+				content += '</div>';
+				content += '<div class="operation hide">';
 			}
-			content += '</div>';
-			content += '<div class="operation">';
-			content += '<button class="operation1">设为默认</button>';
-			content += '<button class="operation2">删除地址</button>';
+			content += '<button class="operation1" id="setDefaultAddress" value='+item[i].id+'>设为默认</button>';
+			content += '<button class="operation2" id="removeAddress" value='+item[i].id+'>删除地址</button>';
 			content += '</div></div>';
 			content += '<div class="bottom">';
 			content += '<div class="bottom-top">'+item[i].addr+'</div>';
@@ -399,7 +401,154 @@ function addressList(){
 	  }
 	})
 }
+/**
+ * 设为默认地址
+ */
+function setDefaultAddress(id){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/9?tk='+token+'&no='+id;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var errcode = data.ret[0].d.errcode;
+		if (errcode==0) {//成功
+			addressList();
+			addTip('默认地址设置成功！')
+		} else {
+			addTip('默认地址设置失败！')
+		}
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	    addTip('网络错误！')
+	  }
+	})
+}
+/**
+ * 删除地址
+ */
+function removeAddress(id){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/8?tk='+token+'&no='+id;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var errcode = data.ret[0].d.errcode;
+		if (errcode==0) {//成功
+			addressList();
+			addTip('删除成功！')
+		} else {
+			addTip(data.ret[0].d.msg)
+		}		
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	    addTip('网络错误！');
+	  }
+	})
+}
+/**
+ * 增加地址
+ */
+function addedAddress(data){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/6?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  data:data,
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var errcode = data.ret[0].d.errcode;
+		if (errcode==0) {//成功
+			$('.tip-frame').html('');
+			addressList();
+			addTip('新增成功！');
+		} else {
+			addTip(data.ret[0].d.msg);
+		}		
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	    addTip('网络错误！');
+	  }
+	})
+}
+/**
+ * 选择地址列表
+ */
+function selectAddressList(buy_id){
+	$('.menu-list-selectAddresss #menu-list-selectAddress-select .item').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/7?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.AddressData;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<div class="item">';
+			if (item[i].def == '1') {
+				content += '<div class="top checked">';
+				content += '<button class="check"></button>';
+				content += '<div class="check-tip">默认地址</div>';
+				content += '</div>';
+			} else {
+				content += '<div class="top">';
+				content += '<button class="check"></button>';
+				content += '<div class="check-tip">选择地址</div>';
+				content += '</div>';				
+			}
+			content += '<div class="bottom">';
+			content += '<div class="bottom-top">'+item[i].addr+'</div>';
+			content += '<div class="bottom-bottom">';
+			content += '<div class="name">'+item[i].name+'</div>';
+			content += '<div class="phone">'+item[i].phone+'</div>';
+			content += '</div></div></div>';
 
+			$('.menu-list-selectAddresss #menu-list-selectAddress-select').append(content);
+		}
+		$('.menu-list-selectAddresss #menu-list-selectAddress-select').append('<div id=buy_id style="display:none" value='+buy_id+'></div>');
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})
+
+ }
+/**
+ * 确定下单
+ */
+function queryBuyOrder(data){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/18?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  data:data,
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var errcode = data.ret[0].d.errcode;
+		if (errcode==0) {//成功
+			cartNoOrderList();
+			$('.tip-frame').html('');
+			addTip('下单成功');
+		} else {
+			addTip(data.ret[0].d.msg);
+		}		
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	    addTip('网络错误！');
+	  }
+	})	
+}
 
 
 /**
@@ -494,7 +643,7 @@ function cartNoOrderList(){
 			content += '<div class="tips">请<i>14天23小时</i>内下单，逾期视为放弃</div>';
 			content += '</div></div>';
 			content += '<div class="bottom">';
-			content += '<button></button>';
+			content += '<button id="buy-btn" value='+item[i].id+'></button>';
 			content += '</div></li>';
 			$('.menu-list-carts ul#menu-cart-list').append(content);
 		}

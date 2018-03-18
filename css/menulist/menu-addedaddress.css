@@ -107,6 +107,7 @@
     width: 9rem;
     height: 100%;
     float: left;
+    overflow:hidden;
 }
 .main-container .menu-list-addedaddress-main-content .item .content input{
     width: 100%;
@@ -118,6 +119,16 @@
     padding-right: 0.2rem;
     color: white;
     font-size: 0.6rem;
+}
+.main-container .menu-list-addedaddress-main-content .item .content select{
+    width: 5rem;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    float: left;
+    display: block;
 }
 
 

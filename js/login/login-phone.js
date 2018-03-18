@@ -16,12 +16,14 @@ $(function(){
  */
 function countDownTime60(){
 	var num = 59;
+	$('.verification span#CountDown').html(num+'S');
 	var time = window.setInterval(function(){
 		num = num - 1;
 		if (num==-1) {//倒计时结束
 			$('button#verification-btn').css('display','block');
 			$('.verification span#CountDown').css('display','none');
 			window.clearInterval(time);
+			$('.verification span#CountDown').html('59S');
 		} else {
 			$('.verification span#CountDown').html(num+'S');		
 		}

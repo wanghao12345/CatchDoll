@@ -94,7 +94,7 @@
     background-size: 100% 100%;
 }
 .main-container .menu-list-addedaddress-main-content .item .title{
-    width: 2.5rem;
+    width: 3rem;
     height: 100%;
     float: left;
     font-size: 0.5rem;
@@ -119,9 +119,10 @@
     padding-right: 0.2rem;
     color: white;
     font-size: 0.6rem;
+    color: #b51b24;
 }
 .main-container .menu-list-addedaddress-main-content .item .content select{
-    width: 5rem;
+    width: 4.5rem;
     height: 100%;
     background: rgba(0,0,0,0);
     border: 0;
@@ -129,6 +130,7 @@
     box-sizing: border-box;
     float: left;
     display: block;
+    color: #b51b24;
 }
 
 

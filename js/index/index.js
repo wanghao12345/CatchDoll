@@ -119,18 +119,24 @@ $(function(){
 	/*******************-----添加地址-----******************/
 	//打开
 	$('.menu-list-frame').on('click','.menu-list-addresss button#add-address-btn',function(){
-		$(".tip-frame").load("template/menu/menu-addedaddress.html");
+		$(".tip-frame").load("template/menu/menu-addedaddress-1.html");
+		initAddressCity();
 	})	
 	//确定
-	$('.tip-frame').on('click','.menu-list-addedaddresss button#addedaddress-query',function(){
+	$('.tip-frame').on('click','.menu-list-addedaddresss-1 button#addedaddress-query',function(){
 		var address = {};
-		address.city = $('#menu-list-addedaddress-input .item input#city').val();
-		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
-		address.name = $('#menu-list-addedaddress-input .item input#name').val();
-		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
+		address.city = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input select#prov').text()+$('.menu-list-addedaddresss #menu-list-addedaddress-input select#city').text();
+		address.address = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#address-detail').val();
+		address.name = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#name').val();
+		address.phone = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#phone').val();
 		address.zipcode = '111111111';
 		addedAddress(address);
-	})		
+	})	
+	//省市二级联动
+	$(".tip-frame").on('change','.menu-list-addedaddresss-1 #menu-list-addedaddress-input select#prov',function(){
+		var value = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input select#prov option:selected') .val();
+     	getAddressCity(parseInt(value));
+ 	});	
 	/*******************-----兑换-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-exchange',function(){
@@ -193,11 +199,12 @@ $(function(){
 	//新增地址
 	$('.tip-frame').on('click','.menu-list-selectAddresss .menu-list-selectAddress-button button#selectAddress-query',function(){
 		$(".tip-frame").load("template/menu/menu-addedaddress.html");
+		initAddressCity();
 	})	
 	//确定新增地址
 	$('.tip-frame').on('click','.menu-list-addedaddresss button#addedaddress-query',function(){
 		var address = {};
-		address.city = $('#menu-list-addedaddress-input .item input#city').val();
+		address.city = $('.menu-list-addedaddresss #menu-list-addedaddress-input select#prov').text()+$('.menu-list-addedaddresss #menu-list-addedaddress-input select#city').text();
 		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
 		address.name = $('#menu-list-addedaddress-input .item input#name').val();
 		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();

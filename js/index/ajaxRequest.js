@@ -452,6 +452,59 @@ function removeAddress(id){
 	})
 }
 /**
+ * 初始化城市数组
+ */
+function initAddressCity(){
+	var myUrl ='js/lib/city/city.json';
+	$.ajax({
+	    url: myUrl,
+	    type: 'get',
+	    data:{},
+	    dataType: 'json',
+	    success: function (data) {
+	    	var prov = data;
+	    	$('.tip-frame #menu-list-addedaddress-input select#prov').html('')
+	    	for (var i = 0; i < prov.length; i++) {
+	    		$('.tip-frame #menu-list-addedaddress-input select#prov').append('<option value='+i+'>'+prov[i].name+'</option>');
+	    	}
+	    	var city = data[0].city[0].area;
+	    	$('.tip-frame #menu-list-addedaddress-input select#city').html('')
+			for (var i = 0; i < city.length; i++) {
+				$('.tip-frame #menu-list-addedaddress-input select#city').append('<option value='+i+'>'+city[i]+'</option>');
+			}
+	    },
+	    fail: function (err) {
+	      console.log(err);
+	      addTip('网络错误！');
+	    }
+	})
+}
+/**
+ * 获取城市（二级联动）
+ */
+function getAddressCity(index){
+	var myUrl ='js/lib/city/city.json';
+	$.ajax({
+	    url: myUrl,
+	    type: 'get',
+	    data:{},
+	    dataType: 'json',
+	    success: function (data) {
+	    	var city = data[index].city[0].area;
+	    	$('.tip-frame #menu-list-addedaddress-input select#city').html('')
+			for (var i = 0; i < city.length; i++) {
+				$('.tip-frame #menu-list-addedaddress-input select#city').append('<option value='+i+'>'+city[i]+'</option>');
+			}
+	    },
+	    fail: function (err) {
+	      console.log(err);
+	      addTip('网络错误！');
+	    }
+	})
+}
+
+
+/**
  * 增加地址
  */
 function addedAddress(data){

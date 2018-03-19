@@ -1,4 +1,4 @@
-socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:65154");
+socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:35154");
 // socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:55151");
 //打开事件
 socket.onopen = function(){

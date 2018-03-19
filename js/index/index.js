@@ -129,7 +129,7 @@ $(function(){
 		address.address = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#address-detail').val();
 		address.name = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#name').val();
 		address.phone = $('.menu-list-addedaddresss-1 #menu-list-addedaddress-input .item input#phone').val();
-		address.zipcode = '111111111';
+		// address.zipcode = '111111111';
 		addedAddress(address);
 	})	
 	//省市二级联动
@@ -208,7 +208,7 @@ $(function(){
 		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
 		address.name = $('#menu-list-addedaddress-input .item input#name').val();
 		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
-		address.zipcode = '111111111';
+		// address.zipcode = '111111111';
 		addedAddress(address);
 	})	
 

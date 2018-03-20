@@ -192,7 +192,7 @@ $(function(){
 	//确定下单
 	$('.tip-frame').on('click','.menu-list-selectAddresss .menu-list-selectAddress-button button#buy-query',function(){
 		var data = {};
-		data.addr_no = $('.menu-list-selectAddresss #menu-list-selectAddress-select .item .checked').parent('.item').find('.bottom .bottom-top').html();
+		data.addr_no = $('.menu-list-selectAddresss #menu-list-selectAddress-select .item .checked').parent('.item').find('.bottom .bottom-top').attr('value');
 		data.cart_no = $('.menu-list-selectAddresss #menu-list-selectAddress-select #buy_id').attr('value');
 		queryBuyOrder(data);
 	})	
@@ -201,6 +201,11 @@ $(function(){
 		$(".tip-frame").load("template/menu/menu-addedaddress.html");
 		initAddressCity();
 	})	
+	//省市二级联动
+	$(".tip-frame").on('change','.menu-list-addedaddresss #menu-list-addedaddress-input select#prov',function(){
+		var value = $('.menu-list-addedaddresss #menu-list-addedaddress-input select#prov option:selected') .val();
+     	getAddressCity(parseInt(value));
+ 	});	
 	//确定新增地址
 	$('.tip-frame').on('click','.menu-list-addedaddresss button#addedaddress-query',function(){
 		var address = {};

@@ -558,7 +558,7 @@ function selectAddressList(buy_id){
 				content += '</div>';				
 			}
 			content += '<div class="bottom">';
-			content += '<div class="bottom-top">'+item[i].addr+'</div>';
+			content += '<div class="bottom-top" value='+item[i].id+'>'+item[i].addr+'</div>';
 			content += '<div class="bottom-bottom">';
 			content += '<div class="name">'+item[i].name+'</div>';
 			content += '<div class="phone">'+item[i].phone+'</div>';
@@ -696,7 +696,7 @@ function cartNoOrderList(){
 			content += '<div class="tips">请<i>14天23小时</i>内下单，逾期视为放弃</div>';
 			content += '</div></div>';
 			content += '<div class="bottom">';
-			content += '<button id="buy-btn" value='+item[i].id+'></button>';
+			content += '<button id="buy-btn" value='+item[i].no+'></button>';
 			content += '</div></li>';
 			$('.menu-list-carts ul#menu-cart-list').append(content);
 		}

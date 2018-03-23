@@ -1,5 +1,6 @@
 socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:35154");
 // socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:55151");
+// socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:25151");
 //打开事件
 socket.onopen = function(){
     console.log("Socket 已打开");

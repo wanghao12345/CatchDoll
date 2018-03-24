@@ -356,6 +356,96 @@ function masterList(){
 	})	
 }
 /**
+ * 获取积分
+ */
+function getIntegral(){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10009?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d;
+		if (item.errcode == 0) {
+			$('#menu-list-shoppings .menu-list-shoppings-myIntegral i').html(item.point);
+			getShoppingMall();
+		} else {
+			addTip('商城列表获取失败，请重新登录！');
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+
+
+/**
+ * 积分商城
+ */
+function getShoppingMall(){
+	$('#menu-list-shoppings ul#menu-shopping-list li').remove();
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10007?tk='+token;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d.list;
+		for (var i = 0; i < item.length; i++) {
+			var content = '<li>';
+			content += '<div class="top">';
+			content += '<div class="top-content"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片" /></div>';
+			content += '</div>';
+			content += '<div class="bottom">';
+			content += '<div class="title">'+item[i].name+'</div>';
+			content += '<div class="need">所需积分:'+item[i].bonus+'</div>';
+			content += '<div class="exchange-btn">';
+			content += '<button value='+item[i].im_id+' id="shopping-exchange-btn"></button>';
+			content += '</div>';
+			content += '</div>';
+			content += '</li>';
+			$('#menu-list-shoppings ul#menu-shopping-list').append(content);
+		}
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+/**
+ * 积分兑换
+ */
+function integralExchange(im_id){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10008?tk='+token+'&im_id='+im_id;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d;
+		if (item.errcode == 0) {
+			addTip('积分兑换成功！');
+			getIntegral();
+		} else {
+			addTip(item.msg);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+
+
+
+
+/**
  * 地址列表
  */
 function addressList(){

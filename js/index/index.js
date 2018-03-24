@@ -90,6 +90,18 @@ $(function(){
 	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab2',function(){
 		masterList();
 	})
+	/*******************-----积分商城-----******************/
+	 //打开富豪榜
+	$('.menu-frame').on('click','#menu-shoppingMall',function(){
+		$(".menu-list-frame").load("template/menu/menu-shopping.html");
+		getIntegral();
+	})
+	//积分兑换
+	$('.menu-list-frame').on('click','#menu-list-shoppings #shopping-exchange-btn',function(){
+		integralExchange($(this).attr('value'));
+	})
+
+
 	/*******************-----地址列表-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-address',function(){

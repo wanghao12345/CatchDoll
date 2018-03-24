@@ -343,7 +343,7 @@ function masterList(){
 			content += '<span class="rank-name">'+item[i].nickname+'</span>';
 			content += '</div>';
 			content += '<div class="ranking-right">';
-			content += '<span class="rank-icon"></span>';
+			content += '<span class="rank-icon-1"></span>';
 			content += '<span class="rank-money">'+item[i].claw+'</span>';
 			content += '</div>';
 			content += '</li>';
@@ -602,8 +602,6 @@ function queryBuyOrder(data){
 	  }
 	})	
 }
-
-
 /**
  * 邮件
  */
@@ -835,6 +833,7 @@ function getBanner() {
 	    $(window).load(function() {
         	$('#full_feature').swipeslider();
     	});
+    	
 	  },
 	  fail: function (err) {
 	    console.log(err)

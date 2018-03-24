@@ -6,12 +6,12 @@
 }
 
 .main-container .menu-list-helps-content{
-    width: 15rem;
-    height: 22rem;
+    width: 16rem;
+    height: 24rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -7.5rem;
+    margin-left: -8rem;
     margin-top: -12rem;
     background: url(../../img/menulist/menu_help/help.png);
     background-size: 100% 100%;
@@ -21,14 +21,14 @@
     height: 100%;
     position: relative;
     box-sizing: border-box;
-    padding: 2.5rem 1rem 1rem 1rem;
+    padding: 3.2rem 1rem 1rem 1rem;
 }
 .main-container .menu-list-help-close{
     position: absolute;
-    width: 1.8rem;
+    width: 2rem;
     height: 1.3rem;
-    right: 1rem;
-    top: 0rem;
+    right: 1.4rem;
+    top: 0.15rem;
     background: url(../../img/menulist/menu_help/close.png);
     background-size: 100% 100%;
     z-index: 0;

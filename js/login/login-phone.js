@@ -1,16 +1,20 @@
 $(function(){
 	//点击获取验证码按钮
 	$('button#verification-btn').on('click',function(){
-		$(this).css('display','none');
-		$('.verification span#CountDown').css('display','block');
 		getZipCode(getParams());
-		// countDownTime60();
 	})
 
-
-
-
-
+	//登录
+	$('button#login-phone-btn').on('click',function(){
+		var p = {};
+		p.phone = $('input#login-phone').val();
+		p.code = $('input#login-zipcode').val();
+		if (p.phone=='' || p.code=='') {
+			addTip('手机号码和验证码不能为空！');
+		} else {
+			login_phone(p);
+		}
+	})
 })
 /**
  *倒计时1分钟
@@ -42,7 +46,7 @@ function getTimeStamp(){
  *获取sign
  */
 function getSign(time,token){
- 	return $.md5(time+'.'+token+'.'+'tomcatch');
+ 	return $.md5(time+token+'tomcatch');
  }
 /**
  *获取随机字符串
@@ -63,14 +67,11 @@ function randomString(len) {
 function getParams(){
 	var p = {};
 	p.time = getTimeStamp();
-	p.token = randomString(12);
-	// p.token = '213213sfsdfsf';
+	p.token = randomString(5);
 	p.sign = getSign(p.time,p.token);
 	p.phone = $('input#login-phone').val();
 	return p;
 }
-
-
 /**
  *请求验证码
  */ 
@@ -84,9 +85,13 @@ function getZipCode(data){
 	  success: function (data) {
 	    console.log(data)
 	    if (data.ret[0].d.errcode == 0) {
-	    	countDownTime59();
+	    	addTip('验证码发送成功！');
+	    	$('button#verification-btn').css('display','none');
+			$('.verification span#CountDown').css('display','block');
+	    	countDownTime60();
 	    } else {
-	    	tip(data.ret[0].d.msg);
+	    	// addTip(data.ret[0].d.msg);
+	    	addTip('手机号码有误！');
 	    }
 
 	  },
@@ -95,3 +100,41 @@ function getZipCode(data){
 	  }
 	})	
  }
+
+/**
+ *登录
+ */ 
+function login_phone(data){
+	var phone = data.phone;
+	var code = data.code;
+ 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/92';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  data:data,
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    if (data.ret[0].d.errcode == 0) {
+	    	var tk = data.ret[0].d.token;
+	    	var guestno = data.ret[0].d.guestno;
+	    	window.location.href="../../index.html?phone="+phone+"&code="+code+"&login_type=phone";
+	    } else {
+	    	addTip('登录失败！');
+	    }
+
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
+ }
+
+/**
+ *判断cookie是否含有登录密码
+ */ 
+function isHaveQpwd(){
+	if (getCookie('login-phone-qpwd')!=null) {
+
+	}
+}

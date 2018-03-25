@@ -1,4 +1,19 @@
 	
+$(function(){
+	//關閉
+	$('body').on('click','.tip #tip-close',function(){
+		$('body .tip').remove();
+	})
+	//確定
+	$('body').on('click','.tip #tip-btn',function(){
+		$('body .tip').remove();
+	})
+})
+
+
+
+
+
 /**
  * 提示
  */

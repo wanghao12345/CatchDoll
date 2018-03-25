@@ -41,6 +41,9 @@
     right: -0.25rem;
     background: url(../img/tip/close.png);
     background-size: 100% 100%;
+    padding: 0;
+    border: 0;
+    outline: none;
 }
 .tip .tip-content .tip-main-content .button{
 	width: 4rem;
@@ -51,6 +54,9 @@
 	margin-left: -2rem;
 	background: url(../img/tip/query.png);
 	background-size: 100% 100%;
+	padding: 0;
+    border: 0;
+    outline: none;
 }
 .tip .tip-content .tip-main-content .button-cancer{
 	width: 4rem;

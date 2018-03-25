@@ -1,3 +1,104 @@
+var token = '';
+var guestno = ''
+/**
+ * 登录方式
+ */
+ getUrlToken();
+function getUrlToken(){
+	var login_type = getUrlParam('login_type');
+	switch(login_type){
+		case 'phone':
+			login_phone();
+		break;
+		case null:
+			getTestToken();
+		break;
+
+	}
+
+}
+
+/**
+ *登录
+ */ 
+function login_phone(){
+	var p = {};
+	p.phone = getUrlParam('phone');
+	p.code = getUrlParam('code');
+ 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/92';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  data:p,
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    token = data.ret[0].d.token;
+	    guestno = data.ret[0].d.guestno;
+	    RequestMachineList(0);
+	    getUserInfo(data,'ish');
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})	
+ }
+
+
+
+
+/**
+ * 获取测试token,guestno
+ */
+// getTestToken();
+function getTestToken(){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/70';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+	    console.log(data)
+	    token = data.ret[0].d.token;
+	    guestno = data.ret[0].d.guestno;
+	    RequestMachineList(0);
+	    getUserInfo(data,'ish');
+	  },
+	  fail: function (err) {
+	    console.log(err)
+	  }
+	})		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  *获取机器类型
  */
@@ -118,30 +219,6 @@ function RequestMachineList(type) {
 	    console.log(err)
 	  }
 	})	
-}
-/**
- * 获取测试token,guestno
- */
-var token = '';
-var guestno = ''
-getTestToken();
-function getTestToken(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/70';
-	$.ajax({
-	  url: myUrl,
-	  type: 'get',
-	  dataType: 'json',
-	  success: function (data) {
-	    console.log(data)
-	    token = data.ret[0].d.token;
-	    guestno = data.ret[0].d.guestno;
-	    RequestMachineList(0);
-	    getUserInfo(data,'ish');
-	  },
-	  fail: function (err) {
-	    console.log(err)
-	  }
-	})		
 }
 
 /**
@@ -963,3 +1040,12 @@ function gotoShare(){
 	InvitationCodeShare(token);	
  }
 
+/**
+ * 获取url中参数
+ */
+function getUrlParam(param){
+    var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); 
+    return null; 
+}

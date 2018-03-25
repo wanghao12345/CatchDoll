@@ -44,9 +44,6 @@ function login_phone(){
 	})	
  }
 
-
-
-
 /**
  * 获取测试token,guestno
  */

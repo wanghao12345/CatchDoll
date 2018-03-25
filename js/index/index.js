@@ -239,6 +239,10 @@ $(function(){
 		$(".menu-list-frame").load("template/menu/menu-help.html");
 		InvitationCodeShare(token);	
 	})	
+	/*******************-----绑定账号-----******************/
+	$('.menu-frame').on('click','#menu-bindAccount',function(){
+		window.location.href='template/login/login-phone.html';
+	})	
 	/*******************-----今日签到-----******************/
 	$('.menu-list-frame').on('click','#sign-query',function(){
 		getSign();

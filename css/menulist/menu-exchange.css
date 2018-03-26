@@ -113,6 +113,7 @@
     padding-left: 0.5rem;
     color: white;
     outline: none;
+    font-size: 0.6rem;
 }
 .main-container .menu-list-exchange-main-content .input-code .input-btn{
     width: 27%;

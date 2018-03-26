@@ -67,35 +67,6 @@ function getTestToken(){
 	})		
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  *获取机器类型
  */
@@ -378,6 +349,8 @@ function richList(){
 	  success: function (data) {
 		console.log(data);
 		var item = data.ret[0].d.rankData;
+		var rankPerson = data.ret[0].d.rankPerson;
+		$('.menu-list-ranks .my-rank').html('我的排名：第'+rankPerson+'名');
 		for (var i = 0; i < item.length; i++) {
 			var content = '<li>';
 			content += '<div class="ranking-left">';
@@ -410,6 +383,8 @@ function masterList(){
 	  success: function (data) {
 		console.log(data);
 		var item = data.ret[0].d.rankData;
+		var rankPerson = data.ret[0].d.rankPerson;
+		$('.menu-list-ranks .my-rank').html('我的排名：第'+rankPerson+'名');
 		for (var i = 0; i < item.length; i++) {
 			var content = '<li>';
 			content += '<div class="ranking-left">';

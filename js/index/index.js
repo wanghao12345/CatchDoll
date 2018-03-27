@@ -160,6 +160,17 @@ $(function(){
 	$('.menu-frame').on('click','#menu-exchange',function(){
 		$(".menu-list-frame").load("template/menu/menu-exchange.html");
 	})
+	//查询兑换码
+	$('.menu-list-frame').on('click','.menu-list-exchanges #lookFor',function(){
+		var code = $('.menu-list-frame .menu-list-exchanges input#code-value').val();
+		redeemCode(code);
+	})	
+
+
+
+
+
+
 	/*******************-----邮件-----******************/
 	 //打开
 	$('.main-container').on('click','#menu-email',function(){

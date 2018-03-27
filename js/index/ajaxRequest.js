@@ -491,6 +491,31 @@ function integralExchange(im_id){
 	})	
 }
 
+/**
+ * 兑换码
+ */
+function redeemCode(code){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=0';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d;
+		if (item.errcode == 0) {
+			
+		} else {
+			addTip(item.msg);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+
 
 
 

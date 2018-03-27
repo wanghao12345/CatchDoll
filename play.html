@@ -31,19 +31,19 @@
 	<div style="width:100%; height:100%; position:absolute;">
 		<p>25</p>
 		<div id="up" style="position:absolute;left:80px; bottom:100px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="up.png"/>
+			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/up.png"/>
 		</div>
 		<div id="down" style="position:absolute;left:80px; bottom:20px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="down.png"/>
+			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/down.png"/>
 		</div>
 		<div id="left" style="position:absolute;left:20px; bottom:60px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="left.png"/>
+			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/left.png"/>
 		</div>
 		<div id="right" style="position:absolute;left:140px; bottom:60px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="right.png"/>
+			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/right.png"/>
 		</div>
 		<div id="catch" style="position:absolute;right:15px; bottom:25px; width:100px; height:100px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="grap.png"/>
+			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/grap.png"/>
 		</div>
 	</div>
 
@@ -71,6 +71,8 @@
 	    }
 		});
 
+		
+
 		var socket,machineSocket,start,end;
 
 		// 阻止微信长按菜单
@@ -82,8 +84,7 @@
 			$("#test").load("title2.html");
 		});
 
-		function dologin(tk,guestno)
-		{
+		function dologin(tk,guestno){
 			socket = new WebSocket("ws://api.zhuazhuale.4utec.cn:65154");
 			// socket = new WebSocket("ws://ateam.ticp.io:55151");
 			//打开事件
@@ -129,15 +130,13 @@
 			}
 		}
 
-		function play()
-		{
+		function play(){
 			var mid = 1;
 			var param = '{"path": "10010","d":{"mid":"'+mid+'","web":1}}';
 			socket.send(param);
 		}
 
-		function connectMachine(ip,port,pwd)
-		{
+		function connectMachine(ip,port,pwd){
 			machineSocket = new WebSocket("ws://"+ip+":"+port);
 			machineSocket.onopen=function(){
 				machineSocket.send("big\r\n"+pwd)

@@ -80,14 +80,20 @@ $(function(){
 	 //打开富豪榜
 	$('.menu-frame').on('click','#menu-rank',function(){
 		$(".menu-list-frame").load("template/menu/menu-rank.html");
+		$('.menu-list-frame .menu-list-ranks button#rank-tab1').html('<img src="img/menulist/menu_rank/tab1.png" alt="富豪榜">');
+		$('.menu-list-frame .menu-list-ranks button#rank-tab2').html('<img src="img/menulist/menu_rank/tab2.png" alt="达人榜">');
 		richList();
 	})
 	//打开富豪榜
-	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab1',function(){
+	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab1',function(){	
 		richList();
+		$('.menu-list-frame .menu-list-ranks button#rank-tab1').html('<img src="img/menulist/menu_rank/tab1.png" alt="富豪榜">');
+		$('.menu-list-frame .menu-list-ranks button#rank-tab2').html('<img src="img/menulist/menu_rank/tab2.png" alt="达人榜">');		
 	})
 	//打开达人榜
 	$('.menu-list-frame').on('click','#menu-list-ranks #rank-tab2',function(){
+		$('.menu-list-frame .menu-list-ranks button#rank-tab1').html('<img src="img/menulist/menu_rank/tab1_1.png" alt="富豪榜">');
+		$('.menu-list-frame .menu-list-ranks button#rank-tab2').html('<img src="img/menulist/menu_rank/tab2_1.png" alt="达人榜">');		
 		masterList();
 	})
 	/*******************-----积分商城-----******************/
@@ -176,14 +182,20 @@ $(function(){
 	 //打开未下单
 	$('.main-container').on('click','#menu-knapsack',function(){
 		$(".menu-list-frame").load("template/menu/menu-cart.html");
+		$('.menu-list-frame .menu-list-carts button#rank-tab1').html('<img src="img/menulist/menu_cart/tab1.png" alt="未下单">');
+		$('.menu-list-frame .menu-list-carts button#rank-tab2').html('<img src="img/menulist/menu_cart/tab2.png" alt="已下单">');
 		cartNoOrderList();
 	})
 	//打开未下单
 	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab1', function() {
+		$('.menu-list-frame .menu-list-carts button#rank-tab1').html('<img src="img/menulist/menu_cart/tab1.png" alt="未下单">');
+		$('.menu-list-frame .menu-list-carts button#rank-tab2').html('<img src="img/menulist/menu_cart/tab2.png" alt="已下单">');
 		cartNoOrderList();
 	});
 	//打开已下单
 	$('.menu-list-frame').on('click', '.menu-list-carts #rank-tab2', function() {
+		$('.menu-list-frame .menu-list-carts button#rank-tab1').html('<img src="img/menulist/menu_cart/tab1_1.png" alt="未下单">');
+		$('.menu-list-frame .menu-list-carts button#rank-tab2').html('<img src="img/menulist/menu_cart/tab2_1.png" alt="已下单">');
 		cartOrderList();
 	});
 	/*******************-----确定下单-----******************/

@@ -166,6 +166,11 @@ $(function(){
 		redeemCode(code);
 	})	
 
+	$('.menu-list-frame').on('click','.menu-list-exchanges #exchange-query',function(){
+		var code = $(this).attr('value');
+		getRedeemCode(code);
+	})	
+
 
 
 

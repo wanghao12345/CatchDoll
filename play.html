@@ -1,0 +1,179 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta charset="utf-8" />
+	<title>test</title>
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+
+	<style type="text/css">
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        p {
+        	font-weight: 900;
+		    position: absolute;
+		    left: 40px;
+		    top: 70px;
+		    font-size: 40;
+		    color: red;
+		    font-family: monospace;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+	<div style="width:100%; height:100%; position:absolute; pointer-events: none; vertical-align:bottom;top:-170px;" />
+		<img id="video" style="width:100%; height:100%;" src="" />
+	</div>
+	<div style="width:100%; height:100%; position:absolute;">
+		<p>25</p>
+		<div id="up" style="position:absolute;left:80px; bottom:100px; width:61px; height:61px;">
+			<img style="width:100%; height:100%; pointer-events: none;" src="up.png"/>
+		</div>
+		<div id="down" style="position:absolute;left:80px; bottom:20px; width:61px; height:61px;">
+			<img style="width:100%; height:100%; pointer-events: none;" src="down.png"/>
+		</div>
+		<div id="left" style="position:absolute;left:20px; bottom:60px; width:61px; height:61px;">
+			<img style="width:100%; height:100%; pointer-events: none;" src="left.png"/>
+		</div>
+		<div id="right" style="position:absolute;left:140px; bottom:60px; width:61px; height:61px;">
+			<img style="width:100%; height:100%; pointer-events: none;" src="right.png"/>
+		</div>
+		<div id="catch" style="position:absolute;right:15px; bottom:25px; width:100px; height:100px;">
+			<img style="width:100%; height:100%; pointer-events: none;" src="grap.png"/>
+		</div>
+	</div>
+
+	<script>
+		var URL = 'http://api.zhuazhuale.4utec.cn:9107/4?src=0&openid='+'oktas0vAQglc6Kt9nPAlKtVu6Au4';
+		$.ajax({
+	    type: "GET",
+	    dataType: "text",
+	    url: URL,
+	    success: function (data) {
+	    	var data = JSON.parse(data);
+	    	if (data.ret[0].d.errcode=="-1" || data.ret[0].d.errcode==-1) {
+	    		// delCookie('wx_zhuazhuale_openid');
+	    		location.reload();
+	    	}
+
+			token = data.ret[0].d.token;
+	    	guestno = data.ret[0].d.guestno;
+	    	// RequestMachineList(0);
+	    	// getUserInfo(data,'ish1');	
+	    	dologin(token,guestno);    	
+	    },
+	    error: function (data){
+
+	    }
+		});
+
+		var socket,machineSocket,start,end;
+
+		// 阻止微信长按菜单
+		document.oncontextmenu=function(e){
+		    e.preventDefault();
+		};
+
+		$("#up").on('click',function(){
+			$("#test").load("title2.html");
+		});
+
+		function dologin(tk,guestno)
+		{
+			socket = new WebSocket("ws://api.zhuazhuale.4utec.cn:65154");
+			// socket = new WebSocket("ws://ateam.ticp.io:55151");
+			//打开事件
+			socket.onopen = function(){
+			    console.log("Socket 已打开");
+			    // sendTcpLogin();
+			    var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+"2"+'"}}';
+				socket.send(param);
+			};
+			//获得消息事件
+			socket.onmessage = function(msg){
+			    console.log(msg.data);
+			    var data = JSON.parse(msg.data);
+			    switch(data.i)
+			    {
+			    	case 10002:
+			    		play();
+			    		break;
+			    	case 10010:
+			    		ip = data.d.ip1;
+			    		pwd = data.d.pwd;
+			    		port = data.d.operate_port+1
+			    		connectMachine(ip,port,pwd);
+			    		break;
+			    	case 10016:
+			    		// {"i":10016,"d":{"result":0,"type":1,"count":1,"end_time":1520324719,"mid":1,"time":1520324694,"bonus":10534,"money":32,"freetimes":368}}
+			    		start = data.d.time;
+			    		end = data.d.end_time;
+			    		break;
+			    	case 10004:
+			    		alert(data.d.msg);
+			    		break;
+			    }
+			};
+			//关闭事件
+			socket.onclose = function(){
+			    console.log("Socket 已关闭");
+			    alert("Socket 已关闭");
+			};
+			//发生了错误事件
+			socket.onerror = function(){
+			    console.log("发生了错误");
+			}
+		}
+
+		function play()
+		{
+			var mid = 1;
+			var param = '{"path": "10010","d":{"mid":"'+mid+'","web":1}}';
+			socket.send(param);
+		}
+
+		function connectMachine(ip,port,pwd)
+		{
+			machineSocket = new WebSocket("ws://"+ip+":"+port);
+			machineSocket.onopen=function(){
+				machineSocket.send("big\r\n"+pwd)
+			}
+			// $("#video").append("<img style=\"width:100%; height:100%;\" src=http://"+ip+":8090/1_A.mjpeg />");
+			$("#video").attr("src","http://"+ip+":8090/1_A.mjpeg");
+			$('#video').css('pointer-events','none');
+			$("#up").on('touchstart',function(){
+				machineSocket.send("iop\r\n"+pwd);
+			});
+			$("#up").on('touchend',function(){
+				machineSocket.send("ern\r\n"+pwd);
+			});
+			$("#down").on('touchstart',function(){
+				machineSocket.send("vgy\r\n"+pwd);
+			});
+			$("#down").on('touchend',function(){
+				machineSocket.send("ern\r\n"+pwd);
+			}); 
+
+			$("#left").on('touchstart',function(){
+				machineSocket.send("tgb\r\n"+pwd);
+			});
+			$("#left").on('touchend',function(){
+				machineSocket.send("ern\r\n"+pwd);
+			});
+			$("#right").on('touchstart',function(){
+				machineSocket.send("ymg\r\n"+pwd);
+			});
+			$("#right").on('touchend',function(){
+				machineSocket.send("ern\r\n"+pwd);
+			}); 
+			$("#catch").on('touchstart',function(){
+				machineSocket.send("lre\r\n"+pwd);
+			});
+		}
+	</script>
+</body>
+</html>

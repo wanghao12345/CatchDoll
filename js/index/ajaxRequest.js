@@ -492,7 +492,7 @@ function integralExchange(im_id){
 }
 
 /**
- * 兑换码
+ * 查询兑换码
  */
 function redeemCode(code){
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=0';
@@ -504,7 +504,18 @@ function redeemCode(code){
 		console.log(data);
 		var item = data.ret[0].d;
 		if (item.errcode == 0) {
-			
+			$('.menu-list-frame .menu-list-exchanges #code-img').addClass('hide');
+			$('.menu-list-frame .menu-list-exchanges #code-content').removeClass('hide');
+			$('.menu-list-frame .menu-list-exchanges #exchange-query').attr('value',code);
+			if (item.data.coin!=0) {
+				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/index/coin_left.png" alt="奖品">x'+item.data.coin);
+			}
+			if (item.data.bonus!=0) {
+				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/index/coin_left.png" alt="奖品">x'+item.data.bonus);
+			}
+			if (item.data.freetimes!=0) {
+				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/game/voucher.png" alt="奖品">x'+item.data.freetimes);
+			}
 		} else {
 			addTip(item.msg);
 		}
@@ -514,6 +525,31 @@ function redeemCode(code){
 	    console.log(err);
 	  }
 	})	
+}
+/**
+ * 确定领取兑换码奖励
+ */
+function getRedeemCode(code){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=1';
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		var item = data.ret[0].d;
+		if (item.errcode == 0) {
+			addTip(item.msg);
+			$('.menu-list-frame').html('');
+		} else {
+			addTip(item.msg);
+		}
+
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})		
 }
 
 

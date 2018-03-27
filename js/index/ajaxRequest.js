@@ -511,7 +511,7 @@ function redeemCode(code){
 				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/index/coin_left.png" alt="奖品">x'+item.data.coin);
 			}
 			if (item.data.bonus!=0) {
-				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/index/coin_left.png" alt="奖品">x'+item.data.bonus);
+				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/index/code.png" alt="奖品">x'+item.data.bonus);
 			}
 			if (item.data.freetimes!=0) {
 				$('.menu-list-frame .menu-list-exchanges #code-content #get-pic').html('<img src="img/game/voucher.png" alt="奖品">x'+item.data.freetimes);

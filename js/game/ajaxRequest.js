@@ -12,8 +12,6 @@ var index_doll_id = '';
  * 发起长连接登录
  */
 function sendTcpLogin(){
-	/*var tk = getUrlParam('tk');
-	var guestno = getUrlParam('guestno');*/
 	tk = index_tk;
 	guestno = index_guestno;
 	var os_type = getMobileType();
@@ -24,7 +22,6 @@ function sendTcpLogin(){
  * 发起获取旁观信息请求
  */
 function sendOnlooker(){
-	// var mid = getUrlParam('mid');
 	var param = '{"path":"10011","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);
 }
@@ -32,15 +29,14 @@ function sendOnlooker(){
  * 开始游戏
  */
 function startGame(){
-	var mid = getUrlParam('mid');
-	var param = '{"path":"10010","d":{"mid":"'+index_mid+'"}}';
+	// var param = '{"path":"10010","d":{"mid":"'+index_mid+'"}}';
+	var param = '{"path":"10010","d":{"mid":"1"}}';
 	sendSocket(param);
 }
 /**
  * 结束旁观
  */
 function leaveGame(){
-	var mid = getUrlParam('mid');
 	var param = '{"path":"10012","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);
 }
@@ -48,7 +44,6 @@ function leaveGame(){
  * 发送弹幕
  */
 function sendBarrage(){
-	var mid = getUrlParam('mid');
 	var param = '{"path":"10018","d":{"mid":"'+index_mid+'"}}';
 	sendSocket(param);	
 }
@@ -82,8 +77,6 @@ function getMobileType(){
  * 获取商品详情
  */
 function CommodityDetails(){
-	var id = getUrlParam('doll_id');
-	var tk = getUrlParam('tk');
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/31?id='+index_doll_id+'&tk='+index_tk;
 	$.ajax({
 	  url: myUrl,
@@ -113,8 +106,6 @@ function CommodityDetails(){
  * 请求报修
  */
 function repairRequest(){
-	var mid = getUrlParam('mid');
-	var tk = getUrlParam('tk');
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/42?mid='+index_mid+'&tk='+index_tk;
 	$.ajax({
 	  url: myUrl,

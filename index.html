@@ -15,6 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="js/lib/banner/swipeslider.css">
 	<!-- game -->
 	<link rel="stylesheet" type="text/css" href="css/game.css">
+	<!-- play -->
+	<link rel="stylesheet" type="text/css" href="css/play/play.css">
 	<!-- index -->
 	<script type="text/javascript" src="js/rem.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
@@ -31,6 +33,8 @@
 	<script type="text/javascript" src="js/game/ajaxRequest.js"></script>
 	<script type="text/javascript" src="js/tip/tip.js"></script>
 	<script type="text/javascript" src="js/game/game.js"></script>
+	<!-- play -->
+	<script type="text/javascript" src="js/play/play.js"></script>
 
 
 
@@ -148,7 +152,7 @@
 		<div class="tip-frame"></div>			
 		<div class="tip-frame-1"></div>			
 	</div>
-	<!-- 游戏房间 -->
+	<!-- 观看游戏房间 -->
 	<div class="game-cantainer">
 		<div class="video-content" id="video-content">
 		<!--<video id="video" class="video" value='1' style="object-fit: fill" webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto"  poster="img/game/back.png" src="http://rtmp.wawa.4utec.cn/live/1_A.m3u8" >
@@ -226,6 +230,31 @@
 			<canvas style="width: 100%;height: 8rem;position: absolute;">你的浏览器不支持canvas</canvas>
 		</div>
 		<div class="game-menu-list"></div>		
-	</div>			
+	</div>		
+	<!-- 玩游戏房间 -->
+	<div class="play-container">
+		<div class="play-interface">
+			<!-- <img id="play-video"  src="http://61.140.46.67:8090/1_A.mjpeg" /> -->
+			<img id="play-video"  src="" />
+		</div>
+		<div class="play-operation">
+			<p class="play-time">25</p>
+			<div id="play-up" class="play-up">
+				<img src="img/play/up.png"/>
+			</div>
+			<div id="play-down" class="play-down">
+				<img src="img/play/down.png"/>
+			</div>
+			<div id="play-left" class="play-left">
+				<img src="img/play/left.png"/>
+			</div>
+			<div id="play-right" class="play-right">
+				<img src="img/play/right.png"/>
+			</div>
+			<div id="play-catch" class="play-catch">
+				<img src="img/play/grap.png"/>
+			</div>
+		</div>	
+	</div>
 </body>
 </html>

@@ -75,8 +75,8 @@ $(function(){
 	/*******************-----开始游戏-----******************/	
 	$('#start-game').on('click',function(){
 		// addTip('请下载app开始游戏！');
-		// startGame();
-		window.location.href='play.html';
+		startGame();
+		// window.location.href='play1.html?token='+index_tk+'&guestno='+index_guestno;
 	})
 	/*******************-----充值-----******************/
 	$('#coin-number').on('click',function(){

@@ -132,7 +132,14 @@ function getIsHavePerson(data){
  */
 function getStartGame(data){
     if (data.i == 10010) {
-        addTip('请下载app开始游戏!');
+        // addTip('请下载app开始游戏!');
+       $('.game-cantainer').css('display','none');
+       $('.play-container').css('display','block');
+        var ip = data.d.ip1;
+        var pwd = data.d.pwd;
+        var port = data.d.operate_port+1
+        connectMachine(ip,port,pwd);
+        
     }
     if (data.i == 10004) {
         addTip(data.d.msg);

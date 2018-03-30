@@ -9,33 +9,33 @@ socket.onmessage = function(msg){
     console.log(msg.data);
     var data = JSON.parse(msg.data);
     switch(data.i){
-    	case 10002: //tcplogin请求
-    		getTcpLogin(data.d);
-    	break;
+        case 10002: //tcplogin请求
+            getTcpLogin(data.d);
+        break;
         case 10004: //房间正忙
             getStartGame(data);
         break;
         case 10010: //开始游戏
             getStartGame(data);
         break;
-    	case 10011: //获取旁观信息
-    		getOnlooker(data.d);
-    	break;
+        case 10011: //获取旁观信息
+            getOnlooker(data.d);
+        break;
         case 10012: //离开游戏
             getLeaveGame(data.d);
         break;  
         case 10018: //接收弹幕
             getBarrage(data.d);
         break;               
-    	case 10020: //获取旁观头像
-    		getOnlookerImg(data.d);
-    	break;
-    	case 10022: //获取用户碎片数
-    		getFragment(data.d);
-    	break;
-    	case 10023: //是否有人在玩
-    		getIsHavePerson(data.d);
-    	break;    	
+        case 10020: //获取旁观头像
+            getOnlookerImg(data.d);
+        break;
+        case 10022: //获取用户碎片数
+            getFragment(data.d);
+        break;
+        case 10023: //是否有人在玩
+            getIsHavePerson(data.d);
+        break;      
     }
 };
 //关闭事件
@@ -70,10 +70,10 @@ function getTcpLogin(data){
 var rtmp1 = '';
 var rtmp2 = '';
 function getOnlooker(data){
-	var money = data.money;
-	$('span#coin-number').html(money);
-	var watch = data.watch;
-	$('i#watch').html(watch);
+    var money = data.money;
+    $('span#coin-number').html(money);
+    var watch = data.watch;
+    $('i#watch').html(watch);
     //抓取价格
     var price = data.price+'/次';
     $('#need-price').html(price);
@@ -97,10 +97,10 @@ function getOnlooker(data){
  * 获取旁观头像 
  */
 function getOnlookerImg(data){
-	var item = data.viewers_head;
-	for (var i = 0; i < 3; i++) {
-		$('#head-img'+(i+1)).html('<img src='+item[i].img+' alt="头像" />');
-	}
+    var item = data.viewers_head;
+    for (var i = 0; i < 3; i++) {
+        $('#head-img'+(i+1)).html('<img src='+item[i].img+' alt="头像" />');
+    }
 }
 /**
  * 获取用户碎片数
@@ -117,7 +117,7 @@ function getIsHavePerson(data){
     $('.game-cantainer #game-user #status1').removeClass('hide');
     $('.game-cantainer #game-user #head-img0').removeClass('hide');
 
-	var content = '<div class="head-img" id="head-img0"><img src='+data.do_headimg+' alt="头像" /></div>';
+    var content = '<div class="head-img" id="head-img0"><img src='+data.do_headimg+' alt="头像" /></div>';
     content += '<div class="status1">';
     content += '<div class="status-name">'+data.do_name+'</div>';
     content += '<div class="status-content">正在抓取...</div>';

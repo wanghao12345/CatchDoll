@@ -72,37 +72,10 @@ $(function(){
 	$('body').on('click','.tip #tip-btn',function(){
 		$('body .tip').remove();
 	})
-	/*******************-----开始游戏-----******************/	
-	$('#start-game').on('click',function(){
-		// addTip('请下载app开始游戏！');
-		// startGame();
-		window.location.href='play.html?tk='+index_tk+'&guestno='+index_guestno+'&mid='+index_mid+'&doll_id='+index_doll_id;
-	})
 	/*******************-----充值-----******************/
 	$('#coin-number').on('click',function(){
 		addTip('请下载app充值！');
 	})
-	/*******************-----video-----******************/	
-	$('.game-cantainer #video-btn').on('click',function(){
-		var myVideo=document.getElementById("video");
-		myVideo.pause();		
-		var value = $('#video').attr('value');
-		if (value=='1') {
-			$('#video').attr('value','2');	
-			$('#video').attr('src',rtmp1);
-			var myVideo1=document.getElementById("video");
-			myVideo1.play();
-		}
-		if (value=='2') {
-			$('#video').attr('value','1');				
-			// $('#video').attr('src','http://rtmp.wawa.4utec.cn/live/test.m3u8');
-			$('#video').attr('src',rtmp2);
-			var myVideo2=document.getElementById("video");
-			myVideo2.play();
-		}		
-
-	})
-
 
 })
 

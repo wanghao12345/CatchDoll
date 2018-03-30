@@ -1,13 +1,12 @@
 /*外面界面点击机器后，你这边就调"tcplogin"，然后调"开始旁观"，
 然后如果玩家开始游戏，你这边就调"开始游戏"接口,玩家推出房间到最外面的列表的时候，
 就调“结束旁观”*/
+var tk = getUrlParam('tk');
+var guestno = getUrlParam('guestno');
+var mid = getUrlParam('mid');
+var doll_id = getUrlParam('doll_id');
 
-var index_tk = '';
-var index_guestno = '';
-var index_mid = '';
-var index_doll_id = '';
-
-
+sendTcpLogin();
 /**
  * 发起长连接登录
  */
@@ -22,42 +21,29 @@ function sendTcpLogin(){
  * 发起获取旁观信息请求
  */
 function sendOnlooker(){
-	var param = '{"path":"10011","d":{"mid":"'+index_mid+'"}}';
+	var param = '{"path":"10011","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);
 }
 /**
  * 开始游戏
  */
 function startGame(){
-	var param = '{"path":"10010","d":{"mid":"'+index_mid+'","web":"1"}}';
-	// var param = '{"path":"10010","d":{"mid":"1"}}';
+	var param = '{"path":"10010","d":{"mid":"'+mid+'","web":"1"}}';
 	sendSocket(param);
 }
 /**
  * 结束旁观
  */
 function leaveGame(){
-	var param = '{"path":"10012","d":{"mid":"'+index_mid+'"}}';
+	var param = '{"path":"10012","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);
 }
 /**
  * 发送弹幕
  */
 function sendBarrage(){
-	var param = '{"path":"10018","d":{"mid":"'+index_mid+'"}}';
+	var param = '{"path":"10018","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);	
-}
-
-
-
-/**
- * 获取url中参数
- */
-function getUrlParam(param){
-    var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i"); 
-    var r = window.location.search.substr(1).match(reg); 
-    if (r != null) return unescape(r[2]); 
-    return null; 
 }
 /**
  * 获取当前手机的系统类型
@@ -77,7 +63,7 @@ function getMobileType(){
  * 获取商品详情
  */
 function CommodityDetails(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/31?id='+index_doll_id+'&tk='+index_tk;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/31?id='+doll_id+'&tk='+tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -106,7 +92,7 @@ function CommodityDetails(){
  * 请求报修
  */
 function repairRequest(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/42?mid='+index_mid+'&tk='+index_tk;
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/42?mid='+mid+'&tk='+tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -125,7 +111,6 @@ function repairRequest(){
 	})		
 }
 
-
 /**
  * 区分IOS和Android
  */
@@ -137,7 +122,6 @@ function isIosOrAndroid(){
 	    return 0;
 	}	
 }
-
 
 /**
  * 插入loading
@@ -153,3 +137,12 @@ function removeLoading(){
 }
 
 
+/**
+ * 获取url中参数
+ */
+function getUrlParam(param){
+    var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); 
+    return null; 
+}

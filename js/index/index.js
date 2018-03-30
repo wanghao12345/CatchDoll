@@ -170,12 +170,6 @@ $(function(){
 		var code = $(this).attr('value');
 		getRedeemCode(code);
 	})	
-
-
-
-
-
-
 	/*******************-----邮件-----******************/
 	 //打开
 	$('.main-container').on('click','#menu-email',function(){
@@ -191,9 +185,6 @@ $(function(){
 	$('.tip-frame').on('click','#close',function(){
 		$(".tip-frame").html('');
 	})	
-
-
-
 	/*******************-----背包-----******************/
 	 //打开未下单
 	$('.main-container').on('click','#menu-knapsack',function(){
@@ -253,7 +244,6 @@ $(function(){
 		address.address = $('#menu-list-addedaddress-input .item input#address-detail').val();
 		address.name = $('#menu-list-addedaddress-input .item input#name').val();
 		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
-		// address.zipcode = '111111111';
 		addedAddress(address);
 	})	
 

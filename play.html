@@ -1,178 +1,96 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta charset="utf-8" />
-	<title>test</title>
-	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
-
-	<style type="text/css">
-        * {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        p {
-        	font-weight: 900;
-		    position: absolute;
-		    left: 40px;
-		    top: 70px;
-		    font-size: 40;
-		    color: red;
-		    font-family: monospace;
-        }
-    </style>
+	<title>娃娃机</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/play/play1.css">
+	<link rel="stylesheet" type="text/css" href="css/tip.css">
+	<script type="text/javascript" src="js/rem.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.barrager.js"></script>
+	<script type="text/javascript" src="js/play/websocket.js"></script>
+	<script type="text/javascript" src="js/play/ajaxRequest.js"></script>
+	<script type="text/javascript" src="js/tip/tip.js"></script>
+	<script type="text/javascript" src="js/play/play1.js"></script>
 </head>
-<body style="margin: 0;">
-	<div style="width:100%; height:100%; position:absolute; pointer-events: none; vertical-align:bottom;top:-170px;" />
-		<img id="video" style="width:100%; height:100%;" src="" />
+<body>
+	<div class="game-cantainer">
+		<div class="video-content">
+			<img id="video" style="width:100%; height:100%;" src="http://180.154.146.51:28080/1_A.mjpeg" />
+		</div>
+		<div class="container">
+			<div class="top">
+				<div class="top-content go-back" id="go-back" onclick="javascript:window.location.href='index.html'">
+					<img src="img/game/go-back.png" alt="返回">
+				</div>
+				<div class="top-content coin-input">
+					<span id="coin-number">210</span>
+				</div>
+				<div class="top-content voucher">
+					<img src="img/game/voucher.png" alt="倦">
+					<span class="voucher-num">0</span>
+				</div>
+				<div class="top-content fragment">
+					<img src="img/game/fragment.png" alt="碎片">
+				</div>
+			</div>
+			<div class="user">
+				<div class="user-left" id="game-user">
+					<div class="status">当前房间空闲</div>
+					<div class="head-img" id="head-img0"></div>
+					<div class="status1">
+						<div class="status-name">包子的母亲大人</div>
+						<div class="status-content">正在抓取...</div>
+					</div>
+				</div>
+				<div class="user-right">
+					<div class="status2">
+						<i id="watch">16</i>人在围观
+					</div>
+					<div class="img-content">
+						<div class="head-img" id="head-img1"></div>
+						<div class="head-img" id="head-img2"></div>
+						<div class="head-img" id="head-img3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="video-btn" id="video-btn">
+					<img src="img/game/video.png" alt="视频">
+				</div>
+				<div class="menu-list">
+					<ul>
+						<li id="menu-btn" value="1"><img src="img/game/menu-btn.png" alt="菜单"></li>
+						<li id="barrage" value="0"><img src="img/game/tan.png" alt="菜单"></li>
+						<li id="setup"><img src="img/game/set.png" alt="菜单"></li>
+						<li id="detail"><img src="img/game/detail.png" alt="菜单"></li>
+						<li id="help" style="display: none;"><img src="img/game/help.png" alt="菜单"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="bottom-content">
+					<div class="bottom-left">
+						<div class="play up"><img src="img/play/up.png" alt="上"></div>
+						<div class="play down"><img src="img/play/down.png" alt="下"></div>
+						<div class="play left"><img src="img/play/left.png" alt="左"></div>
+						<div class="play right"><img src="img/play/right.png" alt="右"></div>
+					</div>
+					<div class="bottom-right">
+						<div class="grap"><img src="img/play/grap.png" alt="抓"></div>
+					</div>
+				</div>	
+			</div>
+			<canvas style="width: 100%;height: 8rem;position: absolute;">你的浏览器不支持canvas</canvas>
+		</div>
+		<div class="game-menu-list"></div>		
 	</div>
-	<div style="width:100%; height:100%; position:absolute;">
-		<p>25</p>
-		<div id="up" style="position:absolute;left:80px; bottom:100px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/up.png"/>
-		</div>
-		<div id="down" style="position:absolute;left:80px; bottom:20px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/down.png"/>
-		</div>
-		<div id="left" style="position:absolute;left:20px; bottom:60px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/left.png"/>
-		</div>
-		<div id="right" style="position:absolute;left:140px; bottom:60px; width:61px; height:61px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/right.png"/>
-		</div>
-		<div id="catch" style="position:absolute;right:15px; bottom:25px; width:100px; height:100px;">
-			<img style="width:100%; height:100%; pointer-events: none;" src="img/play/grap.png"/>
-		</div>
-	</div>
-
-	<script>
-		var URL = 'http://api.zhuazhuale.4utec.cn:9107/4?src=0&openid='+'oktas0vAQglc6Kt9nPAlKtVu6Au4';
-		$.ajax({
-	    type: "GET",
-	    dataType: "text",
-	    url: URL,
-	    success: function (data) {
-	    	var data = JSON.parse(data);
-	    	if (data.ret[0].d.errcode=="-1" || data.ret[0].d.errcode==-1) {
-	    		// delCookie('wx_zhuazhuale_openid');
-	    		location.reload();
-	    	}
-
-			token = data.ret[0].d.token;
-	    	guestno = data.ret[0].d.guestno;
-	    	// RequestMachineList(0);
-	    	// getUserInfo(data,'ish1');	
-	    	dologin(token,guestno);    	
-	    },
-	    error: function (data){
-
-	    }
-		});
-
-		
-
-		var socket,machineSocket,start,end;
-
-		// 阻止微信长按菜单
-		document.oncontextmenu=function(e){
-		    e.preventDefault();
-		};
-
-		$("#up").on('click',function(){
-			$("#test").load("title2.html");
-		});
-
-		function dologin(tk,guestno){
-			socket = new WebSocket("ws://api.zhuazhuale.4utec.cn:65154");
-			// socket = new WebSocket("ws://ateam.ticp.io:55151");
-			//打开事件
-			socket.onopen = function(){
-			    console.log("Socket 已打开");
-			    // sendTcpLogin();
-			    var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+"2"+'"}}';
-				socket.send(param);
-			};
-			//获得消息事件
-			socket.onmessage = function(msg){
-			    console.log(msg.data);
-			    var data = JSON.parse(msg.data);
-			    switch(data.i)
-			    {
-			    	case 10002:
-			    		play();
-			    		break;
-			    	case 10010:
-			    		ip = data.d.ip1;
-			    		pwd = data.d.pwd;
-			    		port = data.d.operate_port+1
-			    		connectMachine(ip,port,pwd);
-			    		break;
-			    	case 10016:
-			    		// {"i":10016,"d":{"result":0,"type":1,"count":1,"end_time":1520324719,"mid":1,"time":1520324694,"bonus":10534,"money":32,"freetimes":368}}
-			    		start = data.d.time;
-			    		end = data.d.end_time;
-			    		break;
-			    	case 10004:
-			    		alert(data.d.msg);
-			    		break;
-			    }
-			};
-			//关闭事件
-			socket.onclose = function(){
-			    console.log("Socket 已关闭");
-			    alert("Socket 已关闭");
-			};
-			//发生了错误事件
-			socket.onerror = function(){
-			    console.log("发生了错误");
-			}
-		}
-
-		function play(){
-			var mid = 1;
-			var param = '{"path": "10010","d":{"mid":"'+mid+'","web":1}}';
-			socket.send(param);
-		}
-
-		function connectMachine(ip,port,pwd){
-			machineSocket = new WebSocket("ws://"+ip+":"+port);
-			machineSocket.onopen=function(){
-				machineSocket.send("big\r\n"+pwd)
-			}
-			// $("#video").append("<img style=\"width:100%; height:100%;\" src=http://"+ip+":8090/1_A.mjpeg />");
-			$("#video").attr("src","http://"+ip+":8090/1_A.mjpeg");
-			$('#video').css('pointer-events','none');
-			$("#up").on('touchstart',function(){
-				machineSocket.send("iop\r\n"+pwd);
-			});
-			$("#up").on('touchend',function(){
-				machineSocket.send("ern\r\n"+pwd);
-			});
-			$("#down").on('touchstart',function(){
-				machineSocket.send("vgy\r\n"+pwd);
-			});
-			$("#down").on('touchend',function(){
-				machineSocket.send("ern\r\n"+pwd);
-			}); 
-
-			$("#left").on('touchstart',function(){
-				machineSocket.send("tgb\r\n"+pwd);
-			});
-			$("#left").on('touchend',function(){
-				machineSocket.send("ern\r\n"+pwd);
-			});
-			$("#right").on('touchstart',function(){
-				machineSocket.send("ymg\r\n"+pwd);
-			});
-			$("#right").on('touchend',function(){
-				machineSocket.send("ern\r\n"+pwd);
-			}); 
-			$("#catch").on('touchstart',function(){
-				machineSocket.send("lre\r\n"+pwd);
-			});
-		}
-	</script>
 </body>
 </html>
+

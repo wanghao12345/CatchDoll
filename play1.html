@@ -12,11 +12,12 @@
 	<link rel="stylesheet" type="text/css" href="css/play/play.css">
 	<script type="text/javascript" src="js/rem.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/play/motionjqeg.js"></script>
 	<script type="text/javascript" src="js/play/play.js"></script>
 </head>
 <body>
 	<div style="width:100%; height:100%; position:absolute; pointer-events: none; vertical-align:bottom;top:-170px;" />
-		<img id="video" style="width:100%; height:100%;" src="" />
+		<img id="video" style="width:100%; height:100%;" src="http://180.154.146.51:28080/1_A.mjpeg" />
 	</div>
 	<div style="width:100%; height:100%; position:absolute;">
 		<p>25</p>
@@ -37,4 +38,11 @@
 		</div>
 	</div>		
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+            motionjpeg("#video"); // Use the function on the image
+    });
+</script>
+
 </html>

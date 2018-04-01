@@ -88,8 +88,10 @@ function getOnlooker(data){
     myVideo.play(); 
     // $('.game-cantainer').css('display','block');
     var time = window.setTimeout(function(){
-        $('.game-cantainer').css('display','block');
-        removeLoading()
+        // $('.game-cantainer').css('display','block');
+        // removeLoading()
+        //去掉loading
+        $('.game-cantainer .loading-back').remove();
     },2000);
 
 }

@@ -971,8 +971,12 @@ function exchangeCode(){
  */
 function goGameRoom(_this){
 	$('.main-container').css('display','none');
-	addLoading();
-	// $('.game-cantainer').css('display','block');
+	// addLoading();
+	$('.game-cantainer').css('display','block');
+	//加入loading
+	$(".loading-back").load("template/loading/loading.html",function(){
+		start_loading_animate();
+	});
 
 	var mid = $(_this).find('input#mid').val();
 	var doll_id = $(_this).find('input#doll_id').val();

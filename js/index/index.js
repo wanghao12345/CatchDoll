@@ -258,11 +258,6 @@ $(function(){
 		address.phone = $('#menu-list-addedaddress-input .item input#phone').val();
 		addedAddress(address);
 	})	
-
-
-
-
-
 	/*******************-----幫助-----******************/
 	 //打开
 	$('.menu-frame').on('click','#menu-help',function(){
@@ -273,6 +268,15 @@ $(function(){
 	$('.menu-frame').on('click','#menu-bindAccount',function(){
 		window.location.href='template/login/login-phone.html';
 	})	
+	/*******************-----当前版本-----******************/
+	$('.menu-frame').on('click','#menu-version',function(){
+		addTip('当前版本：1.4');
+	})	
+
+
+
+
+
 	/*******************-----今日签到-----******************/
 	$('.menu-list-frame').on('click','#sign-query',function(){
 		getSign();

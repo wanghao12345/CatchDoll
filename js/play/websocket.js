@@ -121,7 +121,8 @@ function getStartGame(data){
         var pwd = data.d.pwd;
         var port = data.d.operate_port+1
         connectMachine(ip,port,pwd);
-        
+        //去掉loading
+        $('.game-cantainer .loading-back').remove();
     }
     if (data.i == 10004) {
         addTip(data.d.msg);

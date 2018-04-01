@@ -1,5 +1,8 @@
 $(function(){
-
+	//加入loading
+	$(".loading-back").load("template/loading/loading.html",function(){
+		start_loading_animate();
+	});
 	//menu
 	$('#menu-btn').on('click',function(){
 		var value = $(this).attr("value");

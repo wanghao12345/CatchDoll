@@ -185,6 +185,18 @@ $(function(){
 	$('.tip-frame').on('click','#close',function(){
 		$(".tip-frame").html('');
 	})	
+	/*******************-----修改名字-----******************/
+	 //打开
+	$('.menu-frame').on('click','#head-name',function(){
+		$(".menu-list-frame").load("template/menu/menu-modifyName.html");
+	
+	})
+	//修改名字
+	$('.menu-list-frame').on('click','.menu-list-modifyNames #modifyName-query',function(){
+		modifyName($('.menu-list-frame .menu-list-modifyNames input#name').val());
+	})		
+
+
 	/*******************-----背包-----******************/
 	 //打开未下单
 	$('.main-container').on('click','#menu-knapsack',function(){

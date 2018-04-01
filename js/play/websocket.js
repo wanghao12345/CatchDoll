@@ -2,7 +2,7 @@ socket = new WebSocket("ws://web.zhuazhuale.4utec.cn:35154");
 //打开事件
 socket.onopen = function(){
     console.log("Socket 已打开");
-    // sendTcpLogin();
+    sendTcpLogin();
 };
 //获得消息事件
 socket.onmessage = function(msg){
@@ -35,7 +35,7 @@ socket.onmessage = function(msg){
         break;
         case 10023: //是否有人在玩
             getIsHavePerson(data.d);
-        break;      
+        break;     
     }
 };
 //关闭事件
@@ -54,7 +54,6 @@ var sendSocket = function(data){
 var closeSocket = function(){
     socket.close();
 }
-
 /**
  * 获取长连接登录的数据
  */
@@ -67,8 +66,6 @@ function getTcpLogin(data){
 /**
  * 获取旁观信息
  */
-var rtmp1 = '';
-var rtmp2 = '';
 function getOnlooker(data){
     var money = data.money;
     $('span#coin-number').html(money);
@@ -80,18 +77,8 @@ function getOnlooker(data){
     //抓取所需卷
     var machine_free = data.machine_free+'/次';
     $('#need-free').html(machine_free);
-    //直播视频流
-    rtmp1 = data.rtmp1.replace('rtmp','http')+'.m3u8';//正面
-    rtmp2 = data.rtmp2.replace('rtmp','http')+'.m3u8';//正面
-    $('#video').attr('src',rtmp1);
-    var myVideo=document.getElementById("video");
-    myVideo.play(); 
-    // $('.game-cantainer').css('display','block');
-    var time = window.setTimeout(function(){
-        $('.game-cantainer').css('display','block');
-        removeLoading()
-    },2000);
-
+    //获取操作视频的一些信息
+    startGame();
 }
 /**
  * 获取旁观头像 
@@ -130,12 +117,6 @@ function getIsHavePerson(data){
  */
 function getStartGame(data){
     if (data.i == 10010) {
-        //暂停播放
-        var myVideo=document.getElementById("video");
-        myVideo.pause(); 
-        // addTip('请下载app开始游戏!');
-       $('.game-cantainer').css('display','none');
-       $('.play-container').css('display','block');
         var ip = data.d.ip1;
         var pwd = data.d.pwd;
         var port = data.d.operate_port+1

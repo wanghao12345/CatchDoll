@@ -6,13 +6,15 @@ var guestno = getUrlParam('guestno');
 var mid = getUrlParam('mid');
 var doll_id = getUrlParam('doll_id');
 
-sendTcpLogin();
+
+/*var params = getUrlParam('params');
+console.log(params);*/
+
+// sendTcpLogin();
 /**
  * 发起长连接登录
  */
 function sendTcpLogin(){
-	tk = index_tk;
-	guestno = index_guestno;
 	var os_type = getMobileType();
 	var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+os_type+'"}}';
 	sendSocket(param);
@@ -29,6 +31,7 @@ function sendOnlooker(){
  */
 function startGame(){
 	var param = '{"path":"10010","d":{"mid":"'+mid+'","web":"1"}}';
+	// var param = '{"path":"10010","d":{"mid":"'+mid+'"}}';
 	sendSocket(param);
 }
 /**

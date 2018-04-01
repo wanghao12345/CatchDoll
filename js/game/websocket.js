@@ -128,6 +128,7 @@ function getIsHavePerson(data){
 /**
  * 开始游戏
  */
+ var startGameParams = {};
 function getStartGame(data){
     if (data.i == 10010) {
         //暂停播放
@@ -139,7 +140,18 @@ function getStartGame(data){
         var ip = data.d.ip1;
         var pwd = data.d.pwd;
         var port = data.d.operate_port+1
-        connectMachine(ip,port,pwd);
+        startGameParams.id = id;
+        startGameParams.pwd = pwd;
+        startGameParams.port = port;
+        startGameParams.tk = index_tk;
+        startGameParams.guestno = index_guestno;
+        startGameParams.doll_id = index_doll_id;
+        // connectMachine(ip,port,pwd);
+        // window.location.href='play.html?tk='+index_tk+'&guestno='+index_guestno+'&mid='+index_mid+'&doll_id='+index_doll_id;
+        
+        var params = JSON.stringify(startGameParams);
+        window.location.href='play.html?params='+params;
+
         
     }
     if (data.i == 10004) {

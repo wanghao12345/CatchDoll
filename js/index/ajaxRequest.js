@@ -15,7 +15,6 @@ function getUrlToken(){
 		break;
 
 	}
-
 }
 
 /**
@@ -988,6 +987,62 @@ function goGameRoom(_this){
 	var myVideo=document.getElementById("video");
 	myVideo.play();			
  }
+/**
+ * 上传头像图片
+ */
+function upHeadImg(){
+	var data = {};
+	data.tk = token;
+	data.head_img = 'upload-pic';
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/30';
+	$.ajax({
+	  url: myUrl,
+	  type: 'post',
+	  data:data,
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		if (data.ret[0].d.errcode == 0) {
+			var img_url = data.ret[0].d.new_img;
+			$('.container #head-img').html('<img src='+img_url+'>');
+			$('.menu-frame #menu-head-img').html('<img src='+img_url+' alt="头像">');
+		} else {
+			addTip(data.ret[0].d.msg)
+		}
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+/**
+ * 修改名字
+ */
+function modifyName(name){
+	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/5?tk='+token+'&name='+name;
+	$.ajax({
+	  url: myUrl,
+	  type: 'get',
+	  data:{},
+	  dataType: 'json',
+	  success: function (data) {
+		console.log(data);
+		if (data.ret[0].d.errcode == 0) {
+			$('.container #head-name').html(data.ret[0].d.nickname);
+			$(".menu-list-frame").html('');
+		} else {
+			addTip(data.ret[0].d.msg)
+		}
+	  },
+	  fail: function (err) {
+	    console.log(err);
+	  }
+	})	
+}
+
+
+
+
 /**
  * 获取banner数据
  */

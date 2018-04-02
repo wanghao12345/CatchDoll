@@ -997,7 +997,7 @@ function goGameRoom(_this){
 function upHeadImg(){
 	var data = {};
 	data.tk = token;
-	data.head_img = 'upload-pic';
+	data.head_img = 'head_img';
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/30';
 	$.ajax({
 	  url: myUrl,
@@ -1043,10 +1043,6 @@ function modifyName(name){
 	  }
 	})	
 }
-
-
-
-
 /**
  * 获取banner数据
  */

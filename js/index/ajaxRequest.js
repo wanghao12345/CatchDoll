@@ -994,22 +994,28 @@ function goGameRoom(_this){
 /**
  * 上传头像图片
  */
-function upHeadImg(){
-	var data = {};
-	data.tk = token;
-	data.head_img = 'head_img';
+function upHeadImg(file){
+	var formData = new FormData();
+	// var img_file = document.getElementById("headImg-file");
+	var fileObj = file.files[0];
+	formData.append('tk',token);
+	formData.append('head_img',fileObj);
+	// formData.append('head_img','head_img');
 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/30';
 	$.ajax({
 	  url: myUrl,
 	  type: 'post',
-	  data:data,
+	  data:formData,
 	  dataType: 'json',
+	  async: false,
+	  processData: false,
+	  contentType: false,
 	  success: function (data) {
 		console.log(data);
 		if (data.ret[0].d.errcode == 0) {
 			var img_url = data.ret[0].d.new_img;
-			$('.container #head-img').html('<img src='+img_url+'>');
-			$('.menu-frame #menu-head-img').html('<img src='+img_url+' alt="头像">');
+			$('.container #head-img').html('<img src=http://web.zhuazhuale.4utec.cn:9107'+img_url+'>');
+			$('.menu-frame #menu-head-img').html('<img src=http://web.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
 		} else {
 			addTip(data.ret[0].d.msg)
 		}

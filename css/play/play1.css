@@ -6,6 +6,13 @@ html,body{
 	height: 100%;
     overflow: hidden;
 }
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 button{
     padding: 0;
     border: 0;

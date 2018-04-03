@@ -1,8 +1,8 @@
-var weixinUrl = "http://web.zhuazhuale.4utec.cn:8902/wx.php";
+var weixinUrl = "http://api.zhuazhuale.4utec.cn:8902/wx.php";
 var weixinTitle = "大家抓抓乐";
 var weixinDesc = "一起来抓抓乐吧！";
-var weixinIcon = "http://web.zhuazhuale.4utec.cn:8902/icon.png";
-var weixinShareUrl = "http://web.zhuazhuale.4utec.cn:8902/index.html";
+var weixinIcon = "http://api.zhuazhuale.4utec.cn:8902/icon.png";
+var weixinShareUrl = "http://api.zhuazhuale.4utec.cn:8902/index.html";
 
 getWeixinUserInfo = function(code,complete){
 	$.ajax({

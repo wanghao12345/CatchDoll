@@ -139,6 +139,9 @@ html,body{
     line-height: 1.5rem;
     font-size: 0.6rem;
     color: #ff5a73;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .game-cantainer .user .user-left .status1 .status-content{
     width: 100%;

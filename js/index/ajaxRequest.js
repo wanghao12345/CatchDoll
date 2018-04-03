@@ -24,7 +24,7 @@ function login_phone(){
 	var p = {};
 	p.phone = getUrlParam('phone');
 	p.code = getUrlParam('code');
- 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/92';
+ 	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/92';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -48,7 +48,7 @@ function login_phone(){
  */
 // getTestToken();
 function getTestToken(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/70';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/70';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -71,7 +71,7 @@ function getTestToken(){
  */
 RequestMachineType();
 function RequestMachineType(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/45';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/45';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -107,7 +107,7 @@ function RequestMachineType(){
  *获取机器列表
  */
 function RequestMachineList(type) {
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/14?type='+type+'&tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/14?type='+type+'&tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -122,7 +122,7 @@ function RequestMachineList(type) {
 	    	var price = item[i].price;
 	    	var inventory = item[i].inventory;//库存
 	    	var status = item[i].status;//状态
-	    	var img_url = 'http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url;
+	    	var img_url = 'http://api.zhuazhuale.4utec.cn:9107/'+item[i].img_url;
 	    	var name = item[i].name;//名字
 	    	if (inventory == 0 || status==2) { //不可以游戏
 	    		var content = '<li value="0">';
@@ -197,7 +197,7 @@ function getUserInfo(data,ish){
 	if (ish=='ish1') {
 		head_img = item.headImg;
 	}else if (ish == 'ish'){
-		head_img = 'http://web.zhuazhuale.4utec.cn:9107'+item.headImg;		
+		head_img = 'http://api.zhuazhuale.4utec.cn:9107'+item.headImg;		
 	}
 	$('#head-img').html('<img src='+head_img+' alt="头像" />');
 	var head_name = item.name;
@@ -242,7 +242,7 @@ function getMenuUserInfo(){
  * 意见反馈
  */
 function feelbackOpinion(advice){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/23?tk='+token+'&advice='+advice;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/23?tk='+token+'&advice='+advice;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -265,7 +265,7 @@ function feelbackOpinion(advice){
  * 分享游戏接口(邀请码分享)
  */
 function InvitationCodeShare(token){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/43?tk='+token+'&type=invite';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/43?tk='+token+'&type=invite';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -274,7 +274,7 @@ function InvitationCodeShare(token){
 	    console.log(data)
 
 	    var inviteCode = data.ret[0].d.inviteCode;//邀请码
-	    var QR_img = 'http://web.zhuazhuale.4utec.cn:9107'+data.ret[0].d.qrCode;//邀请二维码
+	    var QR_img = 'http://api.zhuazhuale.4utec.cn:9107'+data.ret[0].d.qrCode;//邀请二维码
 	    var inviteCodeArr = inviteCode.split('');
 	    $('.share1 #share1-Invitation').html('');
 	    $('.share1 #share1-QR').html('');
@@ -294,7 +294,7 @@ function InvitationCodeShare(token){
  * 签到得奖励
  */
 function getSign(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/27?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/27?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -322,7 +322,7 @@ function getSign(){
  */
 function todaySign(){
 
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/29?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/29?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -340,7 +340,7 @@ function todaySign(){
  */
 function richList(){
 	$('#menu-list-ranks ul#menu-rank-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/16?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/16?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -374,7 +374,7 @@ function richList(){
  */
 function masterList(){
 	$('#menu-list-ranks ul#menu-rank-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/17?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/17?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -407,7 +407,7 @@ function masterList(){
  * 获取积分
  */
 function getIntegral(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10009?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/10009?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -435,7 +435,7 @@ function getIntegral(){
  */
 function getShoppingMall(){
 	$('#menu-list-shoppings ul#menu-shopping-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10007?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/10007?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -446,7 +446,7 @@ function getShoppingMall(){
 		for (var i = 0; i < item.length; i++) {
 			var content = '<li>';
 			content += '<div class="top">';
-			content += '<div class="top-content"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片" /></div>';
+			content += '<div class="top-content"><img src=http://api.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片" /></div>';
 			content += '</div>';
 			content += '<div class="bottom">';
 			content += '<div class="title">'+item[i].name+'</div>';
@@ -468,7 +468,7 @@ function getShoppingMall(){
  * 积分兑换
  */
 function integralExchange(im_id){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10008?tk='+token+'&im_id='+im_id;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/10008?tk='+token+'&im_id='+im_id;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -494,7 +494,7 @@ function integralExchange(im_id){
  * 查询兑换码
  */
 function redeemCode(code){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=0';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=0';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -529,7 +529,7 @@ function redeemCode(code){
  * 确定领取兑换码奖励
  */
 function getRedeemCode(code){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=1';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/44?tk='+token+'&code='+code+'&flag=1';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -559,7 +559,7 @@ function getRedeemCode(code){
  */
 function addressList(){
 	$('.menu-list-addresss ul#menu-address-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/7?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/7?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -604,7 +604,7 @@ function addressList(){
  * 设为默认地址
  */
 function setDefaultAddress(id){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/9?tk='+token+'&no='+id;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/9?tk='+token+'&no='+id;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -629,7 +629,7 @@ function setDefaultAddress(id){
  * 删除地址
  */
 function removeAddress(id){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/8?tk='+token+'&no='+id;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/8?tk='+token+'&no='+id;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -707,7 +707,7 @@ function getAddressCity(index){
  * 增加地址
  */
 function addedAddress(data){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/6?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/6?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -735,7 +735,7 @@ function addedAddress(data){
  */
 function selectAddressList(buy_id){
 	$('.menu-list-selectAddresss #menu-list-selectAddress-select .item').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/7?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/7?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -778,7 +778,7 @@ function selectAddressList(buy_id){
  * 确定下单
  */
 function queryBuyOrder(data){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/18?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/18?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -810,7 +810,7 @@ function emailList(){
 	$('#menu-email i').css('display', 'none');
 	//列表内容清除
 	$('.menu-list-emails ul#menu-email-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/21?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/21?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -841,7 +841,7 @@ function emailList(){
 function emailDetail(id){
 	//列表内容清除
 	$('.menu-list-emailDetails #menu-list-emailDetail-main-content').html('');
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/22?tk='+token+'&no='+id;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/22?tk='+token+'&no='+id;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -876,7 +876,7 @@ function cartNoOrderList(){
 	window.clearInterval(Beat_tips_time2);
 	$('#menu-knapsack i').css('display', 'none');
 	$('.menu-list-carts ul#menu-cart-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/15?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/15?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -886,7 +886,7 @@ function cartNoOrderList(){
 		var item = data.ret[0].d.CartData;
 		for (var i = 0; i < item.length; i++) {
 			var content = '<li class="no-order"><div class="top">';
-			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img+' alt="商品图片"></div>';
+			content += '<div class="top-left"><img src=http://api.zhuazhuale.4utec.cn:9107/'+item[i].img+' alt="商品图片"></div>';
 			content += '<div class="top-right">';
 			content += '<div class="name">'+item[i].name+'</div>';
 			content += '<div class="getTime">获得时间：'+item[i].time+'</div>';
@@ -912,7 +912,7 @@ function cartOrderList(){
 	window.clearInterval(Beat_tips_time2);
 	$('#menu-knapsack i').css('display', 'none');
 	$('.menu-list-carts ul#menu-cart-list li').remove();
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/19?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/19?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -924,7 +924,7 @@ function cartOrderList(){
 			var content = '<li class="no-order order">';
 			content += '<div class="status status'+item[i].status+'"></div>';
 			content += '<div class="top">';
-			content += '<div class="top-left"><img src=http://web.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片"></div>';
+			content += '<div class="top-left"><img src=http://api.zhuazhuale.4utec.cn:9107/'+item[i].img_url+' alt="商品图片"></div>';
 			content += '<div class="top-right">';
 			content += '<div class="name">'+item[i].dname+'</div>';
 			content += '<div class="getTime">下单时间：'+item[i].created_at+'</div>';
@@ -953,7 +953,7 @@ function isReadCart(cartStatus){
  * 兑换
  */
 function exchangeCode(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/10008?tk='+token;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/10008?tk='+token;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -1001,7 +1001,7 @@ function upHeadImg(file){
 	formData.append('tk',token);
 	formData.append('head_img',fileObj);
 	// formData.append('head_img','head_img');
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/30';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/30';
 	$.ajax({
 	  url: myUrl,
 	  type: 'post',
@@ -1014,8 +1014,8 @@ function upHeadImg(file){
 		console.log(data);
 		if (data.ret[0].d.errcode == 0) {
 			var img_url = data.ret[0].d.new_img;
-			$('.container #head-img').html('<img src=http://web.zhuazhuale.4utec.cn:9107'+img_url+'>');
-			$('.menu-frame #menu-head-img').html('<img src=http://web.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
+			$('.container #head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+'>');
+			$('.menu-frame #menu-head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
 		} else {
 			addTip(data.ret[0].d.msg)
 		}
@@ -1029,7 +1029,7 @@ function upHeadImg(file){
  * 修改名字
  */
 function modifyName(name){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/5?tk='+token+'&name='+name;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/5?tk='+token+'&name='+name;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -1053,7 +1053,7 @@ function modifyName(name){
  * 获取banner数据
  */
 function getBanner() {
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/52';
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/52';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',

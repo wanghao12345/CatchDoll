@@ -66,7 +66,7 @@ function getMobileType(){
  * 获取商品详情
  */
 function CommodityDetails(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/31?id='+doll_id+'&tk='+tk;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/31?id='+doll_id+'&tk='+tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -78,7 +78,7 @@ function CommodityDetails(){
 	    var length = item.length;
 	    var material = item.material;
 	    var desc = item.desc;
-	    var img = 'http://web.zhuazhuale.4utec.cn:9107/'+item.img;
+	    var img = 'http://api.zhuazhuale.4utec.cn:9107/'+item.img;
 	    $('.menu-list-details span#width').html(width);
 	    $('.menu-list-details span#length').html(length);
 	    $('.menu-list-details span#material').html(material);
@@ -95,7 +95,7 @@ function CommodityDetails(){
  * 请求报修
  */
 function repairRequest(){
-	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/42?mid='+mid+'&tk='+tk;
+	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/42?mid='+mid+'&tk='+tk;
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',

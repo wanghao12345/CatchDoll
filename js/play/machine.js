@@ -5,15 +5,16 @@ document.oncontextmenu=function(e){
 };
 function connectMachine(ip,port,pwd){
 	var ws = "ws://"+ip+":"+port;
-	// var ws = "ws://web.zhuazhuale.4utec.cn:"+port;
+	// var ws = "ws://api.zhuazhuale.4utec.cn:"+port;
 	machineSocket = new WebSocket(ws);
 	machineSocket.onopen=function(){
 		machineSocket.send("big\r\n"+pwd)
 	}
 	// $("#video").append("<img style=\"width:100%; height:100%;\" src=http://"+ip+":8090/1_A.mjpeg />");
 	$("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg");
-	// $("#play-video").attr("src","http://web.zhuazhuale.4utec.cn:8090/1_A.mjpeg");
+	// $("#play-video").attr("src","http://api.zhuazhuale.4utec.cn:8090/1_A.mjpeg");
 	$('#play-video').css('pointer-events','none');
+	
 	$("#play-up").on('touchstart',function(){
 		machineSocket.send("iop\r\n"+pwd);
 	});

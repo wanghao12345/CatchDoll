@@ -31,7 +31,7 @@ function getUrlParam(param){
 function wxRequest(){
 	var wx_code = getUrlParam('code');
 	if (wx_code == null) {
-		window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect";		
+		window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://api.zhuazhuale.4utec.cn:8902/oauth2.php&response_type=code&scope=snsapi_login&state=1#wechat_redirect";		
 	}else{
 		getWeixinUserInfo(wx_code,function(data){
 			alert(data);
@@ -42,7 +42,7 @@ function wxRequest(){
 /**
  * 获取用户数据信息
  */
-var weixinUrl = "http://web.zhuazhuale.4utec.cn:8902/wx.php";
+var weixinUrl = "http://api.zhuazhuale.4utec.cn:8902/wx.php";
 getWeixinUserInfo = function(code,complete){
 	$.ajax({
 	    type: "GET",

@@ -144,7 +144,6 @@ input{
     height: 100%;
     line-height: 2.3rem;
     color: #ff5a73;    
-    display: none;
 }
 .game-cantainer .user .user-left .status1{
     width: 100%;
@@ -164,6 +163,9 @@ input{
     line-height: 1.5rem;
     font-size: 0.6rem;
     color: #ff5a73;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .game-cantainer .user .user-left .status1 .status-content{
     width: 100%;
@@ -257,6 +259,21 @@ input{
 }
 .game-cantainer .menu .menu-list ul li img{
 	width: 1.5rem;
+}
+/*倒计时*/
+
+.game-cantainer .container .time{
+    width: 8rem;
+    height: 1rem;
+    position: absolute;
+    top: 6rem;
+    left: 1rem;
+    color: #ff5a73;  
+    display: none;
+}
+.game-cantainer .container .time i{
+    font-size: 1rem;
+    color: #ff5a73;    
 }
 .game-cantainer .bottom{
     width: 100%;

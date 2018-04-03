@@ -44,3 +44,21 @@ function addTipFun(msg,value){
 	content += '</div>';
 	$('body').append(content);
 }
+
+/**
+ * 抓取结果提示
+ */
+function addCatchResultTipFun(msg){
+	var content = '<div class="tip" id="tip">';
+	content += '<div class="tip-content tip-content-fun">';
+	content += '<div class="tip-main-content">';
+	content += '<button class="close" id="tip-close"></button>';
+	content += '<button class="button-cancer" id="CatchResult-btn-cancer"></button>';
+	content += '<button class="button-query" id="CatchResult-btn-query"></button>';
+	content += '<div class="tip-info" id="tip-info">'+msg+'</div>';
+	content += '</div>';
+	content += '</div>';
+	content += '</div>';
+	$('body').append(content);
+}
+

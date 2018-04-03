@@ -76,7 +76,7 @@ function getParams(){
  *请求验证码
  */ 
 function getZipCode(data){
- 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/12';
+ 	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/12';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',
@@ -107,7 +107,7 @@ function getZipCode(data){
 function login_phone(data){
 	var phone = data.phone;
 	var code = data.code;
- 	var myUrl = 'http://web.zhuazhuale.4utec.cn:9107/92';
+ 	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/92';
 	$.ajax({
 	  url: myUrl,
 	  type: 'get',

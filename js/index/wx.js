@@ -20,7 +20,7 @@ window.onload = function(){
 	if (wx_zhuazhuale_openid==null || wx_zhuazhuale_openid==undefined) {
 		var wx_code = $_GET['code'];
 		if (wx_code==null) {	
-			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://api.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
 		}else{
 
 			getGameUserInfoByCode(wx_code);
@@ -39,7 +39,7 @@ window.onload = function(){
 
 }
 
-var weixinUrl = "http://web.zhuazhuale.4utec.cn:8902/wx.php";
+var weixinUrl = "http://api.zhuazhuale.4utec.cn:8902/wx.php";
 getWeixinUserInfo = function(code,complete){
 	$.ajax({
 	    type: "GET",
@@ -61,7 +61,7 @@ getWeixinUserInfo = function(code,complete){
  * 通过code获取游戏用户的基本信息
  */
 function getGameUserInfoByCode(code){
-	var URL = 'http://web.zhuazhuale.4utec.cn:9107/4?ish=1&code='+code;
+	var URL = 'http://api.zhuazhuale.4utec.cn:9107/4?ish=1&code='+code;
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",
@@ -85,7 +85,7 @@ function getGameUserInfoByCode(code){
  * 通过openid获取游戏用户的基本信息
  */
 function getGameUserInfoByOpenid(openid){
-	var URL = 'http://web.zhuazhuale.4utec.cn:9107/4?ish=1&openid='+openid;
+	var URL = 'http://api.zhuazhuale.4utec.cn:9107/4?ish=1&openid='+openid;
 	$.ajax({
 	    type: "GET",
 	    dataType: "text",

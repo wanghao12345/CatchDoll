@@ -57,6 +57,7 @@ html,body{
     color: white;
     background: url(../../img/login/login-phone/aniuBJ3.png);
     background-size: 100% 100%;
+    float: left;
 }
 .container-bottom .input span.CountDown{
     width: 4.5rem;
@@ -89,5 +90,7 @@ html,body{
     font-size: 0.7rem;
 }
 
-
+button{
+    
+}
 

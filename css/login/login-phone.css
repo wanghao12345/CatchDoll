@@ -25,6 +25,7 @@ html,body{
     border-radius: 2rem;
     margin-bottom: 0.8rem;
     overflow: hidden;
+    position: relative;
 }
 .container-bottom .input span{
     width: 3rem;
@@ -58,6 +59,9 @@ html,body{
     background: url(../../img/login/login-phone/aniuBJ3.png);
     background-size: 100% 100%;
     float: left;
+    padding: 0;
+    position: absolute;
+    right: 0.2rem;
 }
 .container-bottom .input span.CountDown{
     width: 4.5rem;
@@ -70,7 +74,10 @@ html,body{
     line-height: 1.7rem;
     color: white;
     font-size: 0.65rem;
-    display: none;    
+    display: none; 
+    float: left;   
+    position: absolute;
+    right: 0.2rem;
 }
 .container-bottom .login-btn{
     width: 8.5rem;
@@ -90,7 +97,4 @@ html,body{
     font-size: 0.7rem;
 }
 
-button{
-    
-}
 

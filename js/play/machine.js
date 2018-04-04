@@ -10,9 +10,9 @@ function connectMachine(ip,port,pwd){
 	machineSocket.onopen=function(){
 		machineSocket.send("big\r\n"+pwd)
 	}
-	// $("#video").append("<img style=\"width:100%; height:100%;\" src=http://"+ip+":8090/1_A.mjpeg />");
-	$("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg");
-	// $("#play-video").attr("src","http://api.zhuazhuale.4utec.cn:8090/1_A.mjpeg");
+	// $("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg");
+	$("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg?m="+Math.random());
+
 	$('#play-video').css('pointer-events','none');
 	
 	$("#play-up").on('touchstart',function(){
@@ -41,6 +41,7 @@ function connectMachine(ip,port,pwd){
 		machineSocket.send("ern\r\n"+pwd);
 	}); 
 	$("#play-catch").on('touchstart',function(){
+		$('.game-cantainer .container .time').css('display', 'none');
 		machineSocket.send("lre\r\n"+pwd);
 	});
 }

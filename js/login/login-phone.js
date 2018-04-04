@@ -118,6 +118,11 @@ function login_phone(data){
 	    if (data.ret[0].d.errcode == 0) {
 	    	var tk = data.ret[0].d.token;
 	    	var guestno = data.ret[0].d.guestno;
+	    	var qpwd = data.ret[0].d.qpwd;
+
+	    	setCookie('login_phone_code', phone, 30);
+	    	setCookie('login_phone_qpwd', qpwd, 30);
+
 	    	window.location.href="../../index.html?phone="+phone+"&code="+code+"&login_type=phone";
 	    } else {
 	    	addTip('登录失败！');
@@ -130,11 +135,49 @@ function login_phone(data){
 	})	
  }
 
+isHaveQpwd();
+
 /**
  *判断cookie是否含有登录密码
  */ 
 function isHaveQpwd(){
-	if (getCookie('login-phone-qpwd')!=null) {
-
+	var phone = getCookie('login_phone_code');
+	var qpwd = getCookie('login_phone_qpwd');
+	if (phone!=null && qpwd!=null) {
+		window.location.href="../../index.html?phone="+phone+"&qpwd="+qpwd+"&login_type=phone";
+	}else{
+		return;
 	}
+}
+
+
+/**
+ * 存储cookie
+ * setCookie('username','Darren',30)  
+ */ 
+function setCookie(c_name, value, expiredays){  
+　　var exdate=new Date();  
+　　exdate.setDate(exdate.getDate() + expiredays);  
+　　document.cookie=c_name+ "=" + escape(value) + ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());  
+}  
+/**
+ * 获取cookie
+ * getCookie("username")
+ */
+function getCookie(name)  {  
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");  
+    if(arr=document.cookie.match(reg))  
+        return (arr[2]);  
+    else  
+        return null;  
+}  
+/**
+ * 删除cookie
+ */
+function delCookie(name)  {  
+    var exp = new Date();  
+    exp.setTime(exp.getTime() - 1);  
+    var cval=getCookie(name);  
+    if(cval!=null)  
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString();  
 }

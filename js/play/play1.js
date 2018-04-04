@@ -82,7 +82,7 @@ $(function(){
 
 	/*******************-----抓取结果-----******************/
 	$('body').on('click', '.tip #CatchResult-btn-cancer', function(event) { //取消
-		window.location.href='index.html';
+		window.history.go(-1);
 	});	
 	$('body').on('click', '.tip #CatchResult-btn-query', function(event) { //确定
 		window.location.reload();

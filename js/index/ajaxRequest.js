@@ -22,8 +22,18 @@ function getUrlToken(){
  */ 
 function login_phone(){
 	var p = {};
-	p.phone = getUrlParam('phone');
-	p.code = getUrlParam('code');
+	var phone = getUrlParam('phone');
+	var code = getUrlParam('code');
+	var qpwd = getUrlParam('qpwd');
+
+	if(phone!=null && code!=null){
+		p.phone = phone;
+		p.code = code;
+	}
+	if(phone!=null && qpwd!=null){
+		p.phone = phone;
+		p.qpwd = qpwd;
+	}
  	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/92';
 	$.ajax({
 	  url: myUrl,

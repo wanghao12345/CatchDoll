@@ -12,7 +12,7 @@ function connectMachine(ip,port,pwd){
 	}
 	// $("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg");
 	// $("#play-video").attr("src","http://"+ip+":8090/1_A.mjpeg?m="+Math.random());
-	var img_url = "http://"+ip+":8090/1_A.mjpeg?m="+Math.random();
+	var img_url = "http://"+ip+":8090/"+mid+"_A.mjpeg?m="+Math.random();
 	$('#video-content').html('<img id="play-video" style="width:100%; height:100%;" src="'+img_url+'" />');
 
 	$('#play-video').css('pointer-events','none');

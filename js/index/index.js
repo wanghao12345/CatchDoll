@@ -266,7 +266,11 @@ $(function(){
 	})	
 	/*******************-----绑定账号-----******************/
 	$('.menu-frame').on('click','#menu-bindAccount',function(){
-		window.location.href='template/login/login-phone.html';
+		window.location.href='template/login/login-phone.html?type=bind';
+	})	
+	/*******************-----切换账号-----******************/
+	$('.menu-frame').on('click','#menu-switchAccount',function(){
+		window.location.href='template/login/login-phone.html?type=switch';
 	})	
 	/*******************-----当前版本-----******************/
 	$('.menu-frame').on('click','#menu-version',function(){

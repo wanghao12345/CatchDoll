@@ -1040,6 +1040,8 @@ function upHeadImg(file){
 	  },
 	  fail: function (err) {
 	    console.log(err);
+	    addTip('上传图片过大！');
+
 	  }
 	})	
 }

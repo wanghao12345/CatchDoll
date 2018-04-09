@@ -10,12 +10,12 @@
 
 .main-container .menu-list-ranks-content{
     width: 15rem;
-    height: 21rem;
+    height: 19rem;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -7.5rem;
-    margin-top: -11rem;
+    margin-top: -10rem;
     background: url(../../img/menulist/menu_rank/content-rank.png);
     background-size: 100% 100%;
 }

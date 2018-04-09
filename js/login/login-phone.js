@@ -143,7 +143,8 @@ isHaveQpwd();
 function isHaveQpwd(){
 	var phone = getCookie('login_phone_code');
 	var qpwd = getCookie('login_phone_qpwd');
-	if (phone!=null && qpwd!=null) {
+	var type = getUrlParam('type');
+	if (phone!=null && qpwd!=null && type == null) {
 		window.location.href="../../index.html?phone="+phone+"&qpwd="+qpwd+"&login_type=phone";
 	}else{
 		return;
@@ -180,4 +181,14 @@ function delCookie(name)  {
     var cval=getCookie(name);  
     if(cval!=null)  
         document.cookie= name + "="+cval+";expires="+exp.toGMTString();  
+}
+
+/**
+ * 获取url中参数
+ */
+function getUrlParam(param){
+    var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); 
+    return null; 
 }

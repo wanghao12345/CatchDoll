@@ -1019,7 +1019,7 @@ function upHeadImg(file){
 	formData.append('tk',token);
 	formData.append('head_img',fileObj);
 	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/30';
-	if (fileObj.size<90000) {
+	if (fileObj.size<1048576) {
 		$.ajax({
 		  url: myUrl,
 		  type: 'post',

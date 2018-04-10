@@ -1018,32 +1018,65 @@ function upHeadImg(file){
 	var fileObj = file.files[0];
 	formData.append('tk',token);
 	formData.append('head_img',fileObj);
-	// formData.append('head_img','head_img');
 	var myUrl = 'http://api.zhuazhuale.4utec.cn:9107/30';
-	$.ajax({
-	  url: myUrl,
-	  type: 'post',
-	  data:formData,
-	  dataType: 'json',
-	  async: false,
-	  processData: false,
-	  contentType: false,
-	  success: function (data) {
-		console.log(data);
-		if (data.ret[0].d.errcode == 0) {
-			var img_url = data.ret[0].d.new_img;
-			$('.container #head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+'>');
-			$('.menu-frame #menu-head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
-		} else {
-			addTip(data.ret[0].d.msg)
-		}
-	  },
-	  fail: function (err) {
-	    console.log(err);
-	    addTip('上传图片过大！');
+	if (fileObj.size<90000) {
+		$.ajax({
+		  url: myUrl,
+		  type: 'post',
+		  data:formData,
+		  dataType: 'json',
+		  async: false,
+		  processData: false,
+		  contentType: false,
+		  success: function (data) {
+			console.log(data);
+			if (data.ret[0].d.errcode == 0) {
+				var img_url = data.ret[0].d.new_img;
+				$('.container #head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+'>');
+				$('.menu-frame #menu-head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
+			} else {
+				addTip(data.ret[0].d.msg)
+			}
+		  },
+		  fail: function (err) {
+		    console.log(err);
+		  }
+		})
+	}else{
+		addTip('上传图片过大！');
+	}
 
-	  }
-	})	
+
+
+	// var xmlhttp;
+	// if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+	//   xmlhttp=new XMLHttpRequest();
+	// }else{// code for IE6, IE5
+	//   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	// }
+	// xmlhttp.onreadystatechange=function(){
+	// 	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+	// 		var data = JSON.parse(xmlhttp.responseText);
+	// 	    if (data.ret[0].d.errcode == 0) {
+	// 			var img_url = data.ret[0].d.new_img;
+	// 			$('.container #head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+'>');
+	// 			$('.menu-frame #menu-head-img').html('<img src=http://api.zhuazhuale.4utec.cn:9107'+img_url+' alt="头像">');
+	// 		} else {
+	// 			addTip(data.ret[0].d.msg)
+	// 		}
+	// 	}
+	// 	if (xmlhttp.status==413) {
+	// 		addTip('上传图片过大！');
+	// 	}
+	// }
+	// xmlhttp.open("POST",myUrl,true);
+	// xmlhttp.send(formData);
+
+
+
+
+
+
 }
 /**
  * 修改名字

@@ -16,7 +16,7 @@ console.log(params);*/
  */
 function sendTcpLogin(){
 	var os_type = getMobileType();
-	var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+os_type+'"}}';
+	var param = '{"path": "10002","d":{"tk":"'+tk+'","guestno":"'+guestno+'","os_type":"'+os_type+'","is_web":"1"}}';
 	sendSocket(param);
 }
 /**

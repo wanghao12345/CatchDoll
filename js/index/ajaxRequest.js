@@ -10,8 +10,8 @@ function getUrlToken(){
 		case 'phone':
 			login_phone();
 		break;
-		case null:
-			getTestToken();
+		default:
+			window.location.href='template/login/login-phone.html?type=switch';
 		break;
 
 	}

@@ -20,7 +20,7 @@ window.onload = function(){
 	if (wx_zhuazhuale_openid==null || wx_zhuazhuale_openid==undefined) {
 		var wx_code = $_GET['code'];
 		if (wx_code==null) {	
-			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://api.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx43d8e413ecccb057&redirect_uri=http://web.zhuazhuale.4utec.cn:8902/index.html&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
 		}else{
 
 			getGameUserInfoByCode(wx_code);
